@@ -3,20 +3,26 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to TransOpt's documentation!
-====================================
+TransOpt: Transfer Optimization System for Automated Configuration
+==================================================================
+Our framework offers state of the art single- and multi-objective optimization algorithms and many more features related to multi-objective optimization such as visualization and decision making. pymoo is available on PyPi and can be installed by:
+
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Getting Started
+   :maxdepth: 3
+   :caption: Contents
 
    installation
    quickstart
-   usage/overview
+   usage/features
+   usage/algorithms
+   usage/problems
+   usage/performance
+   usage/visualization
    usage/examples
    usage/cli
-   development/api_reference
    development/architecture
+   development/api_reference
    faq
 
 
