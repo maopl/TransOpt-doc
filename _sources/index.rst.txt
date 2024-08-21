@@ -5,7 +5,7 @@
 
 TransOpt: Transfer Optimization System for Automated Configuration
 ==================================================================
-Our framework offers state of the art single- and multi-objective optimization algorithms and many more features related to multi-objective optimization such as visualization and decision making. pymoo is available on PyPi and can be installed by:
+Our framework offers state of the art transfer optimization algorithms and many more features related to transfer optimization such as data management, benchmark test problems and visualization. TransOpt can be installed by:
 
 
 .. toctree::
