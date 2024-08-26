@@ -54,6 +54,23 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Benchmark Problems</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#id1">Register</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#synthetic-problems">Synthetic Problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#real-world-problems">Real-World Problems</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#hyperparameters-for-support-vector-machine-svm">Hyperparameters for Support Vector Machine (SVM)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hyperparameters-for-adaboost">Hyperparameters for AdaBoost</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hyperparameters-for-random-forest">Hyperparameters for Random Forest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hyperparameters-for-xgboost">Hyperparameters for XGBoost</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hyperparameters-for-glmnet">Hyperparameters for GLMNet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hyperparameters-for-alexnet">Hyperparameters for AlexNet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hyperparameters-for-2-layer-bayesian-neural-network-bnn">Hyperparameters for 2-Layer Bayesian Neural Network (BNN)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hyperparameters-for-cnns">Hyperparameters for CNNs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hyperparameters-for-resnet18">Hyperparameters for ResNet18</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hyperparameters-for-densenet">Hyperparameters for DenseNet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#machine-learning-tasks">Machine Learning Tasks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#list-of-cso-tasks">List of CSO Tasks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rna-inverse-design-problems">RNA Inverse Design Problems</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#protein-design-problems">Protein Design Problems</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="performance.html">Performance Indicators</a></li>
@@ -105,20 +122,718 @@
 </section>
 <section id="synthetic-problems">
 <h2>Synthetic Problems<a class="headerlink" href="#synthetic-problems" title="Link to this heading"></a></h2>
+<p>The synthetic problems in this section are widely used in the optimization literature for benchmarking optimization algorithms. These problems exhibit diverse characteristics and levels of complexity, making them ideal for testing the robustness and efficiency of different optimization strategies. Below is an overview of the synthetic problems included in this benchmark suite:</p>
+<ul class="simple">
+<li><p><strong>Sphere:</strong> A simple convex problem that is often used as a baseline. The global minimum is located at the origin, and the objective function value increases quadratically with distance from the origin.</p></li>
+<li><p><strong>Rastrigin:</strong> A non-convex problem characterized by a large number of local minima, making it challenging for optimization algorithms to find the global minimum.</p></li>
+<li><p><strong>Schwefel:</strong> Known for its complex landscape with many local minima, the Schwefel function requires optimization algorithms to balance exploration and exploitation effectively.</p></li>
+<li><p><strong>Ackley:</strong> A multi-modal function with a nearly flat outer region and a large hole at the center, making it difficult for algorithms to escape local minima and converge to the global minimum.</p></li>
+<li><p><strong>Levy:</strong> A multi-modal problem with a complex landscape that tests an algorithm’s ability to handle irregularities and identify global optima.</p></li>
+<li><p><strong>Griewank:</strong> A function with many widespread local minima, making it challenging to converge to the global optimum. It is often used to assess the ability of algorithms to avoid getting trapped in local minima.</p></li>
+<li><p><strong>Rosenbrock:</strong> A non-convex problem with a narrow, curved valley that contains the global minimum. This function is commonly used to test the convergence properties of optimization algorithms.</p></li>
+<li><p><strong>Dropwave:</strong> A challenging multi-modal function with steep drops, requiring careful search strategies to avoid local minima.</p></li>
+<li><p><strong>Langermann:</strong> This problem has many local minima and a highly irregular structure, testing an algorithm’s ability to explore complex search spaces.</p></li>
+<li><p><strong>Rotated Hyper-Ellipsoid:</strong> A rotated version of the ellipsoid function, which tests an algorithm’s capability to optimize problems with rotated and ill-conditioned landscapes.</p></li>
+<li><p><strong>Sum of Different Powers:</strong> A problem where each term in the sum contributes differently to the overall objective, requiring optimization algorithms to handle varying sensitivities across dimensions.</p></li>
+<li><p><strong>Styblinski-Tang:</strong> A function with multiple global minima, commonly used to test an algorithm’s ability to avoid suboptimal solutions.</p></li>
+<li><p><strong>Powell:</strong> A problem designed to challenge optimization algorithms with a mixture of convex and non-convex characteristics across different dimensions.</p></li>
+<li><p><strong>Dixon-Price:</strong> This function has a smooth, narrow valley leading to the global minimum, testing an algorithm’s ability to navigate such features.</p></li>
+<li><p><strong>Ellipsoid:</strong> A test problem that features high conditioning and elliptical level sets, requiring algorithms to efficiently search in skewed spaces.</p></li>
+<li><p><strong>Discus:</strong> A variant of the sphere function with a large difference in scale between the first variable and the rest, making it a test of handling unbalanced scales.</p></li>
+<li><p><strong>BentCigar:</strong> A highly anisotropic function where one direction has a much larger scale than the others, challenging algorithms to adjust their search strategies accordingly.</p></li>
+<li><p><strong>SharpRidge:</strong> This function has a sharp ridge along one dimension, testing an algorithm’s ability to optimize in narrow, high-gradient regions.</p></li>
+<li><p><strong>Katsuura:</strong> A multi-fractal function that combines periodicity and complexity, testing the capability of algorithms to explore intricate landscapes.</p></li>
+<li><p><strong>Weierstrass:</strong> A problem with a fractal structure, characterized by a large number of local minima and requiring algorithms to handle varying scales of roughness.</p></li>
+<li><p><strong>Different Powers:</strong> A problem where each term contributes differently to the objective, challenging algorithms to manage varying sensitivities and scales.</p></li>
+<li><p><strong>Trid:</strong> A function that has a curved and ridge-like structure, often used to assess the convergence properties of optimization algorithms.</p></li>
+<li><p><strong>LinearSlope:</strong> A simple linear function with a varying slope across dimensions, used to test the basic exploration capabilities of optimization methods.</p></li>
+<li><p><strong>Elliptic:</strong> Similar to the Ellipsoid function but with exponentially increasing scales, testing an algorithm’s ability to search efficiently in poorly conditioned spaces.</p></li>
+<li><p><strong>PERM:</strong> A complex combinatorial problem that combines different power terms, testing an algorithm’s ability to handle permutation-based search spaces.</p></li>
+<li><p><strong>Power Sum:</strong> A problem where each dimension contributes a power sum to the objective, requiring algorithms to handle large variations in sensitivity across variables.</p></li>
+<li><p><strong>Zakharov:</strong> A problem with a complex, non-linear interaction between variables, used to test an algorithm’s ability to navigate multi-variable coupling.</p></li>
+<li><p><strong>Six-Hump Camel:</strong> A low-dimensional, multi-modal problem with several local minima, requiring precise search strategies to find the global optimum.</p></li>
+<li><p><strong>Michalewicz:</strong> A problem known for its challenging steepness and periodicity, making it difficult for algorithms to locate the global minimum.</p></li>
+<li><p><strong>Moving Peak:</strong> A dynamic optimization problem where the objective function changes over time, used to assess an algorithm’s adaptability to changing landscapes.</p></li>
+</ul>
+<p>These problems collectively provide a comprehensive suite for evaluating optimization algorithms across a broad range of difficulties, including convexity, multi-modality, separability, and conditioning.</p>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Problem name</p></th>
 <th class="head"><p>Mathematical formulation</p></th>
 <th class="head"><p>Decision space</p></th>
+<th class="head"></th>
+<th class="head"></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>Sphere</p></td>
-<td><p><span class="math notranslate nohighlight">\(f(x) = \sum_{i=1}^{d} x_i^2\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(f(\mathbf{x}) = \sum_{i=1}^d x_i^2\)</span></p></td>
 <td><p><span class="math notranslate nohighlight">\(x_i \in [-5.12, 5.12]\)</span></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Rastrigin</p></td>
+<td><p><span class="math notranslate nohighlight">\(f(\mathbf{x}) = 10 d + \sum_{i=1}^d \left[ x_i^2 - 10 \cos(2 \pi x_i) \right]\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(x_i \in [-32.768, 32.768]\)</span></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Schwefel</p></td>
+<td><p>:math:<a href="#id2"><span class="problematic" id="id3">`</span></a>f(mathbf{x}) = 418.9829 d - sum_{i=1}^d x_i sinleft(sqrt{left</p></td>
+<td><p>x_iright</p></td>
+<td><p>}right)`</p></td>
+<td><p><span class="math notranslate nohighlight">\(x_i \in [-500, 500]\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>Ackley</p></td>
+<td><p><span class="math notranslate nohighlight">\(f(\mathbf{x}) = -a \exp \left(-b \sqrt{\frac{1}{d} \sum_{i=1}^d x_i^2}\right)\)</span>
+<span class="math notranslate nohighlight">\(-\exp \left(\frac{1}{d} \sum_{i=1}^d \cos \left(c x_i\right)\right) + a + \exp(1)\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(x_i \in [-32.768, 32.768]\)</span></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Levy</p></td>
+<td><p><span class="math notranslate nohighlight">\(f(\mathbf{x}) = \sin^2\left(\pi w_1\right) + \sum_{i=1}^{d-1}\left(w_i - 1\right)^2\)</span>
+<span class="math notranslate nohighlight">\(\left[1 + 10 \sin^2\left(\pi w_i + 1\right)\right] + \left(w_d - 1\right)^2\)</span>
+<span class="math notranslate nohighlight">\(\left[1 + \sin^2\left(2 \pi w_d\right)\right], w_i = 1 + \frac{x_i - 1}{4}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(x_i \in [-10, 10]\)</span></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Griewank</p></td>
+<td><p><span class="math notranslate nohighlight">\(f(\mathbf{x}) = \sum_{i=1}^d \frac{x_i^2}{4000} - \prod_{i=1}^d \cos\left(\frac{x_i}{\sqrt{i}}\right) + 1\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(x_i \in [-600, 600]\)</span></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Rosenbrock</p></td>
+<td><p><span class="math notranslate nohighlight">\(f(\mathbf{x}) = \sum_{i=1}^{d-1}\left[100\left(x_{i+1} - x_i^2\right)^2 + \left(x_i - 1\right)^2\right]\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(x_i \in [-5, 10]\)</span></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Dropwave</p></td>
+<td><p><span class="math notranslate nohighlight">\(f(\mathbf{x}) = -\frac{1 + \cos\left(12 \sqrt{x_1^2 + x_2^2}\right)}{0.5\left(x_1^2 + x_2^2\right) + 2}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(x_i \in [-5.12, 5.12]\)</span></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Langermann</p></td>
+<td><p><span class="math notranslate nohighlight">\(f(\mathbf{x}) = \sum_{i=1}^m c_i \exp\left(-\frac{1}{\pi} \sum_{j=1}^d \left(x_j - A_{ij}\right)^2\right)\)</span>
+<span class="math notranslate nohighlight">\(\cos\left(\pi \sum_{j=1}^d\left(x_j - A_{ij}\right)^2\right)\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(x_i \in [0, 10]\)</span></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Rotated Hyper-Ellipsoid</p></td>
+<td><p><span class="math notranslate nohighlight">\(f(\mathbf{x}) = \sum_{i=1}^d \sum_{j=1}^i x_j^2\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(x_i \in [-65.536, 65.536]\)</span></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Sum of Different Powers</p></td>
+<td><p>:math:<a href="#id4"><span class="problematic" id="id5">`</span></a>f(mathbf{x}) = sum_{i=1}^dleft</p></td>
+<td><p>x_iright</p></td>
+<td><p>^{i+1}`</p></td>
+<td><p><span class="math notranslate nohighlight">\(x_i \in [-1, 1]\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>Styblinski-Tang</p></td>
+<td><p><span class="math notranslate nohighlight">\(f(\mathbf{x}) = \frac{1}{2} \sum_{i=1}^d\left(x_i^4 - 16 x_i^2 + 5 x_i\right)\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(x_i \in [-5, 5]\)</span></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Powell</p></td>
+<td><p><span class="math notranslate nohighlight">\(f(\mathbf{x}) = \sum_{i=1}^{d/4}\left(x_{4i-3} + 10 x_{4i-2}\right)^2\)</span>
+<span class="math notranslate nohighlight">\(+ 5\left(x_{4i-1} - x_{4i}\right)^2\)</span>
+<span class="math notranslate nohighlight">\(+ \left(x_{4i-2} - 2 x_{4i-1}\right)^4\)</span>
+<span class="math notranslate nohighlight">\(+ 10\left(x_{4i-3} - x_{4i}\right)^4\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(x_i \in [-4, 5]\)</span></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Dixon-Price</p></td>
+<td><p><span class="math notranslate nohighlight">\(f(\mathbf{x}) = \left(x_1 - 1\right)^2 + \sum_{i=2}^d i\left(2 x_i^2 - x_{i-1}\right)^2\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(x_i \in [-10, 10]\)</span></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Ellipsoid</p></td>
+<td><p><span class="math notranslate nohighlight">\(f_2(\mathbf{x}) = \sum_{i=1}^D 10^{6 \frac{i-1}{D-1}} z_i^2 + f_{\mathrm{opt}}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(x_i \in [-5, 5]\)</span></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Discus</p></td>
+<td><p><span class="math notranslate nohighlight">\(f(\mathbf{x}) = 10^6 x_1^2 + \sum_{i=2}^D x_i^2\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(x_i \in [-5, 5]\)</span></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>BentCigar</p></td>
+<td><p><span class="math notranslate nohighlight">\(f(\mathbf{x}) = x_1^2 + 10^6 \sum_{i=2}^n x_i^2\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(x_i \in [-5, 5]\)</span></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>SharpRidge</p></td>
+<td><p><span class="math notranslate nohighlight">\(f(\mathbf{x}) = x_1^2 + 100 \sqrt{\sum_{i=2}^D x_i^2}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(x_i \in [-5, 5]\)</span></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Katsuura</p></td>
+<td><p><span class="math notranslate nohighlight">\(f(\mathbf{x}) = \frac{10}{D^2} \prod_{i=1}^D \left(1 + i \sum_{j=1}^{32} \frac{\left
+:math:\)</span>- frac{10}{D^2} + f_{mathrm{pen}}(mathbf{x})`</p></td>
+<td><p>2^j x_i - left[2^j x_iright]right</p></td>
+<td><p>}{2^j}right)^{10 / D^{1.2}}`</p></td>
+<td><p><span class="math notranslate nohighlight">\(x_i \in [-5, 5]\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>Weierstrass</p></td>
+<td><p><span class="math notranslate nohighlight">\(f_{16}(\mathbf{x}) = 10 \left(\frac{1}{D} \sum_{i=1}^D \sum_{k=0}^{11} \frac{1}{2^k} \cos \left(2 \pi 3^k\left(z_i + \frac{1}{2}\right)\right) - f_0\right)^3\)</span>
+<span class="math notranslate nohighlight">\(+ \frac{10}{D} f_{\mathrm{pen}}(\mathbf{x})\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(x_i \in [-5, 5]\)</span></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>DifferentPowers</p></td>
+<td><p>:math:<a href="#id6"><span class="problematic" id="id7">`</span></a>f(mathbf{x}) = sqrt{sum_{i=1}^Dleft</p></td>
+<td><p>x_iright</p></td>
+<td><p>^{2 + 4 frac{i-1}{D-1}}}`</p></td>
+<td><p><span class="math notranslate nohighlight">\(x_i \in [-5, 5]\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>Trid</p></td>
+<td><p><span class="math notranslate nohighlight">\(f(\mathbf{x}) = \sum_{i=1}^d \left(x_i - 1\right)^2 - \sum_{i=2}^d x_i x_{i-1}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(x_i \in [-d^2, d^2]\)</span></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>LinearSlope</p></td>
+<td><p><span class="math notranslate nohighlight">\(f(\mathbf{x}) = \sum_{i=1}^D 5\left
+:math:`s_i = \operatorname{sign}\left(x_i^{\mathrm{opt}}\right) 10^{\frac{i-1}{D-1}},\)</span>
+<span class="math notranslate nohighlight">\(\text{for } i=1, \ldots, D\)</span></p></td>
+<td><p>s_iright</p></td>
+<td><ul class="simple">
+<li><p>s_i x_i`</p></li>
+</ul>
+</td>
+<td><p><span class="math notranslate nohighlight">\(x_i \in [-5, 5]\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>Elliptic</p></td>
+<td><p><span class="math notranslate nohighlight">\(f(\mathbf{x}) = \sum_{i=1}^D \left(10^6\right)^{\frac{i-1}{D-1}} x_i^2\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(x_i \in [-5, 5]\)</span></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>PERM</p></td>
+<td><p><span class="math notranslate nohighlight">\(f(\mathbf{x}) = \sum_{i=1}^d \left(\sum_{j=1}^d \left(j + \beta\right)\left(x_j^i - \frac{1}{j^i}\right)\right)^2\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(x_i \in [-d, d]\)</span></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Power Sum</p></td>
+<td><p><span class="math notranslate nohighlight">\(f(\mathbf{x}) = \sum_{i=1}^d \left[\left(\sum_{j=1}^d x_j^i\right) - b_i\right]^2\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(x_i \in [0, d]\)</span></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Zakharov</p></td>
+<td><p><span class="math notranslate nohighlight">\(f(\mathbf{x}) = \sum_{i=1}^d x_i^2 + \left(\sum_{i=1}^d 0.5 i x_i\right)^2\)</span>
+<span class="math notranslate nohighlight">\(+ \left(\sum_{i=1}^d 0.5 i x_i\right)^4\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(x_i \in [-5, 10]\)</span></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Six-Hump Camel</p></td>
+<td><p><span class="math notranslate nohighlight">\(f(\mathbf{x}) = \left(4 - 2.1 x_1^2 + \frac{x_1^4}{3}\right) x_1^2 + x_1 x_2\)</span>
+<span class="math notranslate nohighlight">\(+ \left(-4 + 4 x_2^2\right) x_2^2\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(x_1 \in [-3, 3], x_2 \in [-2, 2]\)</span></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Michalewicz</p></td>
+<td><p><span class="math notranslate nohighlight">\(f(\mathbf{x}) = -\sum_{i=1}^d \sin \left(x_i\right) \sin ^{2 m}\left(\frac{i x_i^2}{\pi}\right)\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(x_i \in [0, \pi]\)</span></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Moving Peak</p></td>
+<td><p><span class="math notranslate nohighlight">\(f(\mathbf{x}) = \sum_{i=1}^D \left(10^6\right)^{\frac{i-1}{D-1}} x_i^2\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(x_i \in [0, 100]\)</span></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>PERM 2</p></td>
+<td><p><span class="math notranslate nohighlight">\(f(\mathbf{x}) = \sum_{i=1}^d\left(\sum_{j=1}^d\left(j^i+\beta\right)\left(\left(\frac{x_j}{j}\right)^i-1\right)\right)^2\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(x_i \in [-d, d]\)</span></p></td>
+<td></td>
+<td></td>
 </tr>
 </tbody>
 </table>
+</section>
+<section id="real-world-problems">
+<h2>Real-World Problems<a class="headerlink" href="#real-world-problems" title="Link to this heading"></a></h2>
+<p>This section provides an overview of the hyperparameters used for various machine learning models and real-world problems. These hyperparameters can be tuned to optimize the performance of the models on specific tasks. Each section includes a brief description of the problem or task, followed by a table of relevant hyperparameters.</p>
+<section id="hyperparameters-for-support-vector-machine-svm">
+<h3>Hyperparameters for Support Vector Machine (SVM)<a class="headerlink" href="#hyperparameters-for-support-vector-machine-svm" title="Link to this heading"></a></h3>
+<p>Support Vector Machines (SVM) are widely used for classification and regression tasks. They are particularly effective in high-dimensional spaces and situations where the number of dimensions exceeds the number of samples. The hyperparameters for SVM control the regularization and the kernel function, which are crucial for model performance.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Hyperparameter</strong></p></th>
+<th class="head"><p><strong>Range</strong></p></th>
+<th class="head"><p><strong>Type</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>C</p></td>
+<td><p>[-10, 10]</p></td>
+<td><p>Continuous</p></td>
+</tr>
+<tr class="row-odd"><td><p>gamma</p></td>
+<td><p>[-10, 10]</p></td>
+<td><p>Continuous</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="hyperparameters-for-adaboost">
+<h3>Hyperparameters for AdaBoost<a class="headerlink" href="#hyperparameters-for-adaboost" title="Link to this heading"></a></h3>
+<p>AdaBoost is a popular ensemble method that combines multiple weak learners to create a strong classifier. It is particularly useful for boosting the performance of decision trees. The hyperparameters control the number of estimators and the learning rate, which affects the contribution of each classifier.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Hyperparameter</strong></p></th>
+<th class="head"><p><strong>Range</strong></p></th>
+<th class="head"><p><strong>Type</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>n_estimators</p></td>
+<td><p>[1, 100]</p></td>
+<td><p>Integer</p></td>
+</tr>
+<tr class="row-odd"><td><p>learning_rate</p></td>
+<td><p>[0.01, 1]</p></td>
+<td><p>Continuous</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="hyperparameters-for-random-forest">
+<h3>Hyperparameters for Random Forest<a class="headerlink" href="#hyperparameters-for-random-forest" title="Link to this heading"></a></h3>
+<p>Random Forest is an ensemble learning method that builds multiple decision trees and merges them to get a more accurate and stable prediction. It is widely used for both classification and regression tasks. The hyperparameters include the number of trees, the depth of the trees, and various criteria for splitting nodes.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Hyperparameter</strong></p></th>
+<th class="head"><p><strong>Range</strong></p></th>
+<th class="head"><p><strong>Type</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>n_estimators</p></td>
+<td><p>[1, 1000]</p></td>
+<td><p>Integer</p></td>
+</tr>
+<tr class="row-odd"><td><p>max_depth</p></td>
+<td><p>[1, 100]</p></td>
+<td><p>Integer</p></td>
+</tr>
+<tr class="row-even"><td><p>criterion</p></td>
+<td><p>{gini, entropy}</p></td>
+<td><p>Categorical</p></td>
+</tr>
+<tr class="row-odd"><td><p>min_samples_leaf</p></td>
+<td><p>[1, 20]</p></td>
+<td><p>Integer</p></td>
+</tr>
+<tr class="row-even"><td><p>min_weight_fraction_leaf</p></td>
+<td><p>[0.0, 0.5]</p></td>
+<td><p>Continuous</p></td>
+</tr>
+<tr class="row-odd"><td><p>min_impurity_decrease</p></td>
+<td><p>[0.0, 1.0]</p></td>
+<td><p>Continuous</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="hyperparameters-for-xgboost">
+<h3>Hyperparameters for XGBoost<a class="headerlink" href="#hyperparameters-for-xgboost" title="Link to this heading"></a></h3>
+<p>XGBoost is an efficient and scalable implementation of gradient boosting, designed for speed and performance. It is widely used in machine learning competitions and industry for classification and regression tasks. The hyperparameters include learning rates, tree depths, and regularization parameters, which control the complexity of the model and its ability to generalize.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Hyperparameter</strong></p></th>
+<th class="head"><p><strong>Range</strong></p></th>
+<th class="head"><p><strong>Type</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>eta</p></td>
+<td><p>[-10.0, 0.0]</p></td>
+<td><p>Continuous</p></td>
+</tr>
+<tr class="row-odd"><td><p>max_depth</p></td>
+<td><p>[1, 15]</p></td>
+<td><p>Integer</p></td>
+</tr>
+<tr class="row-even"><td><p>min_child_weight</p></td>
+<td><p>[0.0, 7.0]</p></td>
+<td><p>Continuous</p></td>
+</tr>
+<tr class="row-odd"><td><p>colsample_bytree</p></td>
+<td><p>[0.01, 1.0]</p></td>
+<td><p>Continuous</p></td>
+</tr>
+<tr class="row-even"><td><p>colsample_bylevel</p></td>
+<td><p>[0.01, 1.0]</p></td>
+<td><p>Continuous</p></td>
+</tr>
+<tr class="row-odd"><td><p>reg_lambda</p></td>
+<td><p>[-10.0, 10.0]</p></td>
+<td><p>Continuous</p></td>
+</tr>
+<tr class="row-even"><td><p>reg_alpha</p></td>
+<td><p>[-10.0, 10.0]</p></td>
+<td><p>Continuous</p></td>
+</tr>
+<tr class="row-odd"><td><p>subsample_per_it</p></td>
+<td><p>[0.1, 1.0]</p></td>
+<td><p>Continuous</p></td>
+</tr>
+<tr class="row-even"><td><p>n_estimators</p></td>
+<td><p>[1, 50]</p></td>
+<td><p>Integer</p></td>
+</tr>
+<tr class="row-odd"><td><p>gamma</p></td>
+<td><p>[0.0, 1.0]</p></td>
+<td><p>Continuous</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="hyperparameters-for-glmnet">
+<h3>Hyperparameters for GLMNet<a class="headerlink" href="#hyperparameters-for-glmnet" title="Link to this heading"></a></h3>
+<p>GLMNet is a regularized regression model that supports both LASSO and ridge regression. It is particularly useful for high-dimensional datasets where regularization is necessary to prevent overfitting. The hyperparameters control the strength of the regularization and the balance between L1 and L2 penalties.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Hyperparameter</strong></p></th>
+<th class="head"><p><strong>Range</strong></p></th>
+<th class="head"><p><strong>Type</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>lambda</p></td>
+<td><p>[0, 10^5]</p></td>
+<td><p>Log-integer</p></td>
+</tr>
+<tr class="row-odd"><td><p>alpha</p></td>
+<td><p>[0, 1]</p></td>
+<td><p>Continuous</p></td>
+</tr>
+<tr class="row-even"><td><p>nlambda</p></td>
+<td><p>[1, 100]</p></td>
+<td><p>Integer</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="hyperparameters-for-alexnet">
+<h3>Hyperparameters for AlexNet<a class="headerlink" href="#hyperparameters-for-alexnet" title="Link to this heading"></a></h3>
+<p>AlexNet is a convolutional neural network (CNN) architecture that revolutionized the field of computer vision by achieving significant improvements on the ImageNet dataset. The hyperparameters include learning rate, dropout rate, weight decay, and the choice of activation function, all of which are crucial for training deep neural networks.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Hyperparameter</strong></p></th>
+<th class="head"><p><strong>Range</strong></p></th>
+<th class="head"><p><strong>Type</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>learning_rate</p></td>
+<td><p>[10^-5, 10^-1]</p></td>
+<td><p>Continuous</p></td>
+</tr>
+<tr class="row-odd"><td><p>dropout_rate</p></td>
+<td><p>[0.0, 0.5]</p></td>
+<td><p>Continuous</p></td>
+</tr>
+<tr class="row-even"><td><p>weight_decay</p></td>
+<td><p>[10^-5, 10^-2]</p></td>
+<td><p>Continuous</p></td>
+</tr>
+<tr class="row-odd"><td><p>activation_function</p></td>
+<td><p>{ReLU, Leaky ReLU, ELU}</p></td>
+<td><p>Categorical</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="hyperparameters-for-2-layer-bayesian-neural-network-bnn">
+<h3>Hyperparameters for 2-Layer Bayesian Neural Network (BNN)<a class="headerlink" href="#hyperparameters-for-2-layer-bayesian-neural-network-bnn" title="Link to this heading"></a></h3>
+<p>Bayesian Neural Networks (BNNs) provide a probabilistic interpretation of deep learning models by introducing uncertainty in the weights. This allows BNNs to express model uncertainty, which is crucial for tasks where uncertainty quantification is important. The hyperparameters include layer sizes, step length, burn-in period, and momentum decay.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Hyperparameter</strong></p></th>
+<th class="head"><p><strong>Range</strong></p></th>
+<th class="head"><p><strong>Type</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>layer 1</p></td>
+<td><p>[2^4, 2^9]</p></td>
+<td><p>Log-integer</p></td>
+</tr>
+<tr class="row-odd"><td><p>layer 2</p></td>
+<td><p>[2^4, 2^9]</p></td>
+<td><p>Log-integer</p></td>
+</tr>
+<tr class="row-even"><td><p>step_length</p></td>
+<td><p>[10^-6, 10^-1]</p></td>
+<td><p>Log-continuous</p></td>
+</tr>
+<tr class="row-odd"><td><p>burn_in</p></td>
+<td><p>[0, 8]</p></td>
+<td><p>Integer</p></td>
+</tr>
+<tr class="row-even"><td><p>momentum_decay</p></td>
+<td><p>[0, 1]</p></td>
+<td><p>Log-continuous</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="hyperparameters-for-cnns">
+<h3>Hyperparameters for CNNs<a class="headerlink" href="#hyperparameters-for-cnns" title="Link to this heading"></a></h3>
+<p>Convolutional Neural Networks (CNNs) are the backbone of most modern computer vision systems. They are designed to automatically and adaptively learn spatial hierarchies of features through backpropagation. The hyperparameters include learning rate, momentum, regularization parameter, dropout rate, and activation function.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Hyperparameter</strong></p></th>
+<th class="head"><p><strong>Range</strong></p></th>
+<th class="head"><p><strong>Type</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>learning_rate</p></td>
+<td><p>[10^-6, 10^-1]</p></td>
+<td><p>Continuous</p></td>
+</tr>
+<tr class="row-odd"><td><p>momentum</p></td>
+<td><p>[0.0, 0.9]</p></td>
+<td><p>Continuous</p></td>
+</tr>
+<tr class="row-even"><td><p>regularization_parameter</p></td>
+<td><p>[10^-6, 10^-2]</p></td>
+<td><p>Continuous</p></td>
+</tr>
+<tr class="row-odd"><td><p>dropout_rate</p></td>
+<td><p>[0, 0.5]</p></td>
+<td><p>Continuous</p></td>
+</tr>
+<tr class="row-even"><td><p>activation_function</p></td>
+<td><p>{ReLU, Leaky ReLU, Tanh, Sigmoid}</p></td>
+<td><p>Categorical</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="hyperparameters-for-resnet18">
+<h3>Hyperparameters for ResNet18<a class="headerlink" href="#hyperparameters-for-resnet18" title="Link to this heading"></a></h3>
+<p>ResNet18 is a residual network architecture that introduced the concept of residual connections, allowing for the training of very deep networks by mitigating the vanishing gradient problem. The hyperparameters include learning rate, momentum, dropout rate, and weight decay.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Hyperparameter</strong></p></th>
+<th class="head"><p><strong>Range</strong></p></th>
+<th class="head"><p><strong>Type</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>learning_rate</p></td>
+<td><p>[2^3, 2^8]</p></td>
+<td><p>Integer</p></td>
+</tr>
+<tr class="row-odd"><td><p>momentum</p></td>
+<td><p>[0, 1]</p></td>
+<td><p>Continuous</p></td>
+</tr>
+<tr class="row-even"><td><p>dropout_rate</p></td>
+<td><p>[0, 0.5]</p></td>
+<td><p>Continuous</p></td>
+</tr>
+<tr class="row-odd"><td><p>weight_decay</p></td>
+<td><p>[10^-5, 10^-1]</p></td>
+<td><p>Continuous</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="hyperparameters-for-densenet">
+<h3>Hyperparameters for DenseNet<a class="headerlink" href="#hyperparameters-for-densenet" title="Link to this heading"></a></h3>
+<p>DenseNet is a densely connected convolutional network that connects each layer to every other layer in a feed-forward fashion. This architecture improves the flow of information and gradients throughout the network, making it easier to train. The hyperparameters include learning rate, momentum, dropout rate, and weight decay.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Hyperparameter</strong></p></th>
+<th class="head"><p><strong>Range</strong></p></th>
+<th class="head"><p><strong>Type</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>learning_rate</p></td>
+<td><p>[2^3, 2^8]</p></td>
+<td><p>Integer</p></td>
+</tr>
+<tr class="row-odd"><td><p>momentum</p></td>
+<td><p>[0, 1]</p></td>
+<td><p>Continuous</p></td>
+</tr>
+<tr class="row-even"><td><p>dropout_rate</p></td>
+<td><p>[0, 0.5]</p></td>
+<td><p>Continuous</p></td>
+</tr>
+<tr class="row-odd"><td><p>weight_decay</p></td>
+<td><p>[10^-5, 10^-1]</p></td>
+<td><p>Continuous</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="machine-learning-tasks">
+<h3>Machine Learning Tasks<a class="headerlink" href="#machine-learning-tasks" title="Link to this heading"></a></h3>
+<p>This section lists the various datasets used for machine learning tasks, including classification and regression problems. These datasets are widely recognized in the machine learning community and are used for benchmarking algorithms.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Source</strong></p></th>
+<th class="head"><p><strong>Type</strong></p></th>
+<th class="head"><p><strong>Number</strong></p></th>
+<th class="head"><p><strong>IDs</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[OpenML-CC18](<a class="reference external" href="https://www.openml.org/s/99">https://www.openml.org/s/99</a>)</p></td>
+<td><p>Classification</p></td>
+<td><p>78</p></td>
+<td><p>1-78</p></td>
+</tr>
+<tr class="row-odd"><td><p>[UC Irvine Repository](<a class="reference external" href="https://archive.ics.uci.edu/">https://archive.ics.uci.edu/</a>)</p></td>
+<td><p>Classification/Regression</p></td>
+<td><p>10</p></td>
+<td><p>79-88</p></td>
+</tr>
+<tr class="row-even"><td><p>[NAS-Bench-360](<a class="reference external" href="https://archive.ics.uci.edu/">https://archive.ics.uci.edu/</a>)</p></td>
+<td><p>Classification/Regression</p></td>
+<td><p>5</p></td>
+<td><p>89-93</p></td>
+</tr>
+<tr class="row-odd"><td><p>[NATS-Bench](<a class="reference external" href="https://github.com/D-X-Y/NATS-Bench">https://github.com/D-X-Y/NATS-Bench</a>)</p></td>
+<td><p>Classification</p></td>
+<td><p>3</p></td>
+<td><p>94-96</p></td>
+</tr>
+<tr class="row-even"><td><p>[SVHN](<a class="reference external" href="https://github.com/D-X-Y/NATS-Bench">https://github.com/D-X-Y/NATS-Bench</a>)</p></td>
+<td><p>Classification</p></td>
+<td><p>1</p></td>
+<td><p>97</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="list-of-cso-tasks">
+<h3>List of CSO Tasks<a class="headerlink" href="#list-of-cso-tasks" title="Link to this heading"></a></h3>
+<p>This section provides a summary of the Compiler and System Optimization (CSO) tasks, which involve optimizing various software systems. The tasks are characterized by the number of variables, objectives, and workloads, along with the sources of these workloads.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Software Name</strong></p></th>
+<th class="head"><p><strong>Variables</strong></p></th>
+<th class="head"><p><strong>Objectives</strong></p></th>
+<th class="head"><p><strong>Workloads</strong></p></th>
+<th class="head"><p><strong>Workloads Source</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>LLVM</p></td>
+<td><p>93</p></td>
+<td><p>8</p></td>
+<td><p>50</p></td>
+<td><p>[PolyBench](<a class="reference external" href="https://web.cs.ucla.edu/~pouchet/software/polybench/">https://web.cs.ucla.edu/~pouchet/software/polybench/</a>), [mibench](<a class="reference external" href="https://github.com/embecosm/mibench?tab=readme-ov-file">https://github.com/embecosm/mibench?tab=readme-ov-file</a>)</p></td>
+</tr>
+<tr class="row-odd"><td><p>GCC</p></td>
+<td><p>105</p></td>
+<td><p>8</p></td>
+<td><p>50</p></td>
+<td><p>[PolyBench](<a class="reference external" href="https://web.cs.ucla.edu/~pouchet/software/polybench/">https://web.cs.ucla.edu/~pouchet/software/polybench/</a>), [mibench](<a class="reference external" href="https://github.com/embecosm/mibench?tab=readme-ov-file">https://github.com/embecosm/mibench?tab=readme-ov-file</a>)</p></td>
+</tr>
+<tr class="row-even"><td><p>Mysql</p></td>
+<td><p>28</p></td>
+<td><p>14</p></td>
+<td><p>18</p></td>
+<td><p>[benchbase](<a class="reference external" href="https://github.com/cmu-db/benchbase.git">https://github.com/cmu-db/benchbase.git</a>), [sysbench](<a class="reference external" href="https://github.com/akopytov/sysbench">https://github.com/akopytov/sysbench</a>)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Hadoop</p></td>
+<td><p>206</p></td>
+<td><p>1</p></td>
+<td><p>29</p></td>
+<td><p>[HiBench](<a class="reference external" href="https://github.com/Intel-bigdata/HiBench">https://github.com/Intel-bigdata/HiBench</a>)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="rna-inverse-design-problems">
+<h3>RNA Inverse Design Problems<a class="headerlink" href="#rna-inverse-design-problems" title="Link to this heading"></a></h3>
+<p>RNA inverse design involves designing RNA sequences that fold into specific secondary structures. This task is crucial for understanding and manipulating RNA function in various biological processes. The datasets listed here are commonly used benchmarks for RNA design algorithms.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Source</strong></p></th>
+<th class="head"><p><strong>Min-Max Length (nt)</strong></p></th>
+<th class="head"><p><strong>Samples</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[Eterna100](<a class="reference external" href="https://github.com/eternagame/eterna100-benchmarking">https://github.com/eternagame/eterna100-benchmarking</a>)</p></td>
+<td><p>11-399</p></td>
+<td><p>100</p></td>
+</tr>
+<tr class="row-odd"><td><p>[Rfam-learn test](<a class="reference external" href="https://rfam.org/">https://rfam.org/</a>)</p></td>
+<td><p>50-446</p></td>
+<td><p>100</p></td>
+</tr>
+<tr class="row-even"><td><p>[RNA-Strand](<a class="reference external" href="http://www.rnasoft.ca/strand/">http://www.rnasoft.ca/strand/</a>)</p></td>
+<td><p>4-4381</p></td>
+<td><p>50</p></td>
+</tr>
+<tr class="row-odd"><td><p>[RNAStralign](<a class="reference external" href="https://github.com/D-X-Y/NATS-Bench">https://github.com/D-X-Y/NATS-Bench</a>)</p></td>
+<td><p>30-1851</p></td>
+<td><p>37149</p></td>
+</tr>
+<tr class="row-even"><td><p>[ArchiveII](<a class="reference external" href="https://github.com/D-X-Y/NATS-Bench">https://github.com/D-X-Y/NATS-Bench</a>)</p></td>
+<td><p>28-2968</p></td>
+<td><p>2975</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="protein-design-problems">
+<h3>Protein Design Problems<a class="headerlink" href="#protein-design-problems" title="Link to this heading"></a></h3>
+<p>Protein design involves creating new protein sequences with specific structural or functional properties. These problems are essential for applications in drug design, biotechnology, and synthetic biology. The datasets listed here are widely used in protein design research.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Source</strong></p></th>
+<th class="head"><p><strong>Type</strong></p></th>
+<th class="head"><p><strong>Numbers</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[Absolute](<a class="reference external" href="https://github.com/csi-greifflab/Absolut">https://github.com/csi-greifflab/Absolut</a>)</p></td>
+<td><p>Antibody design</p></td>
+<td><p>159</p></td>
+</tr>
+<tr class="row-odd"><td><p>[CATH](<a class="reference external" href="https://www.cathdb.info/">https://www.cathdb.info/</a>)</p></td>
+<td><p>Single-chain protein design</p></td>
+<td><p>19752</p></td>
+</tr>
+<tr class="row-even"><td><p>[Protein Data Bank](<a class="reference external" href="https://www.rcsb.org/">https://www.rcsb.org/</a>)</p></td>
+<td><p>Multi-chain protein design</p></td>
+<td><p>26361</p></td>
+</tr>
+</tbody>
+</table>
+</section>
 </section>
 </section>
 
