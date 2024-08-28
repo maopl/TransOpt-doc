@@ -48,13 +48,12 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick Start</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage/features.html">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features.html">Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usage/algorithms.html">Algorithmic objects</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usage/problems.html">Benchmark Problems</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage/performance.html">Performance Indicators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage/results.html">Results Analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usage/visualization.html">visualization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage/examples.html">Examples</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage/cli.html">Command Line Interface (CLI)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage/cli.html">Using TransOpt via Command Line</a></li>
 <li class="toctree-l1"><a class="reference internal" href="development/architecture.html">Architecture Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="development/api_reference.html">API Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a></li>
@@ -85,7 +84,7 @@
            <div itemprop="articleBody">
              
   <section id="transopt-transfer-optimization-system-for-automated-configuration">
-<h1>TransOpt: Transfer Optimization System for Automated Configuration<a class="headerlink" href="#transopt-transfer-optimization-system-for-automated-configuration" title="Link to this heading"></a></h1>
+<span id="home"></span><h1>TransOpt: Transfer Optimization System for Automated Configuration<a class="headerlink" href="#transopt-transfer-optimization-system-for-automated-configuration" title="Link to this heading"></a></h1>
 <p>Our framework offers state of the art transfer optimization algorithms and many more features related to transfer optimization such as data management, benchmark test problems and visualization. TransOpt can be installed by:</p>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
@@ -96,54 +95,46 @@
 <li class="toctree-l2"><a class="reference internal" href="quickstart.html#command-line-mode">Command Line Mode</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="usage/features.html">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features.html">Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usage/algorithms.html">Algorithmic objects</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="usage/algorithms.html#id1">Register</a></li>
-<li class="toctree-l2"><a class="reference internal" href="usage/algorithms.html#id2">List of Algorithmic Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage/algorithms.html#registering-a-new-algorithm-in-transopt">Registering a New Algorithm in TransOpt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage/algorithms.html#supported-algorithms">Supported Algorithms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage/algorithms.html#list-of-algorithmic-objects">List of Algorithmic Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage/algorithms.html#references">References</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="usage/problems.html">Benchmark Problems</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="usage/problems.html#id1">Register</a></li>
-<li class="toctree-l2"><a class="reference internal" href="usage/problems.html#synthetic-problems">Synthetic Problems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="usage/problems.html#real-world-problems">Real-World Problems</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="usage/problems.html#hyperparameters-for-support-vector-machine-svm">Hyperparameters for Support Vector Machine (SVM)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="usage/problems.html#hyperparameters-for-adaboost">Hyperparameters for AdaBoost</a></li>
-<li class="toctree-l3"><a class="reference internal" href="usage/problems.html#hyperparameters-for-random-forest">Hyperparameters for Random Forest</a></li>
-<li class="toctree-l3"><a class="reference internal" href="usage/problems.html#hyperparameters-for-xgboost">Hyperparameters for XGBoost</a></li>
-<li class="toctree-l3"><a class="reference internal" href="usage/problems.html#hyperparameters-for-glmnet">Hyperparameters for GLMNet</a></li>
-<li class="toctree-l3"><a class="reference internal" href="usage/problems.html#hyperparameters-for-alexnet">Hyperparameters for AlexNet</a></li>
-<li class="toctree-l3"><a class="reference internal" href="usage/problems.html#hyperparameters-for-2-layer-bayesian-neural-network-bnn">Hyperparameters for 2-Layer Bayesian Neural Network (BNN)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="usage/problems.html#hyperparameters-for-cnns">Hyperparameters for CNNs</a></li>
-<li class="toctree-l3"><a class="reference internal" href="usage/problems.html#hyperparameters-for-resnet18">Hyperparameters for ResNet18</a></li>
-<li class="toctree-l3"><a class="reference internal" href="usage/problems.html#hyperparameters-for-densenet">Hyperparameters for DenseNet</a></li>
-<li class="toctree-l3"><a class="reference internal" href="usage/problems.html#machine-learning-tasks">Machine Learning Tasks</a></li>
-<li class="toctree-l3"><a class="reference internal" href="usage/problems.html#list-of-cso-tasks">List of CSO Tasks</a></li>
-<li class="toctree-l3"><a class="reference internal" href="usage/problems.html#rna-inverse-design-problems">RNA Inverse Design Problems</a></li>
-<li class="toctree-l3"><a class="reference internal" href="usage/problems.html#protein-design-problems">Protein Design Problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage/problems.html#registering-a-new-benchmark-problem">Registering a New Benchmark Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage/problems.html#synthetic-problem">Synthetic Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage/problems.html#hyperparameter-optimization-problem">Hyperparameter Optimization Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage/problems.html#configurable-software-optimization-problem">Configurable Software Optimization Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage/problems.html#rna-inverse-design-problem">RNA Inverse Design Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage/problems.html#protein-inverse-folding-problem">Protein Inverse Folding Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage/problems.html#parallelization">Parallelization</a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="usage/performance.html">Performance Indicators</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="usage/performance.html#register">Register</a></li>
-<li class="toctree-l2"><a class="reference internal" href="usage/performance.html#list-of-performance-evaluation-metrics">List of Performance Evaluation Metrics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage/results.html">Results Analysis</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="usage/results.html#register-a-new-results-analysis-method">Register a New Results Analysis Method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage/results.html#customization-analysis-pipline">Customization Analysis Pipline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage/results.html#list-of-performance-evaluation-metrics">List of Performance Evaluation Metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage/results.html#statistical-measures">Statistical Measures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage/results.html#wilcoxon-signed-rank-test">Wilcoxon Signed-Rank Test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage/results.html#scott-knott-test">Scott-Knott Test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage/results.html#a12-effect-size">A12 Effect Size</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage/results.html#critical-difference-cd">Critical Difference (CD)</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="usage/visualization.html">visualization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage/examples.html">Examples</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="usage/examples.html#basic-optimization">Basic Optimization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="usage/examples.html#register-new-algorithmic-objects">Register new algorithmic objects</a></li>
-<li class="toctree-l2"><a class="reference internal" href="usage/examples.html#add-new-benchmark-problems">Add new benchmark problems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="usage/examples.html#register-new-components">Register new components</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="usage/cli.html">Command Line Interface (CLI)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="usage/cli.html#common-commands">Common Commands</a></li>
-<li class="toctree-l2"><a class="reference internal" href="usage/cli.html#id1">Common Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage/cli.html">Using TransOpt via Command Line</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="usage/cli.html#running-the-command-line-interface">Running the Command-Line Interface</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="development/architecture.html">Architecture Overview</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="development/architecture.html#system-components">System Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="development/architecture.html#system-architecture">System Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="development/architecture.html#workflow">Workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="development/architecture.html#optimizer-architecture">Optimizer Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="development/architecture.html#data-management">Data Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="development/architecture.html#conclusion">Conclusion</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="development/api_reference.html">API Reference</a></li>

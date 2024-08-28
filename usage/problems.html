@@ -22,7 +22,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Performance Indicators" href="performance.html" />
+    <link rel="next" title="Results Analysis" href="results.html" />
     <link rel="prev" title="Algorithmic objects" href="algorithms.html" /> 
 </head>
 
@@ -49,34 +49,21 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quick Start</a></li>
-<li class="toctree-l1"><a class="reference internal" href="features.html">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features.html">Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="algorithms.html">Algorithmic objects</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Benchmark Problems</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id1">Register</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#synthetic-problems">Synthetic Problems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#real-world-problems">Real-World Problems</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#hyperparameters-for-support-vector-machine-svm">Hyperparameters for Support Vector Machine (SVM)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#hyperparameters-for-adaboost">Hyperparameters for AdaBoost</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#hyperparameters-for-random-forest">Hyperparameters for Random Forest</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#hyperparameters-for-xgboost">Hyperparameters for XGBoost</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#hyperparameters-for-glmnet">Hyperparameters for GLMNet</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#hyperparameters-for-alexnet">Hyperparameters for AlexNet</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#hyperparameters-for-2-layer-bayesian-neural-network-bnn">Hyperparameters for 2-Layer Bayesian Neural Network (BNN)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#hyperparameters-for-cnns">Hyperparameters for CNNs</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#hyperparameters-for-resnet18">Hyperparameters for ResNet18</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#hyperparameters-for-densenet">Hyperparameters for DenseNet</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#machine-learning-tasks">Machine Learning Tasks</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#list-of-cso-tasks">List of CSO Tasks</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#rna-inverse-design-problems">RNA Inverse Design Problems</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#protein-design-problems">Protein Design Problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#registering-a-new-benchmark-problem">Registering a New Benchmark Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#synthetic-problem">Synthetic Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#hyperparameter-optimization-problem">Hyperparameter Optimization Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configurable-software-optimization-problem">Configurable Software Optimization Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rna-inverse-design-problem">RNA Inverse Design Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#protein-inverse-folding-problem">Protein Inverse Folding Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#parallelization">Parallelization</a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="performance.html">Performance Indicators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="results.html">Results Analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="visualization.html">visualization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cli.html">Command Line Interface (CLI)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">Using TransOpt via Command Line</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../development/architecture.html">Architecture Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../development/api_reference.html">API Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a></li>
@@ -112,16 +99,90 @@
 <div class="info admonition">
 <p class="admonition-title">Overview</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://link-to-definition">Register</a>: How to register a new optimization problem to TransOpt</p></li>
-<li><p><a class="reference external" href="https://link-to-test-problems">The list of the Test Problems</a>: Diverse Test Problems available in <a class="reference external" href="https://link-to-pymoo">TransOpt</a></p></li>
-<li><p><a class="reference external" href="https://link-to-parallelization">Parallelization</a>: How to parallelize function evaluations</p></li>
+<li><p><a class="reference internal" href="#registering-new-problem"><span class="std std-ref">Register</span></a>: How to register a new optimization problem to <a class="reference internal" href="../index.html#home"><span class="std std-ref">TransOpt</span></a></p></li>
+<li><p><a class="reference internal" href="#synthetic-problems"><span class="std std-ref">Synthetic Problem</span></a>: The list of the synthetic problems available in <a class="reference internal" href="../index.html#home"><span class="std std-ref">TransOpt</span></a></p></li>
+<li><p><a class="reference internal" href="#hpo-problems"><span class="std std-ref">Hyperparameter Optimization Problem</span></a>: The list of the HPO problems available in <a class="reference internal" href="../index.html#home"><span class="std std-ref">TransOpt</span></a></p></li>
+<li><p><a class="reference internal" href="#cso-problems"><span class="std std-ref">Configurable Software Optimization Problem</span></a>: The list of the configurable software optimization problems available in <a class="reference internal" href="../index.html#home"><span class="std std-ref">TransOpt</span></a></p></li>
+<li><p><a class="reference internal" href="#rna-problems"><span class="std std-ref">RNA Inverse Design Problem</span></a>: The list of the RNA Inverse design problems available in <a class="reference internal" href="../index.html#home"><span class="std std-ref">TransOpt</span></a></p></li>
+<li><p><a class="reference internal" href="#pif-problems"><span class="std std-ref">Protein Inverse Folding Problem</span></a>: The list of the protein inverse folding problems available in <a class="reference internal" href="../index.html#home"><span class="std std-ref">TransOpt</span></a></p></li>
+<li><p><a class="reference internal" href="#parallelization"><span class="std std-ref">Parallelization</span></a>: How to parallelize function evaluations</p></li>
 </ul>
 </div>
-<section id="id1">
-<h2>Register<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<section id="registering-a-new-benchmark-problem">
+<span id="registering-new-problem"></span><h2>Registering a New Benchmark Problem<a class="headerlink" href="#registering-a-new-benchmark-problem" title="Link to this heading"></a></h2>
+<p>To register a new benchmark problem in the TransOpt framework, follow the steps below.</p>
+<p>### 1. Import the Problem Registry</p>
+<p>First, you need to import the <cite>problem_registry</cite> from the <cite>transopt.agent.registry</cite> module:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">transopt.agent.registry</span> <span class="kn">import</span> <span class="n">problem_registry</span>
+</pre></div>
+</div>
+<p>### 2. Define a New Problem Class</p>
+<p>Next, define a new problem class. This class should be decorated with the <cite>&#64;problem_registry.register(“ProblemName”)</cite> decorator, where <cite>“ProblemName”</cite> is the unique identifier for the problem. The new problem class must inherit from one of the following base classes:</p>
+<ul class="simple">
+<li><p><cite>NonTabularProblem</cite></p></li>
+<li><p><cite>TabularProblem</cite></p></li>
+</ul>
+<p>For example, to create a new problem named “new_problem”, you would define the class as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@problem_registry</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="s2">&quot;new_problem&quot;</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">new_problem</span><span class="p">(</span><span class="n">NonTabularProblem</span><span class="p">):</span>
+    <span class="k">pass</span>  <span class="c1"># Further implementation required</span>
+</pre></div>
+</div>
+<p>### 3. Implement Required Methods</p>
+<p>After defining the class, you need to implement the following three abstract methods:</p>
+<ol class="arabic">
+<li><p><strong>get_configuration_space</strong>:
+This method is responsible for defining the configuration space of the new problem.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_configuration_space</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="c1"># Define and return the configuration space</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>get_fidelity_space</strong>:
+This method should define the fidelity space for the problem, if applicable.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_fidelity_space</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="c1"># Define and return the fidelity space</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>objective_function</strong>:
+This method evaluates the problem’s objective function based on the provided configuration and other parameters.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">objective_function</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">configuration</span><span class="p">,</span> <span class="n">fidelity</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
+    <span class="c1"># Evaluate the configuration and return the results as a dictionary</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<p>Here’s an example outline of the <cite>sphere</cite> class:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@problem_registry</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="s2">&quot;sphere&quot;</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">sphere</span><span class="p">(</span><span class="n">NonTabularProblem</span><span class="p">):</span>
+
+  <span class="k">def</span> <span class="nf">get_configuration_space</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># Define the configuration space here</span>
+     <span class="n">variables</span> <span class="o">=</span>  <span class="p">[</span><span class="n">Continuous</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;x</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="mf">5.12</span><span class="p">,</span> <span class="mf">5.12</span><span class="p">))</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">input_dim</span><span class="p">)]</span>
+     <span class="n">ss</span> <span class="o">=</span> <span class="n">SearchSpace</span><span class="p">(</span><span class="n">variables</span><span class="p">)</span>
+     <span class="k">return</span> <span class="n">ss</span>
+
+  <span class="k">def</span> <span class="nf">get_fidelity_space</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">FidelitySpace</span><span class="p">:</span>
+     <span class="n">fs</span> <span class="o">=</span> <span class="n">FidelitySpace</span><span class="p">([])</span>
+     <span class="k">return</span> <span class="n">fs</span>
+
+  <span class="k">def</span> <span class="nf">objective_function</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">configuration</span><span class="p">,</span> <span class="n">fidelity</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
+     <span class="c1"># Implement the evaluation logic and return the results as a dictionary</span>
+     <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">configuration</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">configuration</span><span class="o">.</span><span class="n">keys</span><span class="p">())]])</span>
+     <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">X</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+     <span class="n">results</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;function_value&#39;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">y</span><span class="p">)}</span>
+
+     <span class="k">return</span> <span class="n">results</span>
+</pre></div>
+</div>
+<p>By following these steps, you can successfully register a new benchmark problem in the TransOpt framework.</p>
 </section>
-<section id="synthetic-problems">
-<h2>Synthetic Problems<a class="headerlink" href="#synthetic-problems" title="Link to this heading"></a></h2>
+<section id="synthetic-problem">
+<span id="synthetic-problems"></span><h2>Synthetic Problem<a class="headerlink" href="#synthetic-problem" title="Link to this heading"></a></h2>
 <p>The synthetic problems in this section are widely used in the optimization literature for benchmarking optimization algorithms. These problems exhibit diverse characteristics and levels of complexity, making them ideal for testing the robustness and efficiency of different optimization strategies. Below is an overview of the synthetic problems included in this benchmark suite:</p>
 <ul class="simple">
 <li><p><strong>Sphere:</strong> A simple convex problem that is often used as a baseline. The global minimum is located at the origin, and the objective function value increases quadratically with distance from the origin.</p></li>
@@ -160,7 +221,7 @@
 <thead>
 <tr class="row-odd"><th class="head"><p>Problem name</p></th>
 <th class="head"><p>Mathematical formulation</p></th>
-<th class="head"><p>Decision space</p></th>
+<th class="head"><p>Range</p></th>
 <th class="head"></th>
 <th class="head"></th>
 </tr>
@@ -179,10 +240,9 @@
 <td></td>
 </tr>
 <tr class="row-even"><td><p>Schwefel</p></td>
-<td><p>:math:<a href="#id2"><span class="problematic" id="id3">`</span></a>f(mathbf{x}) = 418.9829 d - sum_{i=1}^d x_i sinleft(sqrt{left</p></td>
-<td><p>x_iright</p></td>
-<td><p>}right)`</p></td>
-<td><p><span class="math notranslate nohighlight">\(x_i \in [-500, 500]\)</span></p></td>
+<td colspan="2"><p><span class="math notranslate nohighlight">\(f(\mathbf{x}) = 418.9829 d - \sum_{i=1}^d x_i \sin\left(\sqrt{\left{x_i\right}\right)\)</span>                                                                          | <span class="math notranslate nohighlight">\(x_i \in [-500, 500]\)</span></p></td>
+<td></td>
+<td></td>
 </tr>
 <tr class="row-odd"><td><p>Ackley</p></td>
 <td><p><span class="math notranslate nohighlight">\(f(\mathbf{x}) = -a \exp \left(-b \sqrt{\frac{1}{d} \sum_{i=1}^d x_i^2}\right)\)</span>
@@ -231,10 +291,10 @@
 <td></td>
 </tr>
 <tr class="row-even"><td><p>Sum of Different Powers</p></td>
-<td><p>:math:<a href="#id4"><span class="problematic" id="id5">`</span></a>f(mathbf{x}) = sum_{i=1}^dleft</p></td>
-<td><p>x_iright</p></td>
-<td><p>^{i+1}`</p></td>
+<td><p><span class="math notranslate nohighlight">\(f(\mathbf{x}) = \sum_{i=1}^d x_i^{i+1}\)</span></p></td>
 <td><p><span class="math notranslate nohighlight">\(x_i \in [-1, 1]\)</span></p></td>
+<td></td>
+<td></td>
 </tr>
 <tr class="row-odd"><td><p>Styblinski-Tang</p></td>
 <td><p><span class="math notranslate nohighlight">\(f(\mathbf{x}) = \frac{1}{2} \sum_{i=1}^d\left(x_i^4 - 16 x_i^2 + 5 x_i\right)\)</span></p></td>
@@ -282,11 +342,11 @@
 <td></td>
 </tr>
 <tr class="row-even"><td><p>Katsuura</p></td>
-<td><p><span class="math notranslate nohighlight">\(f(\mathbf{x}) = \frac{10}{D^2} \prod_{i=1}^D \left(1 + i \sum_{j=1}^{32} \frac{\left
-:math:\)</span>- frac{10}{D^2} + f_{mathrm{pen}}(mathbf{x})`</p></td>
-<td><p>2^j x_i - left[2^j x_iright]right</p></td>
-<td><p>}{2^j}right)^{10 / D^{1.2}}`</p></td>
+<td><p><span class="math notranslate nohighlight">\(f(\mathbf{x}) = \frac{10}{D^2} \prod_{i=1}^D \left(1 + i \sum_{j=1}^{32} \frac{2^j x_i - \left[2^j x_i\right]}{2^j}\right)^{10 / D^{1.2}}\)</span>
+<span class="math notranslate nohighlight">\(- \frac{10}{D^2} + f_{\mathrm{pen}}(\mathbf{x})\)</span></p></td>
 <td><p><span class="math notranslate nohighlight">\(x_i \in [-5, 5]\)</span></p></td>
+<td></td>
+<td></td>
 </tr>
 <tr class="row-odd"><td><p>Weierstrass</p></td>
 <td><p><span class="math notranslate nohighlight">\(f_{16}(\mathbf{x}) = 10 \left(\frac{1}{D} \sum_{i=1}^D \sum_{k=0}^{11} \frac{1}{2^k} \cos \left(2 \pi 3^k\left(z_i + \frac{1}{2}\right)\right) - f_0\right)^3\)</span>
@@ -296,10 +356,10 @@
 <td></td>
 </tr>
 <tr class="row-even"><td><p>DifferentPowers</p></td>
-<td><p>:math:<a href="#id6"><span class="problematic" id="id7">`</span></a>f(mathbf{x}) = sqrt{sum_{i=1}^Dleft</p></td>
-<td><p>x_iright</p></td>
-<td><p>^{2 + 4 frac{i-1}{D-1}}}`</p></td>
+<td><p><span class="math notranslate nohighlight">\(f(\mathbf{x}) = \sqrt{\sum_{i=1}^D x_i^{2 + 4 \frac{i-1}{D-1}}}\)</span></p></td>
 <td><p><span class="math notranslate nohighlight">\(x_i \in [-5, 5]\)</span></p></td>
+<td></td>
+<td></td>
 </tr>
 <tr class="row-odd"><td><p>Trid</p></td>
 <td><p><span class="math notranslate nohighlight">\(f(\mathbf{x}) = \sum_{i=1}^d \left(x_i - 1\right)^2 - \sum_{i=2}^d x_i x_{i-1}\)</span></p></td>
@@ -308,15 +368,12 @@
 <td></td>
 </tr>
 <tr class="row-even"><td><p>LinearSlope</p></td>
-<td><p><span class="math notranslate nohighlight">\(f(\mathbf{x}) = \sum_{i=1}^D 5\left
-:math:`s_i = \operatorname{sign}\left(x_i^{\mathrm{opt}}\right) 10^{\frac{i-1}{D-1}},\)</span>
+<td><p><span class="math notranslate nohighlight">\(f(\mathbf{x}) = \sum_{i=1}^D 5 s_i - s_i x_i\)</span>
+<span class="math notranslate nohighlight">\(s_i = \operatorname{sign}\left(x_i^{\mathrm{opt}}\right) 10^{\frac{i-1}{D-1}},\)</span>
 <span class="math notranslate nohighlight">\(\text{for } i=1, \ldots, D\)</span></p></td>
-<td><p>s_iright</p></td>
-<td><ul class="simple">
-<li><p>s_i x_i`</p></li>
-</ul>
-</td>
 <td><p><span class="math notranslate nohighlight">\(x_i \in [-5, 5]\)</span></p></td>
+<td></td>
+<td></td>
 </tr>
 <tr class="row-odd"><td><p>Elliptic</p></td>
 <td><p><span class="math notranslate nohighlight">\(f(\mathbf{x}) = \sum_{i=1}^D \left(10^6\right)^{\frac{i-1}{D-1}} x_i^2\)</span></p></td>
@@ -371,11 +428,10 @@
 </tbody>
 </table>
 </section>
-<section id="real-world-problems">
-<h2>Real-World Problems<a class="headerlink" href="#real-world-problems" title="Link to this heading"></a></h2>
-<p>This section provides an overview of the hyperparameters used for various machine learning models and real-world problems. These hyperparameters can be tuned to optimize the performance of the models on specific tasks. Each section includes a brief description of the problem or task, followed by a table of relevant hyperparameters.</p>
-<section id="hyperparameters-for-support-vector-machine-svm">
-<h3>Hyperparameters for Support Vector Machine (SVM)<a class="headerlink" href="#hyperparameters-for-support-vector-machine-svm" title="Link to this heading"></a></h3>
+<section id="hyperparameter-optimization-problem">
+<span id="hpo-problems"></span><h2>Hyperparameter Optimization Problem<a class="headerlink" href="#hyperparameter-optimization-problem" title="Link to this heading"></a></h2>
+<p>This section provides an overview of the hyperparameter optimization problem including the hyperparameters used for various machine learning models and machine learning tasks used for generate problem instances.</p>
+<p>Hyperparameters for Support Vector Machine (SVM)</p>
 <p>Support Vector Machines (SVM) are widely used for classification and regression tasks. They are particularly effective in high-dimensional spaces and situations where the number of dimensions exceeds the number of samples. The hyperparameters for SVM control the regularization and the kernel function, which are crucial for model performance.</p>
 <table class="docutils align-default">
 <thead>
@@ -395,9 +451,7 @@
 </tr>
 </tbody>
 </table>
-</section>
-<section id="hyperparameters-for-adaboost">
-<h3>Hyperparameters for AdaBoost<a class="headerlink" href="#hyperparameters-for-adaboost" title="Link to this heading"></a></h3>
+<p>Hyperparameters for AdaBoost</p>
 <p>AdaBoost is a popular ensemble method that combines multiple weak learners to create a strong classifier. It is particularly useful for boosting the performance of decision trees. The hyperparameters control the number of estimators and the learning rate, which affects the contribution of each classifier.</p>
 <table class="docutils align-default">
 <thead>
@@ -417,9 +471,7 @@
 </tr>
 </tbody>
 </table>
-</section>
-<section id="hyperparameters-for-random-forest">
-<h3>Hyperparameters for Random Forest<a class="headerlink" href="#hyperparameters-for-random-forest" title="Link to this heading"></a></h3>
+<p>Hyperparameters for Random Forest</p>
 <p>Random Forest is an ensemble learning method that builds multiple decision trees and merges them to get a more accurate and stable prediction. It is widely used for both classification and regression tasks. The hyperparameters include the number of trees, the depth of the trees, and various criteria for splitting nodes.</p>
 <table class="docutils align-default">
 <thead>
@@ -455,9 +507,7 @@
 </tr>
 </tbody>
 </table>
-</section>
-<section id="hyperparameters-for-xgboost">
-<h3>Hyperparameters for XGBoost<a class="headerlink" href="#hyperparameters-for-xgboost" title="Link to this heading"></a></h3>
+<p>Hyperparameters for XGBoost</p>
 <p>XGBoost is an efficient and scalable implementation of gradient boosting, designed for speed and performance. It is widely used in machine learning competitions and industry for classification and regression tasks. The hyperparameters include learning rates, tree depths, and regularization parameters, which control the complexity of the model and its ability to generalize.</p>
 <table class="docutils align-default">
 <thead>
@@ -509,9 +559,7 @@
 </tr>
 </tbody>
 </table>
-</section>
-<section id="hyperparameters-for-glmnet">
-<h3>Hyperparameters for GLMNet<a class="headerlink" href="#hyperparameters-for-glmnet" title="Link to this heading"></a></h3>
+<p>Hyperparameters for GLMNet</p>
 <p>GLMNet is a regularized regression model that supports both LASSO and ridge regression. It is particularly useful for high-dimensional datasets where regularization is necessary to prevent overfitting. The hyperparameters control the strength of the regularization and the balance between L1 and L2 penalties.</p>
 <table class="docutils align-default">
 <thead>
@@ -535,9 +583,7 @@
 </tr>
 </tbody>
 </table>
-</section>
-<section id="hyperparameters-for-alexnet">
-<h3>Hyperparameters for AlexNet<a class="headerlink" href="#hyperparameters-for-alexnet" title="Link to this heading"></a></h3>
+<p>Hyperparameters for AlexNet</p>
 <p>AlexNet is a convolutional neural network (CNN) architecture that revolutionized the field of computer vision by achieving significant improvements on the ImageNet dataset. The hyperparameters include learning rate, dropout rate, weight decay, and the choice of activation function, all of which are crucial for training deep neural networks.</p>
 <table class="docutils align-default">
 <thead>
@@ -565,9 +611,7 @@
 </tr>
 </tbody>
 </table>
-</section>
-<section id="hyperparameters-for-2-layer-bayesian-neural-network-bnn">
-<h3>Hyperparameters for 2-Layer Bayesian Neural Network (BNN)<a class="headerlink" href="#hyperparameters-for-2-layer-bayesian-neural-network-bnn" title="Link to this heading"></a></h3>
+<p>Hyperparameters for 2-Layer Bayesian Neural Network (BNN)</p>
 <p>Bayesian Neural Networks (BNNs) provide a probabilistic interpretation of deep learning models by introducing uncertainty in the weights. This allows BNNs to express model uncertainty, which is crucial for tasks where uncertainty quantification is important. The hyperparameters include layer sizes, step length, burn-in period, and momentum decay.</p>
 <table class="docutils align-default">
 <thead>
@@ -599,9 +643,7 @@
 </tr>
 </tbody>
 </table>
-</section>
-<section id="hyperparameters-for-cnns">
-<h3>Hyperparameters for CNNs<a class="headerlink" href="#hyperparameters-for-cnns" title="Link to this heading"></a></h3>
+<p>Hyperparameters for CNNs</p>
 <p>Convolutional Neural Networks (CNNs) are the backbone of most modern computer vision systems. They are designed to automatically and adaptively learn spatial hierarchies of features through backpropagation. The hyperparameters include learning rate, momentum, regularization parameter, dropout rate, and activation function.</p>
 <table class="docutils align-default">
 <thead>
@@ -633,9 +675,7 @@
 </tr>
 </tbody>
 </table>
-</section>
-<section id="hyperparameters-for-resnet18">
-<h3>Hyperparameters for ResNet18<a class="headerlink" href="#hyperparameters-for-resnet18" title="Link to this heading"></a></h3>
+<p>Hyperparameters for ResNet18</p>
 <p>ResNet18 is a residual network architecture that introduced the concept of residual connections, allowing for the training of very deep networks by mitigating the vanishing gradient problem. The hyperparameters include learning rate, momentum, dropout rate, and weight decay.</p>
 <table class="docutils align-default">
 <thead>
@@ -663,9 +703,7 @@
 </tr>
 </tbody>
 </table>
-</section>
-<section id="hyperparameters-for-densenet">
-<h3>Hyperparameters for DenseNet<a class="headerlink" href="#hyperparameters-for-densenet" title="Link to this heading"></a></h3>
+<p>Hyperparameters for DenseNet</p>
 <p>DenseNet is a densely connected convolutional network that connects each layer to every other layer in a feed-forward fashion. This architecture improves the flow of information and gradients throughout the network, making it easier to train. The hyperparameters include learning rate, momentum, dropout rate, and weight decay.</p>
 <table class="docutils align-default">
 <thead>
@@ -693,9 +731,7 @@
 </tr>
 </tbody>
 </table>
-</section>
-<section id="machine-learning-tasks">
-<h3>Machine Learning Tasks<a class="headerlink" href="#machine-learning-tasks" title="Link to this heading"></a></h3>
+<p>Machine Learning Tasks</p>
 <p>This section lists the various datasets used for machine learning tasks, including classification and regression problems. These datasets are widely recognized in the machine learning community and are used for benchmarking algorithms.</p>
 <table class="docutils align-default">
 <thead>
@@ -734,9 +770,9 @@
 </tbody>
 </table>
 </section>
-<section id="list-of-cso-tasks">
-<h3>List of CSO Tasks<a class="headerlink" href="#list-of-cso-tasks" title="Link to this heading"></a></h3>
-<p>This section provides a summary of the Compiler and System Optimization (CSO) tasks, which involve optimizing various software systems. The tasks are characterized by the number of variables, objectives, and workloads, along with the sources of these workloads.</p>
+<section id="configurable-software-optimization-problem">
+<span id="cso-problems"></span><h2>Configurable Software Optimization Problem<a class="headerlink" href="#configurable-software-optimization-problem" title="Link to this heading"></a></h2>
+<p>This section provides a summary of the configurable software optimization (CSO) tasks, which involve optimizing various software systems. The tasks are characterized by the number of variables, objectives, and workloads, along with the sources of these workloads.</p>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p><strong>Software Name</strong></p></th>
@@ -774,8 +810,8 @@
 </tbody>
 </table>
 </section>
-<section id="rna-inverse-design-problems">
-<h3>RNA Inverse Design Problems<a class="headerlink" href="#rna-inverse-design-problems" title="Link to this heading"></a></h3>
+<section id="rna-inverse-design-problem">
+<span id="rna-problems"></span><h2>RNA Inverse Design Problem<a class="headerlink" href="#rna-inverse-design-problem" title="Link to this heading"></a></h2>
 <p>RNA inverse design involves designing RNA sequences that fold into specific secondary structures. This task is crucial for understanding and manipulating RNA function in various biological processes. The datasets listed here are commonly used benchmarks for RNA design algorithms.</p>
 <table class="docutils align-default">
 <thead>
@@ -808,9 +844,9 @@
 </tbody>
 </table>
 </section>
-<section id="protein-design-problems">
-<h3>Protein Design Problems<a class="headerlink" href="#protein-design-problems" title="Link to this heading"></a></h3>
-<p>Protein design involves creating new protein sequences with specific structural or functional properties. These problems are essential for applications in drug design, biotechnology, and synthetic biology. The datasets listed here are widely used in protein design research.</p>
+<section id="protein-inverse-folding-problem">
+<span id="pif-problems"></span><h2>Protein Inverse Folding Problem<a class="headerlink" href="#protein-inverse-folding-problem" title="Link to this heading"></a></h2>
+<p>Protein Inverse Folding involves creating new amino acids sequence folding into desiered backbone structure. These problems are essential for applications in drug design, biotechnology, and synthetic biology. The datasets listed here are widely used in protein inverse folding research.</p>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p><strong>Source</strong></p></th>
@@ -834,6 +870,9 @@
 </tbody>
 </table>
 </section>
+<section id="parallelization">
+<span id="id1"></span><h2>Parallelization<a class="headerlink" href="#parallelization" title="Link to this heading"></a></h2>
+<p>To-do</p>
 </section>
 </section>
 
@@ -842,7 +881,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="algorithms.html" class="btn btn-neutral float-left" title="Algorithmic objects" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="performance.html" class="btn btn-neutral float-right" title="Performance Indicators" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="results.html" class="btn btn-neutral float-right" title="Results Analysis" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

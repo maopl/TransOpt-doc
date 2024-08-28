@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Command Line Interface (CLI) &mdash; TransOpt 0.1.0 documentation</title>
+  <title>Using TransOpt via Command Line &mdash; TransOpt 0.1.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
 
@@ -22,7 +22,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Architecture Overview" href="../development/architecture.html" />
-    <link rel="prev" title="Examples" href="examples.html" /> 
+    <link rel="prev" title="visualization" href="visualization.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -48,15 +48,13 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quick Start</a></li>
-<li class="toctree-l1"><a class="reference internal" href="features.html">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features.html">Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="algorithms.html">Algorithmic objects</a></li>
 <li class="toctree-l1"><a class="reference internal" href="problems.html">Benchmark Problems</a></li>
-<li class="toctree-l1"><a class="reference internal" href="performance.html">Performance Indicators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="results.html">Results Analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="visualization.html">visualization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Command Line Interface (CLI)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#common-commands">Common Commands</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id1">Common Commands</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Using TransOpt via Command Line</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#running-the-command-line-interface">Running the Command-Line Interface</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../development/architecture.html">Architecture Overview</a></li>
@@ -78,7 +76,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Command Line Interface (CLI)</li>
+      <li class="breadcrumb-item active">Using TransOpt via Command Line</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/usage/cli.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -88,20 +86,80 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="command-line-interface-cli">
-<h1>Command Line Interface (CLI)<a class="headerlink" href="#command-line-interface-cli" title="Link to this heading"></a></h1>
-<p>TransOpt comes with a powerful CLI that allows you to interact with the platform directly from your terminal.</p>
-<section id="common-commands">
-<h2>Common Commands<a class="headerlink" href="#common-commands" title="Link to this heading"></a></h2>
+  <section id="using-transopt-via-command-line">
+<span id="command-line-usage"></span><h1>Using TransOpt via Command Line<a class="headerlink" href="#using-transopt-via-command-line" title="Link to this heading"></a></h1>
+<p>TransOpt provides a command-line interface (CLI) that allows users to define and run optimization tasks directly from the terminal. This is facilitated by the <cite>run_cli.py</cite> script, which supports a wide range of customizable parameters.</p>
+<section id="running-the-command-line-interface">
+<h2>Running the Command-Line Interface<a class="headerlink" href="#running-the-command-line-interface" title="Link to this heading"></a></h2>
+<p>To run the <cite>run_cli.py</cite> script, navigate to the directory containing the script and use the following command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>transopt/agent/run_cli.py<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+<p>Where <cite>[OPTIONS]</cite> are the command-line arguments you can specify to customize the behavior of TransOpt.</p>
+<p>### Command-Line Arguments</p>
+<p>Here is a list of the main command-line arguments supported by the script:</p>
+<p><strong>Task Configuration</strong></p>
 <ul class="simple">
-<li><p><cite>python transopt/agent/app.py</cite>: Start the backend server.</p></li>
+<li><p><strong>`-n, –task_name`</strong>: Name of the task (default: <cite>“Sphere”</cite>).</p></li>
+<li><p><strong>`-v, –num_vars`</strong>: Number of variables (default: <cite>2</cite>).</p></li>
+<li><p><strong>`-o, –num_objs`</strong>: Number of objectives (default: <cite>1</cite>).</p></li>
+<li><p><strong>`-f, –fidelity`</strong>: Fidelity level of the task (default: <cite>“”</cite>).</p></li>
+<li><p><strong>`-w, –workloads`</strong>: Workloads associated with the task (default: <cite>“0”</cite>).</p></li>
+<li><p><strong>`-bt, –budget_type`</strong>: Type of budget (e.g., <cite>“Num_FEs”</cite>) (default: <cite>“Num_FEs”</cite>).</p></li>
+<li><p><strong>`-b, –budget`</strong>: Budget for the task, typically the number of function evaluations (default: <cite>100</cite>).</p></li>
 </ul>
-</section>
-<section id="id1">
-<h2>Common Commands<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<p><strong>Optimizer Configuration</strong></p>
 <ul class="simple">
-<li><p><cite>transopt-server status</cite>: Check the status of the server.</p></li>
+<li><p><strong>`-sr, –space_refiner`</strong>: Space refiner method (default: <cite>“None”</cite>).</p></li>
+<li><p><strong>`-srp, –space_refiner_parameters`</strong>: Parameters for the space refiner (default: <cite>“”</cite>).</p></li>
+<li><p><strong>`-srd, –space_refiner_data_selector`</strong>: Data selector for the space refiner (default: <cite>“None”</cite>).</p></li>
+<li><p><strong>`-srdp, –space_refiner_data_selector_parameters`</strong>: Parameters for the data selector (default: <cite>“”</cite>).</p></li>
+<li><p><strong>`-sp, –sampler`</strong>: Sampling method (default: <cite>“random”</cite>).</p></li>
+<li><p><strong>`-spi, –sampler_init_num`</strong>: Initial number of samples (default: <cite>22</cite>).</p></li>
+<li><p><strong>`-spp, –sampler_parameters`</strong>: Parameters for the sampler (default: <cite>“”</cite>).</p></li>
+<li><p><strong>`-spd, –sampler_data_selector`</strong>: Data selector for the sampler (default: <cite>“None”</cite>).</p></li>
+<li><p><strong>`-spdp, –sampler_data_selector_parameters`</strong>: Parameters for the sampler’s data selector (default: <cite>“”</cite>).</p></li>
+<li><p><strong>`-pt, –pre_train`</strong>: Pretraining method (default: <cite>“None”</cite>).</p></li>
+<li><p><strong>`-ptp, –pre_train_parameters`</strong>: Parameters for pretraining (default: <cite>“”</cite>).</p></li>
+<li><p><strong>`-ptd, –pre_train_data_selector`</strong>: Data selector for pretraining (default: <cite>“None”</cite>).</p></li>
+<li><p><strong>`-ptdp, –pre_train_data_selector_parameters`</strong>: Parameters for the pretraining data selector (default: <cite>“”</cite>).</p></li>
+<li><p><strong>`-m, –model`</strong>: Model used for optimization (default: <cite>“GP”</cite>).</p></li>
+<li><p><strong>`-mp, –model_parameters`</strong>: Parameters for the model (default: <cite>“”</cite>).</p></li>
+<li><p><strong>`-md, –model_data_selector`</strong>: Data selector for the model (default: <cite>“None”</cite>).</p></li>
+<li><p><strong>`-mdp, –model_data_selector_parameters`</strong>: Parameters for the model’s data selector (default: <cite>“”</cite>).</p></li>
+<li><p><strong>`-acf, –acquisition_function`</strong>: Acquisition function used (default: <cite>“EI”</cite>).</p></li>
+<li><p><strong>`-acfp, –acquisition_function_parameters`</strong>: Parameters for the acquisition function (default: <cite>“”</cite>).</p></li>
+<li><p><strong>`-acfd, –acquisition_function_data_selector`</strong>: Data selector for the acquisition function (default: <cite>“None”</cite>).</p></li>
+<li><p><strong>`-acfdp, –acquisition_function_data_selector_parameters`</strong>: Parameters for the acquisition function’s data selector (default: <cite>“”</cite>).</p></li>
+<li><p><strong>`-norm, –normalizer`</strong>: Normalization method (default: <cite>“Standard”</cite>).</p></li>
+<li><p><strong>`-normp, –normalizer_parameters`</strong>: Parameters for the normalizer (default: <cite>“”</cite>).</p></li>
+<li><p><strong>`-normd, –normalizer_data_selector`</strong>: Data selector for the normalizer (default: <cite>“None”</cite>).</p></li>
+<li><p><strong>`-normdp, –normalizer_data_selector_parameters`</strong>: Parameters for the normalizer’s data selector (default: <cite>“”</cite>).</p></li>
 </ul>
+<p><strong>General Configuration</strong></p>
+<ul class="simple">
+<li><p><strong>`-s, –seeds`</strong>: Random seed for reproducibility (default: <cite>0</cite>).</p></li>
+</ul>
+<p>### Example Usage</p>
+<p>Below are some example commands demonstrating how to use the CLI to run different tasks with varying configurations.</p>
+<p><strong>Example 1: Running a basic task with default parameters</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>transopt/agent/run_cli.py<span class="w"> </span>-n<span class="w"> </span>MyTask<span class="w"> </span>-v<span class="w"> </span><span class="m">3</span><span class="w"> </span>-o<span class="w"> </span><span class="m">1</span><span class="w"> </span>-b<span class="w"> </span><span class="m">200</span>
+</pre></div>
+</div>
+<p><strong>Example 2: Running a task with a specific model and acquisition function</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>transopt/agent/run_cli.py<span class="w"> </span>-n<span class="w"> </span>MyTask<span class="w"> </span>-v<span class="w"> </span><span class="m">3</span><span class="w"> </span>-o<span class="w"> </span><span class="m">2</span><span class="w"> </span>-m<span class="w"> </span>RF<span class="w"> </span>-acf<span class="w"> </span>UCB<span class="w"> </span>-b<span class="w"> </span><span class="m">300</span>
+</pre></div>
+</div>
+<p><strong>Example 3: Using custom parameters for the space refiner and sampler</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>transopt/agent/run_cli.py<span class="w"> </span>-n<span class="w"> </span>MyTask<span class="w"> </span>-sr<span class="w"> </span><span class="s2">&quot;Prune&quot;</span><span class="w">  </span>-sp<span class="w"> </span><span class="s2">&quot;lhs&quot;</span><span class="w"> </span>-spi<span class="w"> </span><span class="m">30</span><span class="w"> </span>-b<span class="w"> </span><span class="m">300</span>
+</pre></div>
+</div>
+<p>### Additional Notes</p>
+<ul class="simple">
+<li><p>The <strong>random seed</strong> is particularly important for ensuring that the results are reproducible. Make sure to specify the <cite>–seeds</cite> option if you want to run experiments that can be exactly replicated.</p></li>
+<li><p>TransOpt’s CLI is highly flexible, allowing you to tailor the optimization process to your specific needs by adjusting the parameters and options provided.</p></li>
+</ul>
+<p>By following the instructions above, you can effectively use the TransOpt CLI to run and manage your optimization tasks.</p>
 </section>
 </section>
 
@@ -109,7 +167,7 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="examples.html" class="btn btn-neutral float-left" title="Examples" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="visualization.html" class="btn btn-neutral float-left" title="visualization" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="../development/architecture.html" class="btn btn-neutral float-right" title="Architecture Overview" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

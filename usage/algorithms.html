@@ -22,7 +22,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Benchmark Problems" href="problems.html" />
-    <link rel="prev" title="Features" href="features.html" /> 
+    <link rel="prev" title="Features" href="../features.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -48,17 +48,18 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quick Start</a></li>
-<li class="toctree-l1"><a class="reference internal" href="features.html">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features.html">Features</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Algorithmic objects</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id1">Register</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id2">List of Algorithmic Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#registering-a-new-algorithm-in-transopt">Registering a New Algorithm in TransOpt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#supported-algorithms">Supported Algorithms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#list-of-algorithmic-objects">List of Algorithmic Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#references">References</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="problems.html">Benchmark Problems</a></li>
-<li class="toctree-l1"><a class="reference internal" href="performance.html">Performance Indicators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="results.html">Results Analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="visualization.html">visualization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cli.html">Command Line Interface (CLI)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">Using TransOpt via Command Line</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../development/architecture.html">Architecture Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../development/api_reference.html">API Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a></li>
@@ -93,45 +94,283 @@
 <div class="info admonition">
 <p class="admonition-title">Overview</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://link-to-definition">Register</a>: How to register a new algorithmic Object to TransOpt.</p></li>
-<li><p><a class="reference external" href="https://link-to-parallelization">List of Algorithmic objects</a>: Transfer learning for BO, .</p></li>
+<li><p><a class="reference internal" href="#register-new-algorithm"><span class="std std-ref">Register</span></a>: How to register a new algorithmic Object to <a class="reference internal" href="../index.html#home"><span class="std std-ref">TransOpt</span></a></p></li>
+<li><p><a class="reference internal" href="#alg"><span class="std std-ref">Supported Algorithms</span></a>: The list of the synthetic problems available in <a class="reference internal" href="../index.html#home"><span class="std std-ref">TransOpt</span></a></p></li>
+<li><p><a class="reference internal" href="#alg-obj"><span class="std std-ref">Algorithmic Objects</span></a>: The list of the protein inverse folding problems available in <a class="reference internal" href="../index.html#home"><span class="std std-ref">TransOpt</span></a></p></li>
 </ul>
 </div>
-<section id="id1">
-<h2>Register<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<section id="registering-a-new-algorithm-in-transopt">
+<span id="register-new-algorithm"></span><h2>Registering a New Algorithm in TransOpt<a class="headerlink" href="#registering-a-new-algorithm-in-transopt" title="Link to this heading"></a></h2>
+<p>To register a new algorithm object in TransOpt, follow the steps outlined below:</p>
+<ol class="arabic">
+<li><p><strong>Import the Model Registry</strong></p>
+<p>First, you need to import the <cite>model_registry</cite> from the <cite>transopt.agent.registry</cite> module:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">transopt.agent.registry</span> <span class="kn">import</span> <span class="n">model_registry</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Define the Algorithm Object Name</strong></p>
+<p>Next, use the registry to define the name of your algorithm object. For example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@model_registry</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="s2">&quot;MHGP&quot;</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">MHGP</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+<p>In this example, the algorithm object is named “MHGP”.</p>
+</li>
+<li><p><strong>Choose the Appropriate Base Class</strong></p>
+<p>Depending on the type of algorithm object you are creating, you must inherit from a specific base class. TransOpt provides several algorithm modules, each corresponding to a different base class:</p>
+<ul class="simple">
+<li><p><strong>Surrogate Model</strong>: Inherit from the <cite>Model</cite> class.</p></li>
+<li><p><strong>Initialization Design</strong>: Inherit from the <cite>Sampler</cite> class.</p></li>
+<li><p><strong>Acquisition Function</strong>: Inherit from the <cite>AcquisitionBase</cite> class.</p></li>
+<li><p><strong>Pretrain Module</strong>: Inherit from the <cite>PretrainBase</cite> class.</p></li>
+<li><p><strong>Normalizer Module</strong>: Inherit from the <cite>NormalizerBase</cite> class.</p></li>
+</ul>
+<p>For instance, in the example provided, we are creating a surrogate model, so the <cite>MHGP</cite> class inherits from the <cite>Model</cite> base class.</p>
+</li>
+<li><p><strong>Implement the Required Abstract Methods</strong></p>
+<p>Once the class is defined, you need to implement several abstract methods that are required by the <cite>Model</cite> base class. These methods include:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">meta_fit</span><span class="p">(</span>
+    <span class="bp">self</span><span class="p">,</span>
+    <span class="n">source_X</span> <span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span>
+    <span class="n">source_Y</span> <span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span>
+    <span class="n">optimize</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">bool</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+<span class="p">):</span>
+    <span class="k">pass</span>
+
+<span class="k">def</span> <span class="nf">fit</span><span class="p">(</span>
+    <span class="bp">self</span><span class="p">,</span>
+    <span class="n">X</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">Y</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">optimize</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<span class="p">):</span>
+    <span class="k">pass</span>
+
+<span class="k">def</span> <span class="nf">predict</span><span class="p">(</span>
+    <span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">return_full</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">with_noise</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>meta_fit</strong>: This method is used to fit meta-data. If your transfer optimization algorithm requires meta-data, this is where you should leverage it.</p></li>
+<li><p><strong>fit</strong>: This method is used to fit the data for the current task.</p></li>
+</ul>
+</li>
+</ol>
+<p>By following these steps, you can successfully register a new algorithm object in TransOpt and implement the necessary functionality to integrate it into the framework.</p>
 </section>
-<section id="id2">
-<h2>List of Algorithmic Objects<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
+<section id="supported-algorithms">
+<span id="alg"></span><h2>Supported Algorithms<a class="headerlink" href="#supported-algorithms" title="Link to this heading"></a></h2>
+<p><strong>Multi-Task Bayesian Optimization</strong><span id="id1">[<a class="reference internal" href="#id56" title="Kevin Swersky, Jasper Snoek, and Ryan Prescott Adams. Multi-task Bayesian optimization. In NIPs'13: Proc of the 2013 Annual Conference on Neural Information Processing Systems, 2004–2012. 2013.">5</a>]</span>
+This method extends multi-task Gaussian processes to transfer knowledge from previous optimizations to new tasks, improving the efficiency of Bayesian optimization. It leverages correlations between tasks to accelerate the optimization process, particularly useful in scenarios like hyperparameter tuning across different datasets.</p>
+<p>—</p>
+<p><strong>Practical Transfer Learning for Bayesian Optimization</strong><span id="id2">[<a class="reference internal" href="#id24" title="Jasper Snoek, Hugo Larochelle, and Ryan P. Adams. Practical Bayesian optimization of machine learning algorithms. In NIPS'12: Proc. of the 26th Annual Conference on Neural Information Processing Systems, 2960–2968. 2012.">4</a>]</span>
+This approach enhances Bayesian optimization by using an ensemble of Gaussian processes from previous tasks. It forms a robust surrogate model that quickly adapts to new tasks without requiring task-specific hyperparameter tuning, significantly reducing optimization time.</p>
+<p>—</p>
+<p><strong>Scalable Gaussian Process-Based Transfer Surrogates</strong><span id="id3">[<a class="reference internal" href="#id93" title="Martin Wistuba, Nicolas Schilling, and Lars Schmidt-Thieme. Scalable Gaussian process-based transfer surrogates for hyperparameter optimization. Mach. Learn., 107(1):43–78, 2018.">10</a>]</span>
+This framework scales Gaussian processes for hyperparameter optimization by dividing metadata into subsets and training individual models. These models are combined into an ensemble, reducing computational complexity and improving optimization efficiency.</p>
+<p>—</p>
+<p><strong>Few-Shot Bayesian Optimization (FSBO)</strong><span id="id4">[<a class="reference internal" href="#id66" title="Martin Wistuba and Josif Grabocka. Few-shot bayesian optimization with deep kernel surrogates. In ICLR'21: Proc. of the 9th International Conference on Learning Representations. OpenReview.net, 2021.">7</a>]</span>
+FSBO redefines hyperparameter optimization as a few-shot learning problem using a deep kernel Gaussian process model. It quickly adapts to new tasks, achieving state-of-the-art results through efficient transfer learning.</p>
+<p>—</p>
+<p><strong>Initializing Bayesian Optimization via Meta-Learning</strong><span id="id5">[<a class="reference internal" href="#id62" title="Matthias Feurer, Jost Tobias Springenberg, and Frank Hutter. Initializing bayesian hyperparameter optimization via meta-learning. In AAAI'15: Proc. of the 2015 AAAI Conference on Artificial Intelligence, 1128–1135. AAAI Press, 2015.">1</a>]</span>
+This method uses meta-learning to improve the initialization of Sequential Model-based Bayesian Optimization (SMBO). By leveraging prior knowledge from similar datasets, it enhances performance, especially in complex tasks like combined algorithm selection and hyperparameter optimization.</p>
+<p>—</p>
+<p><strong>Learning Hyperparameter Optimization Initializations</strong><span id="id6">[<a class="reference internal" href="#id63" title="Martin Wistuba, Nicolas Schilling, and Lars Schmidt-Thieme. Learning hyperparameter optimization initializations. In DSAA'15: Proc. of the 2015 IEEE International Conference on Data Science and Advanced Analytics, 1–10. IEEE, 2015.">9</a>]</span>
+This approach transfers knowledge from previous experiments to learn optimal initial hyperparameter configurations. It uses a differentiable estimator to accelerate optimization convergence, outperforming traditional initialization strategies.</p>
+<p>—</p>
+<p><strong>Reinforced Few-Shot Acquisition Function Learning</strong><span id="id7">[<a class="reference internal" href="#id65" title="Bing-Jing Hsieh, Ping-Chun Hsieh, and Xi Liu. Reinforced few-shot acquisition function learning for Bayesian optimization. In NeurIPS'21: Proc. of the 34th Annual Conference on Neural Information Processing Systems, 7718–7731. 2021.">2</a>]</span>
+This method improves acquisition functions in Bayesian optimization using a deep Q-network (DQN) trained in a few-shot learning framework. A Bayesian variant of DQN is used to mitigate overfitting, enhancing the exploration-exploitation trade-off.</p>
+<p>—</p>
+<p><strong>Meta-Learning Acquisition Functions for Transfer Learning</strong><span id="id8">[<a class="reference internal" href="#id59" title="Michael Volpp, Lukas P. Fröhlich, Kirsten Fischer, Andreas Doerr, Stefan Falkner, Frank Hutter, and Christian Daniel. Meta-learning acquisition functions for transfer learning in bayesian optimization. In ICLR'20: Proc. of the 8th International Conference on Learning Representations. OpenReview.net, 2020.">6</a>]</span>
+This approach uses meta-learning to design acquisition functions tailored to specific objective functions. It leverages reinforcement learning to train a neural network-based acquisition function, particularly effective in transfer learning scenarios.</p>
+<p>—</p>
+<p><strong>Hyperparameter Search Space Pruning</strong><span id="id9">[<a class="reference internal" href="#id163" title="Martin Wistuba, Nicolas Schilling, and Lars Schmidt-Thieme. Hyperparameter search space pruning - a new component for sequential model-based hyperparameter optimization. In ECML/PKDD'15: Proc of the 2015 Advances in Machine Learning and Knowledge Discovery in Databases, volume 9285, 104–119. 2015.">8</a>]</span>
+This technique introduces a pruning strategy to SMBO, discarding regions of the search space unlikely to contain optimal configurations. It enhances optimization efficiency by avoiding unnecessary function evaluations.</p>
+<p>—</p>
+<p><strong>Learning Search Spaces for Bayesian Optimization</strong><span id="id10">[<a class="reference internal" href="#id164" title="Valerio Perrone and Huibin Shen. Learning search spaces for Bayesian optimization: another view of hyperparameter transfer learning. In NIPS'19: Proc of the 2019 Advances in Neural Information Processing Systems, 12751–12761. 2019.">3</a>]</span>
+This method automatically designs search spaces for Bayesian optimization by learning from historical data. It reduces the search space size, accelerating optimization and improving transfer learning capabilities.</p>
+</section>
+<section id="list-of-algorithmic-objects">
+<span id="alg-obj"></span><h2>List of Algorithmic Objects<a class="headerlink" href="#list-of-algorithmic-objects" title="Link to this heading"></a></h2>
 <p>The optimization framework includes a variety of state-of-the-art algorithms, each designed with specific features to address different classes of optimization problems. The table below provides a summary of the key algorithms available, categorized by their class, convenience for use, targeted objective(s), and any constraints they impose.</p>
 <table class="docutils align-default">
 <thead>
-<tr class="row-odd"><th class="head"><p><strong>Algorithm</strong></p></th>
-<th class="head"><p><strong>Class</strong></p></th>
-<th class="head"><p><strong>Convenience</strong></p></th>
-<th class="head" colspan="2"><p><strong>Objective(s)</strong></p></th>
-<th class="head"><p><strong>Constraints</strong></p></th>
+<tr class="row-odd"><th class="head"><p><strong>Component</strong></p></th>
+<th class="head"><p><strong>Method</strong></p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>Hyper BO</p></td>
-<td><p>GA</p></td>
-<td><p>single</p></td>
-<td colspan="2"><p>x</p></td>
-<td><p>A modular implementation of a genetic algorithm.
-It can be easily customized with different
-evolutionary operators and applies to a broad
-category of problems.</p></td>
+<tr class="row-even"><td><p>Problem Specification</p></td>
+<td><p>Prune [54]
+Box [33]</p></td>
 </tr>
-<tr class="row-odd"><td><p>Multi-task BO</p></td>
-<td><p>DE</p></td>
-<td><p>single</p></td>
-<td colspan="2"><p>x</p></td>
-<td><p>Different variants of differential evolution which
-is a well-known concept for in continuous
-optimization especially for global optimization.</p></td>
+<tr class="row-odd"><td><p>Initialization Design</p></td>
+<td><p>Random/Sobol sequence
+Latin hypercube sampling
+EA [53]
+aLi [55]</p></td>
+</tr>
+<tr class="row-even"><td><p>Surrogate Model</p></td>
+<td><p>GP/Random forest
+MTGP [45]
+MHGP [14]
+PriorGP [50]
+DeepKernelGP [53]
+NeuralProcess [31]
+RGPE [9]
+SGPT [56]</p></td>
+</tr>
+<tr class="row-odd"><td><p>Acquisition Function</p></td>
+<td><p>EI/UCB/PI
+TAF [9, 56]
+FSAF [18]</p></td>
 </tr>
 </tbody>
 </table>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Component</strong></p></th>
+<th class="head"><p><strong>Method</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Problem Specification</p></td>
+<td><p>S0 [1]
+S1 [1]
+S2 [2]</p></td>
+<td><p>Drop area that has no potential to generate promising points.
+Drop area that has no potential to generate promising points.
+Narrow the search space to cover all best points in similar Datasets.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Initialization Design</p></td>
+<td><p>I0 [3]</p>
+<p>I1 [3]</p>
+<p>I2 [4]</p>
+<p>I3 [4]</p>
+</td>
+<td><p>Random/Sobol sequence/ The typical initialization design without the use of any
+information from data.
+Use the evolutionary algorithm to find a set of points that can perform better on all
+similar datasets.
+Learn the optimal initial points by iteratively minimizing the meta loss defined as
+the average minimum loss across similar datasets.
+Learn the optimal initial points by iteratively minimizing the meta loss defined as
+the average minimum loss across similar datasets.</p></td>
+</tr>
+<tr class="row-even"><td><p>Surrogate Model</p></td>
+<td><p>M0
+M1 [5]</p>
+<p>M2 [6]
+M3 [7]
+M4 [3]
+M5 [8]</p>
+<p>M6 [9]</p>
+<p>M7 [10]</p>
+<p>M8 [10]</p>
+<p>M9 [10]</p>
+<p>M10 [10]</p>
+</td>
+<td><p>The two most commonly used surrogate models in conventional BO.
+Model the data from the current task and similar datasets jointly through a
+coregionalization kernel.
+Learn a GP model using the residuals of predictions from models built on similar datasets.
+Learn better parameters of GP from similar datasets.
+A GP model with a kernel that includes a neural network, trained on similar datasets.
+A transformer-based deep neural network that provides predictions and uncertainty
+estimates.
+A model that ensembles GPs trained on similar datasets, with weights based on the
+rank accuracy of their predictions on the current task.
+A model that ensembles GPs trained on similar datasets, with weights based on the
+kernel methods.
+A model that ensembles GPs trained on similar datasets, with weights based on the
+kernel methods.
+A model that ensembles GPs trained on similar datasets, with weights based on the
+kernel methods.
+A model that ensembles GPs trained on similar datasets, with weights based on the
+kernel methods.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Acquisition Function</p></td>
+<td><p>A0
+A1 [9, 10]</p>
+<p>A2 [11]</p>
+<p>A3 [11]</p>
+<p>A4 [11]</p>
+<p>A5 [11]</p>
+<p>A6 [11]</p>
+<p>A7 [11]</p>
+<p>A8 [11]</p>
+</td>
+<td><p>Typical acquisition functions only consider the model’s predictions.
+Transfer acquisition functions leverage individual GP models trained on source tasks
+to improve the evaluation of new points.
+Train a neural network on similar datasets using reinforcement learning methods,
+then use it as the acquisition function.
+Train a neural network on similar datasets using reinforcement learning methods,
+then use it as the acquisition function.
+Train a neural network on similar datasets using reinforcement learning methods,
+then use it as the acquisition function.
+Train a neural network on similar datasets using reinforcement learning methods,
+then use it as the acquisition function.
+Train a neural network on similar datasets using reinforcement learning methods,
+then use it as the acquisition function.
+Train a neural network on similar datasets using reinforcement learning methods,
+then use it as the acquisition function.
+Train a neural network on similar datasets using reinforcement learning methods,
+then use it as the acquisition function.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Link to this heading"></a></h2>
+<div class="docutils container" id="id11">
+<div role="list" class="citation-list">
+<div class="citation" id="id62" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id5">1</a><span class="fn-bracket">]</span></span>
+<p>Matthias Feurer, Jost Tobias Springenberg, and Frank Hutter. Initializing bayesian hyperparameter optimization via meta-learning. In <em>AAAI'15: Proc. of the 2015 AAAI Conference on Artificial Intelligence</em>, 1128–1135. AAAI Press, 2015.</p>
+</div>
+<div class="citation" id="id65" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id7">2</a><span class="fn-bracket">]</span></span>
+<p>Bing-Jing Hsieh, Ping-Chun Hsieh, and Xi Liu. Reinforced few-shot acquisition function learning for Bayesian optimization. In <em>NeurIPS'21: Proc. of the 34th Annual Conference on Neural Information Processing Systems</em>, 7718–7731. 2021.</p>
+</div>
+<div class="citation" id="id164" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id10">3</a><span class="fn-bracket">]</span></span>
+<p>Valerio Perrone and Huibin Shen. Learning search spaces for Bayesian optimization: another view of hyperparameter transfer learning. In <em>NIPS'19: Proc of the 2019 Advances in Neural Information Processing Systems</em>, 12751–12761. 2019.</p>
+</div>
+<div class="citation" id="id24" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">4</a><span class="fn-bracket">]</span></span>
+<p>Jasper Snoek, Hugo Larochelle, and Ryan P. Adams. Practical Bayesian optimization of machine learning algorithms. In <em>NIPS'12: Proc. of the 26th Annual Conference on Neural Information Processing Systems</em>, 2960–2968. 2012.</p>
+</div>
+<div class="citation" id="id56" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">5</a><span class="fn-bracket">]</span></span>
+<p>Kevin Swersky, Jasper Snoek, and Ryan Prescott Adams. Multi-task Bayesian optimization. In <em>NIPs'13: Proc of the 2013 Annual Conference on Neural Information Processing Systems</em>, 2004–2012. 2013.</p>
+</div>
+<div class="citation" id="id59" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id8">6</a><span class="fn-bracket">]</span></span>
+<p>Michael Volpp, Lukas P. Fröhlich, Kirsten Fischer, Andreas Doerr, Stefan Falkner, Frank Hutter, and Christian Daniel. Meta-learning acquisition functions for transfer learning in bayesian optimization. In <em>ICLR'20: Proc. of the 8th International Conference on Learning Representations</em>. OpenReview.net, 2020.</p>
+</div>
+<div class="citation" id="id66" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">7</a><span class="fn-bracket">]</span></span>
+<p>Martin Wistuba and Josif Grabocka. Few-shot bayesian optimization with deep kernel surrogates. In <em>ICLR'21: Proc. of the 9th International Conference on Learning Representations</em>. OpenReview.net, 2021.</p>
+</div>
+<div class="citation" id="id163" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id9">8</a><span class="fn-bracket">]</span></span>
+<p>Martin Wistuba, Nicolas Schilling, and Lars Schmidt-Thieme. Hyperparameter search space pruning - a new component for sequential model-based hyperparameter optimization. In <em>ECML/PKDD'15: Proc of the 2015 Advances in Machine Learning and Knowledge Discovery in Databases</em>, volume 9285, 104–119. 2015.</p>
+</div>
+<div class="citation" id="id63" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id6">9</a><span class="fn-bracket">]</span></span>
+<p>Martin Wistuba, Nicolas Schilling, and Lars Schmidt-Thieme. Learning hyperparameter optimization initializations. In <em>DSAA'15: Proc. of the 2015 IEEE International Conference on Data Science and Advanced Analytics</em>, 1–10. IEEE, 2015.</p>
+</div>
+<div class="citation" id="id93" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">10</a><span class="fn-bracket">]</span></span>
+<p>Martin Wistuba, Nicolas Schilling, and Lars Schmidt-Thieme. Scalable Gaussian process-based transfer surrogates for hyperparameter optimization. <em>Mach. Learn.</em>, 107(1):43–78, 2018.</p>
+</div>
+</div>
+</div>
 </section>
 </section>
 
@@ -139,7 +378,7 @@ optimization especially for global optimization.</p></td>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="features.html" class="btn btn-neutral float-left" title="Features" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../features.html" class="btn btn-neutral float-left" title="Features" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="problems.html" class="btn btn-neutral float-right" title="Benchmark Problems" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

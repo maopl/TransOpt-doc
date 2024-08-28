@@ -22,7 +22,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="API Reference" href="api_reference.html" />
-    <link rel="prev" title="Command Line Interface (CLI)" href="../usage/cli.html" /> 
+    <link rel="prev" title="Using TransOpt via Command Line" href="../usage/cli.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -48,15 +48,18 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quick Start</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../usage/features.html">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features.html">Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../usage/algorithms.html">Algorithmic objects</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../usage/problems.html">Benchmark Problems</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../usage/performance.html">Performance Indicators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/results.html">Results Analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../usage/visualization.html">visualization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../usage/examples.html">Examples</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../usage/cli.html">Command Line Interface (CLI)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/cli.html">Using TransOpt via Command Line</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Architecture Overview</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#system-components">System Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#system-architecture">System Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#workflow">Workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#optimizer-architecture">Optimizer Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#data-management">Data Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#conclusion">Conclusion</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="api_reference.html">API Reference</a></li>
@@ -89,13 +92,34 @@
              
   <section id="architecture-overview">
 <h1>Architecture Overview<a class="headerlink" href="#architecture-overview" title="Link to this heading"></a></h1>
-<p>This document provides an overview of the architecture of the TransOpt platform, including its main components and how they interact.</p>
-<section id="system-components">
-<h2>System Components<a class="headerlink" href="#system-components" title="Link to this heading"></a></h2>
-<ul class="simple">
-<li><p><strong>Backend</strong>: Handles data processing and optimization logic.</p></li>
-<li><p><strong>Frontend</strong>: Provides a user interface for interacting with the platform.</p></li>
-</ul>
+<p>This section provides an overview of the architecture of the TransOpt software, illustrating the key components and workflows involved in its operation.</p>
+<section id="system-architecture">
+<h2>System Architecture<a class="headerlink" href="#system-architecture" title="Link to this heading"></a></h2>
+<p>The following diagram provides a high-level view of the entire system architecture of TransOpt, showing the interaction between various components.</p>
+<a class="reference internal image-reference" href="images/system_architecture.pdf"><img alt="System Architecture Diagram" class="align-center" src="images/system_architecture.pdf" style="width: 600px;" /></a>
+</section>
+<section id="workflow">
+<h2>Workflow<a class="headerlink" href="#workflow" title="Link to this heading"></a></h2>
+<p>The workflow for using TransOpt is illustrated below. This diagram shows the typical steps a user would follow when working with TransOpt, from defining the problem to obtaining the optimization results.</p>
+<a class="reference internal image-reference" href="../_images/workflow.pdf"><img alt="TransOpt Workflow" class="align-center" src="../_images/workflow.pdf" style="width: 600px;" /></a>
+</section>
+<section id="optimizer-architecture">
+<h2>Optimizer Architecture<a class="headerlink" href="#optimizer-architecture" title="Link to this heading"></a></h2>
+<p>TransOpt includes different optimization algorithms. The following diagram highlights the difference between the standard Bayesian Optimization (BO) and Transfer Bayesian Optimization (Transfer BO).</p>
+<p>### BO vs. Transfer BO</p>
+<a class="reference internal image-reference" href="../_images/bo_vs_tlbo.pdf"><img alt="BO vs. Transfer BO" class="align-center" src="../_images/bo_vs_tlbo.pdf" style="width: 600px;" /></a>
+<p>### Optimizer Workflow</p>
+<p>The diagram below illustrates the workflow of the optimizer component within TransOpt, showing how it integrates with other system components.</p>
+<a class="reference internal image-reference" href="../_images/optimizer.pdf"><img alt="Optimizer Workflow" class="align-center" src="../_images/optimizer.pdf" style="width: 600px;" /></a>
+</section>
+<section id="data-management">
+<h2>Data Management<a class="headerlink" href="#data-management" title="Link to this heading"></a></h2>
+<p>Data management is a critical component of TransOpt, handling the storage, retrieval, and processing of data required for optimization tasks. The following diagram provides an overview of how data is managed within the system.</p>
+<a class="reference internal image-reference" href="../_images/data_management.pdf"><img alt="Data Management Overview" class="align-center" src="../_images/data_management.pdf" style="width: 600px;" /></a>
+</section>
+<section id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading"></a></h2>
+<p>The architecture of TransOpt is designed to be modular and flexible, allowing for easy integration of new algorithms and data management strategies. This overview provides a snapshot of the system’s key components and their interactions, setting the stage for more detailed exploration in subsequent sections.</p>
 </section>
 </section>
 
@@ -103,7 +127,7 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../usage/cli.html" class="btn btn-neutral float-left" title="Command Line Interface (CLI)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../usage/cli.html" class="btn btn-neutral float-left" title="Using TransOpt via Command Line" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="api_reference.html" class="btn btn-neutral float-right" title="API Reference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

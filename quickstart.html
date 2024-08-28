@@ -21,7 +21,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Features" href="usage/features.html" />
+    <link rel="next" title="Features" href="features.html" />
     <link rel="prev" title="Installation Guide" href="installation.html" /> 
 </head>
 
@@ -52,13 +52,12 @@
 <li class="toctree-l2"><a class="reference internal" href="#command-line-mode">Command Line Mode</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="usage/features.html">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features.html">Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usage/algorithms.html">Algorithmic objects</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usage/problems.html">Benchmark Problems</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage/performance.html">Performance Indicators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage/results.html">Results Analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usage/visualization.html">visualization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage/examples.html">Examples</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage/cli.html">Command Line Interface (CLI)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage/cli.html">Using TransOpt via Command Line</a></li>
 <li class="toctree-l1"><a class="reference internal" href="development/architecture.html">Architecture Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="development/api_reference.html">API Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a></li>
@@ -104,10 +103,13 @@
 </section>
 <section id="command-line-mode">
 <h2>Command Line Mode<a class="headerlink" href="#command-line-mode" title="Link to this heading"></a></h2>
-<p>Except using TransOpt in the web UI mode, we also provide command line (CMD) mode for these users who don’t have a display screen for some reasons(like on a remote server).</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python transopt/agent/run_cli.py --seed 0
+<p>In addition to the web UI mode, TransOpt also offers a Command Line (CMD) mode for users who may not have access to a display screen, such as when working on a remote server.</p>
+<p>To run TransOpt in CMD mode, use the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python transopt/agent/run_cli.py -n MyTask -v 3 -o 2 -m RF -acf UCB -b 300
 </pre></div>
 </div>
+<p>This command sets up a task named <cite>MyTask</cite> with 3 variables and 2 objectives, using a Random Forest model (<cite>RF</cite>) and the Upper Confidence Bound (<cite>UCB</cite>) acquisition function, with a budget of 300 function evaluations.</p>
+<p>For a complete list of available options and more detailed usage instructions, please refer to the <a class="reference internal" href="usage/cli.html#command-line-usage"><span class="std std-ref">CLI documentation</span></a>.</p>
 </section>
 </section>
 
@@ -116,7 +118,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="installation.html" class="btn btn-neutral float-left" title="Installation Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="usage/features.html" class="btn btn-neutral float-right" title="Features" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="features.html" class="btn btn-neutral float-right" title="Features" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
