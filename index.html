@@ -1,93 +1,629 @@
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" data-content_root="./">
-<head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TransOpt: Transfer Optimization System for Automated Configuration &mdash; TransOpt 0.1.0 documentation</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>TransOPT: Transfer Optimization System for Automated Configuration &#8212; TransOPT: Transfer Optimization System for Bayesian Optimization Using Transfer Learning 0.1.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=c0cc07d6" />
   
-        <script src="_static/jquery.js?v=5d32c60e"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=01f34227"></script>
-        <script src="_static/doctools.js?v=9a2dae69"></script>
-        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script src="_static/js/theme.js"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/jquery.js?v=5d32c60e"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="_static/documentation_options.js?v=a1637f0b"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'index';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Installation Guide" href="installation.html" /> 
-</head>
+    <link rel="next" title="Installation Guide" href="installation.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-<body class="wy-body-for-nav"> 
-  <div class="wy-grid-for-nav">
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
-          
-          
-          <a href="#" class="icon icon-home">
-            TransOpt
-          </a>
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
 </div>
-        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
-<ul>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="#">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/transopt_logo.jpg" class="logo__image only-light" alt="TransOPT: Transfer Optimization System for Bayesian Optimization Using Transfer Learning 0.1.0 documentation - Home"/>
+    <script>document.write(`<img src="_static/transopt_logo.jpg" class="logo__image only-dark" alt="TransOPT: Transfer Optimization System for Bayesian Optimization Using Transfer Learning 0.1.0 documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick Start</a></li>
-<li class="toctree-l1"><a class="reference internal" href="features.html">Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usage/algorithms.html">Algorithmic objects</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usage/problems.html">Benchmark Problems</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usage/results.html">Results Analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage/visualization.html">visualization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage/cli.html">Using TransOpt via Command Line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage/data_manage.html">Data Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage/visualization.html">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage/cli.html">Command Line</a></li>
 <li class="toctree-l1"><a class="reference internal" href="development/architecture.html">Architecture Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="development/api_reference.html">API Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a></li>
 </ul>
 
-        </div>
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
       </div>
-    </nav>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="#">TransOpt</a>
-      </nav>
+<div class="sbt-scroll-pixel-helper"></div>
 
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="Page navigation">
-  <ul class="wy-breadcrumbs">
-      <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">TransOpt: Transfer Optimization System for Automated Configuration</li>
-      <li class="wy-breadcrumbs-aside">
-            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
-      </li>
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/index.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
   </ul>
-  <hr/>
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-             
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>TransOPT: Transfer Optimization System for Automated Configuration</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#features">Features</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#available-algorithmic-objects">Available Algorithmic Objects</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contents">Contents</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contact">Contact</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cite">Cite</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
   <section id="transopt-transfer-optimization-system-for-automated-configuration">
-<span id="home"></span><h1>TransOpt: Transfer Optimization System for Automated Configuration<a class="headerlink" href="#transopt-transfer-optimization-system-for-automated-configuration" title="Link to this heading"></a></h1>
-<p>Our framework offers state of the art transfer optimization algorithms and many more features related to transfer optimization such as data management, benchmark test problems and visualization. TransOpt can be installed by:</p>
+<span id="home"></span><h1>TransOPT: Transfer Optimization System for Automated Configuration<a class="headerlink" href="#transopt-transfer-optimization-system-for-automated-configuration" title="Link to this heading">#</a></h1>
+<p>TransOPT is an open-source software platform designed to facilitate the design, benchmarking, and application of transfer learning for Bayesian optimization (TLBO) algorithms through a modular, data-centric framework.</p>
+<style>
+
+    .zoom:hover {
+        transform: scale(1.07);
+    }
+</style>
+
+
+<div class="container">
+    <div class="row row-eq-height">
+
+
+        <div class="col-md d-flex my-1 mx-2 overflow-hidden">
+            <div class="card">
+                <a href="installation.html"><img class="card-img-top w-100 zoom"
+                                                          src="_static/figures/giant.png"
+                                                          alt="Icon Getting Started"></a>
+                <div class="card-body">
+                    <p class="card-text"><b>Getting Started:</b> The key steps in using TransOPT: Installation, Algorithm Selection, Benchmarking Problems, Visualization, and Data Management for effective transfer learning optimization.</p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-md d-flex my-1 mx-2 overflow-hidden">
+            <div class="card">
+                <a href="https://colalab.ai/" data-toggle="modal" data-target="#colalab"><img class="card-img-top w-100 zoom"
+                                                                              src="_static/figures/colalab.png"
+                                                                              alt="Icon colalab"></a>
+                <div class="card-body">
+                    <p class="card-text"><b>About Us:</b> COLA laboratory is working in computational/artificial intelligence, multi-objective optimization and decision-making, operational research...</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md d-flex my-1 mx-2 overflow-hidden">
+            <div class="card">
+                <a href=""><img class="card-img-top w-100 zoom"
+                                                                              src="_static/figures/research.png"
+                                                                              alt="Research with this Package"></a>
+                <div class="card-body">
+                    <p class="card-text"><b>News:</b> 
+                        Our system has been applied in various studies, including protein design, hyperparameter optimization... </p>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+<section id="features">
+<h2>Features<a class="headerlink" href="#features" title="Link to this heading">#</a></h2>
+<p>TransOPT offers diverse features covering various aspects of transfer optimization.</p>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+<style>
+    #wrapper h4 {
+        margin: 5px 0px 15px 0px;
+        font-weight: 400;
+    }
+
+    .entry {
+        height: 100%;
+        width: 100%;
+    }
+
+    .border {
+        border: 1px solid #DCDCDC;
+    }
+
+    .icon {
+        margin-top: 5px;
+    }
+
+    .entry:hover {
+        background: #DCDCDC;
+        cursor: pointer;
+    }
+</style>
+
+<div id="wrapper">
+    <div class="row row-eq-height">
+        <div class="col-12 col-lg-6 p-1">
+            <div class="entry border p-3">
+                <div class="d-flex flex-row">
+                    <div class="icon col-2">
+                        <i class="fas fa-cogs fa-2x"></i>
+                    </div>
+                    <div class="desc col-10">
+                        <p class="portfolio-heading">Composite Algorithm Design</p>
+                        <a>Search Space:</a> <a href="usage/algorithms.html"> Automated prune search space, ...</a><br>
+                        <a>Initialization:</a> <a href="usage/algorithms.html"> Meta-learn based initialization, EA-based initialization ...</a><br>
+                        <a>Surrogate Model:</a> <a href="usage/algorithms.html"> MTGP, RGPE, Neural Process, ...</a><br>
+                        <a>Acquisition Function:</a> <a href="usage/algorithms.html"> Transfre acquisition function, RL acquisition function, ...</a><br>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-lg-6 p-1">
+            <div class="entry border p-3">
+                <div class="d-flex flex-row">
+                    <div class="icon col-2">
+                        <i class="fas fa-database fa-2x"></i>
+                    </div>
+                    <div class="desc col-10">
+                        <p class="portfolio-heading"><a>Robust Data Management</a></p>
+                        <a>Embedded Database:</a> <a href="usage/algorithms.html"> Utilizes SQLite as an embedded database, enabling seamless data management.</a><br>
+                        <a>Integration with External Datasets:</a> <a href="usage/algorithms.html"> Allows integration of public datasets to enhance analysis.</a><br>
+                        <a>Data Retrieve:</a> <a href="usage/algorithms.html"> Local-sensitivity based data retrieval approach.</a><br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row row-eq-height">
+        <div class="col-12 col-lg-6 p-1">
+            <div class="entry border p-3">
+                <div class="d-flex flex-row">
+                    <div class="icon col-2">
+                        <i class="fas fa-tasks fa-2x"></i>
+                    </div>
+                    <div class="desc col-10">
+                        <p class="portfolio-heading"><a>Benchmark Problems</a></p>
+                        <a>Synthetic Problems:</a> <a href="usage/problems.html"> Ackley, ...</a><br>
+                        <a>Configurable Software Tuning:</a> <a href="usage/problems.html">GCC, LLVM, MySQL, Hadoop, ...</a><br>
+                        <a>Hyperparameter Optimization:</a> <a href="usage/problems.html"> ResNet, DenseNet, AlexNet, ...</a><br>
+                        <a>Protein Inverse Folding:</a> <a href="usage/problems.html">Protein Data Bank, CATH, ...</a>,
+                        <a>RNA Inverse Design:</a> <a href="usage/problems.html">Eterna100, RNAStralign, Rfam-learn, ...</a>,
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-lg-6 p-1">
+            <div class="entry border p-3">
+                <div class="d-flex flex-row">
+                    <div class="icon col-2">
+                        <i class="fas fa-globe fa-2x"></i>
+                    </div>
+                    <div class="desc col-10">
+                        <p class="portfolio-heading"><a>Web User Interface</a></p>
+                        <a>Intuitive Navigation:</a> <a href="usage/results.html"> Clear menus and sidebars for easy access to features.</a><br>
+                        <a>Interactive Data Visualization:</a> <a href="usage/results.html"> Real-time charts and graphs for data results.</a><br>
+                        <a>Data Upload Functionality:</a> <a href="usage/results.html"> Direct upload of datasets for transfer and optimization.</a><br>
+                        <a>LLM-powered-chatbot:</a> <a href="usage/results.html">Enables natural language interaction.</a><br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row row-eq-height">
+        <div class="col-12 col-lg-6 p-1">
+            <div class="entry border p-3">
+                <div class="d-flex flex-row">
+                    <div class="icon col-2">
+                        <i class="fas fa-chart-bar fa-2x"></i>
+                    </div>
+                    <div class="desc col-10">
+                        <p class="portfolio-heading"><a>Results Analysis</a></p>
+                        <a>Performance Indicator:</a> <a href="usage/results.html"> MAE, GC-content, Max RSS, ...</a><br>
+                        <a>Statistical Measures:</a> <a href="usage/results.html"> Wilcoxon signed-rank test, Scott-Knott test, Critical difference, ...</a><br>
+                        <a>Visualization:</a> <a href="usage/results.html"> Optimization trajectory, Multidimensional scaling, ...</a><br>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-lg-6 p-1">
+            <div class="entry border p-3">
+                <div class="d-flex flex-row">
+                    <div class="icon col-2">
+                        <i class="fas fa-puzzle-piece fa-2x"></i>
+                    </div>
+                    <div class="desc col-10">
+                        <p class="portfolio-heading">Future Feature</p>
+                        <p>Coming soon...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+<section id="available-algorithmic-objects">
+<h2>Available Algorithmic Objects<a class="headerlink" href="#available-algorithmic-objects" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 35.3%" />
+<col style="width: 5.9%" />
+<col style="width: 58.8%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Algorithmic Objects</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Source Algorithm</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Prune</p></td>
+<td><p>Space Transform</p></td>
+<td><p>Hyperparameter Search Space Pruning – A New Component for Sequential Model-Based Hyperparameter Optimization</p></td>
+</tr>
+<tr class="row-even"><td><p>Prune</p></td>
+<td><p>Space Transform</p></td>
+<td><p>Learning search spaces for Bayesian optimization- Another view of hyperparameter transfer learning</p></td>
+</tr>
+<tr class="row-odd"><td><p>EA-based initialization</p></td>
+<td><p>Initialization Design</p></td>
+<td><p>Few-Shot Bayesian Optimization with Deep Kernel Surrogates</p></td>
+</tr>
+<tr class="row-even"><td><p>MI-SMBO</p></td>
+<td><p>Initialization Design</p></td>
+<td><p>Initializing Bayesian Hyperparameter Optimization via Meta-Learning</p></td>
+</tr>
+<tr class="row-odd"><td><p>aLI</p></td>
+<td><p>Initialization Design</p></td>
+<td><p>Learning Hyperparameter Optimization Initializations</p></td>
+</tr>
+<tr class="row-even"><td><p>Prior-GP</p></td>
+<td><p>Surrogate Model</p></td>
+<td><p>Pre-trained Gaussian processes for Bayesian optimization</p></td>
+</tr>
+<tr class="row-odd"><td><p>Deep kernel GP</p></td>
+<td><p>Surrogate Model</p></td>
+<td><p>Few-Shot Bayesian Optimization with Deep Kernel Surrogates</p></td>
+</tr>
+<tr class="row-even"><td><p>MHGP</p></td>
+<td><p>Surrogate Model</p></td>
+<td><p>Google Vizier-A Service for Black-Box Optimization</p></td>
+</tr>
+<tr class="row-odd"><td><p>PFNs</p></td>
+<td><p>Surrogate Model</p></td>
+<td><p>PFNs4BO- In-Context Learning for Bayesian Optimization</p></td>
+</tr>
+<tr class="row-even"><td><p>Weighted-sum Gaussian Process</p></td>
+<td><p>Surrogate Model</p></td>
+<td><p>Scalable Gaussian process-based transfer surrogates for hyperparameter optimization</p></td>
+</tr>
+<tr class="row-odd"><td><p>Rank-based Gaussian Process</p></td>
+<td><p>Surrogate Model</p></td>
+<td><p>Scalable Meta-Learning for Bayesian Optimization using Ranking-Weighted Gaussian Process Ensembles</p></td>
+</tr>
+<tr class="row-even"><td><p>Multi-task Gaussian Process</p></td>
+<td><p>Surrogate Model</p></td>
+<td><p>Multi-Task Bayesian Optimization</p></td>
+</tr>
+<tr class="row-odd"><td><p>DNN-MF</p></td>
+<td><p>Surrogate Model</p></td>
+<td><p>Multi-Fidelity Bayesian Optimization via Deep Neural Networks</p></td>
+</tr>
+<tr class="row-even"><td><p>TPE</p></td>
+<td><p>Surrogate Model</p></td>
+<td><p>BOHB: robust and eﬀicient hyperparameter optimization at scale</p></td>
+</tr>
+<tr class="row-odd"><td><p>TAF</p></td>
+<td><p>Acquisition Function</p></td>
+<td><p>Scalable Gaussian process-based transfer surrogates for hyperparameter optimization</p></td>
+</tr>
+<tr class="row-even"><td><p>Rank-based ACF</p></td>
+<td><p>Acquisition Function</p></td>
+<td><p>Scalable Meta-Learning for Bayesian Optimization using Ranking-Weighted Gaussian Process Ensembles</p></td>
+</tr>
+<tr class="row-odd"><td><p>MX-Entropy</p></td>
+<td><p>Acquisition Function</p></td>
+<td><p>Multi-Task Bayesian Optimization</p></td>
+</tr>
+<tr class="row-even"><td><p>FSAF</p></td>
+<td><p>Acquisition Function</p></td>
+<td><p>Reinforced Few-Shot Acquisition Function Learning</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="contents">
+<h2>Contents<a class="headerlink" href="#contents" title="Link to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">Contents</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick Start</a><ul>
@@ -95,9 +631,8 @@
 <li class="toctree-l2"><a class="reference internal" href="quickstart.html#command-line-mode">Command Line Mode</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="features.html">Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usage/algorithms.html">Algorithmic objects</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="usage/algorithms.html#registering-a-new-algorithm-in-transopt">Registering a New Algorithm in TransOpt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage/algorithms.html#registering-a-new-algorithm-in-transopt">Registering a New Algorithm in TransOPT</a></li>
 <li class="toctree-l2"><a class="reference internal" href="usage/algorithms.html#supported-algorithms">Supported Algorithms</a></li>
 <li class="toctree-l2"><a class="reference internal" href="usage/algorithms.html#list-of-algorithmic-objects">List of Algorithmic Objects</a></li>
 <li class="toctree-l2"><a class="reference internal" href="usage/algorithms.html#references">References</a></li>
@@ -124,8 +659,9 @@
 <li class="toctree-l2"><a class="reference internal" href="usage/results.html#critical-difference-cd">Critical Difference (CD)</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="usage/visualization.html">visualization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage/cli.html">Using TransOpt via Command Line</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="usage/data_manage.html">Data Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage/visualization.html">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage/cli.html">Command Line</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="usage/cli.html#running-the-command-line-interface">Running the Command-Line Interface</a></li>
 </ul>
 </li>
@@ -146,43 +682,124 @@
 </ul>
 </div>
 </section>
-<section id="indices-and-tables">
-<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Link to this heading"></a></h1>
-<ul class="simple">
-<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
-<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
-<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
-</ul>
+<section id="contact">
+<h2>Contact<a class="headerlink" href="#contact" title="Link to this heading">#</a></h2>
+<div class="line-block">
+<div class="line"><strong>Peili Mao</strong></div>
+<div class="line"><em>University of Electronic Science and Technology of China</em></div>
+<div class="line"><em>Department of Computer Science</em></div>
+<div class="line"><strong>E-mail</strong>:</div>
+<div class="line"><a class="reference external" href="mailto:peili&#46;z&#46;mao&#37;&#52;&#48;gmail&#46;com">peili<span>&#46;</span>z<span>&#46;</span>mao<span>&#64;</span>gmail<span>&#46;</span>com</a></div>
+</div>
+</section>
+<section id="cite">
+<h2>Cite<a class="headerlink" href="#cite" title="Link to this heading">#</a></h2>
+<p>If you have utilized our framework for research purposes, we kindly invite you to cite our publication as follows:</p>
+<p>BibTex:</p>
+<div class="highlight-bibtex notranslate"><div class="highlight"><pre><span></span><span class="nc">@ARTICLE</span><span class="p">{</span><span class="nl">TransOPT</span><span class="p">,</span>
+<span class="w">  </span><span class="na">title</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{{TransOPT}: Transfer Optimization System For Automated Configuration}</span><span class="p">,</span>
+<span class="w">  </span><span class="na">author</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{Author Name and Collaborator Name}</span><span class="p">,</span>
+<span class="w">  </span><span class="na">url</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{https://github.com/maopl/TransOPT}</span><span class="p">,</span>
+<span class="w">  </span><span class="na">year</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{2024}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
 </section>
 
 
-           </div>
-          </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="installation.html" class="btn btn-neutral float-right" title="Installation Guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
+                </article>
+              
 
-  <hr/>
-
-  <div role="contentinfo">
-    <p>&#169; Copyright 2024, Peili Mao.</p>
-  </div>
-
-  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    provided by <a href="https://readthedocs.org">Read the Docs</a>.
-   
-
-</footer>
-        </div>
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="right-next"
+       href="installation.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Installation Guide</p>
       </div>
-    </section>
-  </div>
-  <script>
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script> 
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
-</body>
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#features">Features</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#available-algorithmic-objects">Available Algorithmic Objects</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contents">Contents</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contact">Contact</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cite">Cite</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Peili Mao
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, Peili Mao.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
 </html>

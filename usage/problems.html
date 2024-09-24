@@ -1,116 +1,372 @@
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" data-content_root="../">
-<head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Benchmark Problems &mdash; TransOpt 0.1.0 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Benchmark Problems &#8212; TransOPT: Transfer Optimization System for Bayesian Optimization Using Transfer Learning 0.1.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=c0cc07d6" />
   
-        <script src="../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=01f34227"></script>
-        <script src="../_static/doctools.js?v=9a2dae69"></script>
-        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script src="../_static/js/theme.js"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../_static/documentation_options.js?v=a1637f0b"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'usage/problems';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Results Analysis" href="results.html" />
-    <link rel="prev" title="Algorithmic objects" href="algorithms.html" /> 
-</head>
+    <link rel="prev" title="Algorithmic objects" href="algorithms.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-<body class="wy-body-for-nav"> 
-  <div class="wy-grid-for-nav">
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
-          
-          
-          <a href="../index.html" class="icon icon-home">
-            TransOpt
-          </a>
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
 </div>
-        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
-<ul class="current">
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/transopt_logo.jpg" class="logo__image only-light" alt="TransOPT: Transfer Optimization System for Bayesian Optimization Using Transfer Learning 0.1.0 documentation - Home"/>
+    <script>document.write(`<img src="../_static/transopt_logo.jpg" class="logo__image only-dark" alt="TransOPT: Transfer Optimization System for Bayesian Optimization Using Transfer Learning 0.1.0 documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quick Start</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../features.html">Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="algorithms.html">Algorithmic objects</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Benchmark Problems</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#registering-a-new-benchmark-problem">Registering a New Benchmark Problem</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#synthetic-problem">Synthetic Problem</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#hyperparameter-optimization-problem">Hyperparameter Optimization Problem</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#configurable-software-optimization-problem">Configurable Software Optimization Problem</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#rna-inverse-design-problem">RNA Inverse Design Problem</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#protein-inverse-folding-problem">Protein Inverse Folding Problem</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#parallelization">Parallelization</a></li>
-</ul>
-</li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Benchmark Problems</a></li>
 <li class="toctree-l1"><a class="reference internal" href="results.html">Results Analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="visualization.html">visualization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cli.html">Using TransOpt via Command Line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_manage.html">Data Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="visualization.html">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">Command Line</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../development/architecture.html">Architecture Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../development/api_reference.html">API Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a></li>
 </ul>
 
-        </div>
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
       </div>
-    </nav>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">TransOpt</a>
-      </nav>
+<div class="sbt-scroll-pixel-helper"></div>
 
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="Page navigation">
-  <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Benchmark Problems</li>
-      <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/usage/problems.rst.txt" rel="nofollow"> View page source</a>
-      </li>
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/usage/problems.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
   </ul>
-  <hr/>
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-             
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Benchmark Problems</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#registering-a-new-benchmark-problem">Registering a New Benchmark Problem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#synthetic-problem">Synthetic Problem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hyperparameter-optimization-problem">Hyperparameter Optimization Problem</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hyperparameters-for-support-vector-machine-svm">Hyperparameters for Support Vector Machine (SVM)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hyperparameters-for-adaboost">Hyperparameters for AdaBoost</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hyperparameters-for-random-forest">Hyperparameters for Random Forest</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hyperparameters-for-xgboost">Hyperparameters for XGBoost</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hyperparameters-for-glmnet">Hyperparameters for GLMNet</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hyperparameters-for-alexnet">Hyperparameters for AlexNet</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hyperparameters-for-2-layer-bayesian-neural-network-bnn">Hyperparameters for 2-Layer Bayesian Neural Network (BNN)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hyperparameters-for-cnns">Hyperparameters for CNNs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hyperparameters-for-resnet18">Hyperparameters for ResNet18</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hyperparameters-for-densenet">Hyperparameters for DenseNet</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#machine-learning-tasks">Machine Learning Tasks</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configurable-software-optimization-problem">Configurable Software Optimization Problem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rna-inverse-design-problem">RNA Inverse Design Problem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#protein-inverse-folding-problem">Protein Inverse Folding Problem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parallelization">Parallelization</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
   <section id="benchmark-problems">
-<h1>Benchmark Problems<a class="headerlink" href="#benchmark-problems" title="Link to this heading"></a></h1>
+<h1>Benchmark Problems<a class="headerlink" href="#benchmark-problems" title="Link to this heading">#</a></h1>
 <p>This</p>
 <div class="info admonition">
 <p class="admonition-title">Overview</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#registering-new-problem"><span class="std std-ref">Register</span></a>: How to register a new optimization problem to <a class="reference internal" href="../index.html#home"><span class="std std-ref">TransOpt</span></a></p></li>
-<li><p><a class="reference internal" href="#synthetic-problems"><span class="std std-ref">Synthetic Problem</span></a>: The list of the synthetic problems available in <a class="reference internal" href="../index.html#home"><span class="std std-ref">TransOpt</span></a></p></li>
-<li><p><a class="reference internal" href="#hpo-problems"><span class="std std-ref">Hyperparameter Optimization Problem</span></a>: The list of the HPO problems available in <a class="reference internal" href="../index.html#home"><span class="std std-ref">TransOpt</span></a></p></li>
-<li><p><a class="reference internal" href="#cso-problems"><span class="std std-ref">Configurable Software Optimization Problem</span></a>: The list of the configurable software optimization problems available in <a class="reference internal" href="../index.html#home"><span class="std std-ref">TransOpt</span></a></p></li>
-<li><p><a class="reference internal" href="#rna-problems"><span class="std std-ref">RNA Inverse Design Problem</span></a>: The list of the RNA Inverse design problems available in <a class="reference internal" href="../index.html#home"><span class="std std-ref">TransOpt</span></a></p></li>
-<li><p><a class="reference internal" href="#pif-problems"><span class="std std-ref">Protein Inverse Folding Problem</span></a>: The list of the protein inverse folding problems available in <a class="reference internal" href="../index.html#home"><span class="std std-ref">TransOpt</span></a></p></li>
+<li><p><a class="reference internal" href="#registering-new-problem"><span class="std std-ref">Register</span></a>: How to register a new optimization problem to <a class="reference internal" href="../index.html#home"><span class="std std-ref">TransOPT</span></a></p></li>
+<li><p><a class="reference internal" href="#synthetic-problems"><span class="std std-ref">Synthetic Problem</span></a>: The list of the synthetic problems available in <a class="reference internal" href="../index.html#home"><span class="std std-ref">TransOPT</span></a></p></li>
+<li><p><a class="reference internal" href="#hpo-problems"><span class="std std-ref">Hyperparameter Optimization Problem</span></a>: The list of the HPO problems available in <a class="reference internal" href="../index.html#home"><span class="std std-ref">TransOPT</span></a></p></li>
+<li><p><a class="reference internal" href="#cso-problems"><span class="std std-ref">Configurable Software Optimization Problem</span></a>: The list of the configurable software optimization problems available in <a class="reference internal" href="../index.html#home"><span class="std std-ref">TransOPT</span></a></p></li>
+<li><p><a class="reference internal" href="#rna-problems"><span class="std std-ref">RNA Inverse Design Problem</span></a>: The list of the RNA Inverse design problems available in <a class="reference internal" href="../index.html#home"><span class="std std-ref">TransOPT</span></a></p></li>
+<li><p><a class="reference internal" href="#pif-problems"><span class="std std-ref">Protein Inverse Folding Problem</span></a>: The list of the protein inverse folding problems available in <a class="reference internal" href="../index.html#home"><span class="std std-ref">TransOPT</span></a></p></li>
 <li><p><a class="reference internal" href="#parallelization"><span class="std std-ref">Parallelization</span></a>: How to parallelize function evaluations</p></li>
 </ul>
 </div>
 <section id="registering-a-new-benchmark-problem">
-<span id="registering-new-problem"></span><h2>Registering a New Benchmark Problem<a class="headerlink" href="#registering-a-new-benchmark-problem" title="Link to this heading"></a></h2>
-<p>To register a new benchmark problem in the TransOpt framework, follow the steps below.</p>
+<span id="registering-new-problem"></span><h2>Registering a New Benchmark Problem<a class="headerlink" href="#registering-a-new-benchmark-problem" title="Link to this heading">#</a></h2>
+<p>To register a new benchmark problem in the TransOPT framework, follow the steps below.</p>
 <p>### 1. Import the Problem Registry</p>
 <p>First, you need to import the <cite>problem_registry</cite> from the <cite>transopt.agent.registry</cite> module:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">transopt.agent.registry</span> <span class="kn">import</span> <span class="n">problem_registry</span>
@@ -179,10 +435,10 @@ This method evaluates the problem’s objective function based on the provided c
      <span class="k">return</span> <span class="n">results</span>
 </pre></div>
 </div>
-<p>By following these steps, you can successfully register a new benchmark problem in the TransOpt framework.</p>
+<p>By following these steps, you can successfully register a new benchmark problem in the TransOPT framework.</p>
 </section>
 <section id="synthetic-problem">
-<span id="synthetic-problems"></span><h2>Synthetic Problem<a class="headerlink" href="#synthetic-problem" title="Link to this heading"></a></h2>
+<span id="synthetic-problems"></span><h2>Synthetic Problem<a class="headerlink" href="#synthetic-problem" title="Link to this heading">#</a></h2>
 <p>The synthetic problems in this section are widely used in the optimization literature for benchmarking optimization algorithms. These problems exhibit diverse characteristics and levels of complexity, making them ideal for testing the robustness and efficiency of different optimization strategies. Below is an overview of the synthetic problems included in this benchmark suite:</p>
 <ul class="simple">
 <li><p><strong>Sphere:</strong> A simple convex problem that is often used as a baseline. The global minimum is located at the origin, and the objective function value increases quadratically with distance from the origin.</p></li>
@@ -217,7 +473,7 @@ This method evaluates the problem’s objective function based on the provided c
 <li><p><strong>Moving Peak:</strong> A dynamic optimization problem where the objective function changes over time, used to assess an algorithm’s adaptability to changing landscapes.</p></li>
 </ul>
 <p>These problems collectively provide a comprehensive suite for evaluating optimization algorithms across a broad range of difficulties, including convexity, multi-modality, separability, and conditioning.</p>
-<table class="docutils align-default">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Problem name</p></th>
 <th class="head"><p>Mathematical formulation</p></th>
@@ -240,7 +496,8 @@ This method evaluates the problem’s objective function based on the provided c
 <td></td>
 </tr>
 <tr class="row-even"><td><p>Schwefel</p></td>
-<td colspan="2"><p><span class="math notranslate nohighlight">\(f(\mathbf{x}) = 418.9829 d - \sum_{i=1}^d x_i \sin\left(\sqrt{\left{x_i\right}\right)\)</span>                                                                          | <span class="math notranslate nohighlight">\(x_i \in [-500, 500]\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(f(\mathbf{x}) = 418.9829 d - \sum_{i=1}^d x_i \sin\left(\sqrt{\left|x_i\right|}\right)\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(x_i \in [-500, 500]\)</span></p></td>
 <td></td>
 <td></td>
 </tr>
@@ -427,13 +684,15 @@ This method evaluates the problem’s objective function based on the provided c
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 <section id="hyperparameter-optimization-problem">
-<span id="hpo-problems"></span><h2>Hyperparameter Optimization Problem<a class="headerlink" href="#hyperparameter-optimization-problem" title="Link to this heading"></a></h2>
+<span id="hpo-problems"></span><h2>Hyperparameter Optimization Problem<a class="headerlink" href="#hyperparameter-optimization-problem" title="Link to this heading">#</a></h2>
 <p>This section provides an overview of the hyperparameter optimization problem including the hyperparameters used for various machine learning models and machine learning tasks used for generate problem instances.</p>
-<p>Hyperparameters for Support Vector Machine (SVM)</p>
+<section id="hyperparameters-for-support-vector-machine-svm">
+<h3>Hyperparameters for Support Vector Machine (SVM)<a class="headerlink" href="#hyperparameters-for-support-vector-machine-svm" title="Link to this heading">#</a></h3>
 <p>Support Vector Machines (SVM) are widely used for classification and regression tasks. They are particularly effective in high-dimensional spaces and situations where the number of dimensions exceeds the number of samples. The hyperparameters for SVM control the regularization and the kernel function, which are crucial for model performance.</p>
-<table class="docutils align-default">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p><strong>Hyperparameter</strong></p></th>
 <th class="head"><p><strong>Range</strong></p></th>
@@ -442,18 +701,21 @@ This method evaluates the problem’s objective function based on the provided c
 </thead>
 <tbody>
 <tr class="row-even"><td><p>C</p></td>
-<td><p>[-10, 10]</p></td>
+<td><p><span class="math notranslate nohighlight">\([-10, 10]\)</span></p></td>
 <td><p>Continuous</p></td>
 </tr>
 <tr class="row-odd"><td><p>gamma</p></td>
-<td><p>[-10, 10]</p></td>
+<td><p><span class="math notranslate nohighlight">\([-10, 10]\)</span></p></td>
 <td><p>Continuous</p></td>
 </tr>
 </tbody>
 </table>
-<p>Hyperparameters for AdaBoost</p>
+</div>
+</section>
+<section id="hyperparameters-for-adaboost">
+<h3>Hyperparameters for AdaBoost<a class="headerlink" href="#hyperparameters-for-adaboost" title="Link to this heading">#</a></h3>
 <p>AdaBoost is a popular ensemble method that combines multiple weak learners to create a strong classifier. It is particularly useful for boosting the performance of decision trees. The hyperparameters control the number of estimators and the learning rate, which affects the contribution of each classifier.</p>
-<table class="docutils align-default">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p><strong>Hyperparameter</strong></p></th>
 <th class="head"><p><strong>Range</strong></p></th>
@@ -462,18 +724,21 @@ This method evaluates the problem’s objective function based on the provided c
 </thead>
 <tbody>
 <tr class="row-even"><td><p>n_estimators</p></td>
-<td><p>[1, 100]</p></td>
+<td><p><span class="math notranslate nohighlight">\([1, 100]\)</span></p></td>
 <td><p>Integer</p></td>
 </tr>
 <tr class="row-odd"><td><p>learning_rate</p></td>
-<td><p>[0.01, 1]</p></td>
+<td><p><span class="math notranslate nohighlight">\([0.01, 1]\)</span></p></td>
 <td><p>Continuous</p></td>
 </tr>
 </tbody>
 </table>
-<p>Hyperparameters for Random Forest</p>
+</div>
+</section>
+<section id="hyperparameters-for-random-forest">
+<h3>Hyperparameters for Random Forest<a class="headerlink" href="#hyperparameters-for-random-forest" title="Link to this heading">#</a></h3>
 <p>Random Forest is an ensemble learning method that builds multiple decision trees and merges them to get a more accurate and stable prediction. It is widely used for both classification and regression tasks. The hyperparameters include the number of trees, the depth of the trees, and various criteria for splitting nodes.</p>
-<table class="docutils align-default">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p><strong>Hyperparameter</strong></p></th>
 <th class="head"><p><strong>Range</strong></p></th>
@@ -482,11 +747,11 @@ This method evaluates the problem’s objective function based on the provided c
 </thead>
 <tbody>
 <tr class="row-even"><td><p>n_estimators</p></td>
-<td><p>[1, 1000]</p></td>
+<td><p><span class="math notranslate nohighlight">\([1, 1000]\)</span></p></td>
 <td><p>Integer</p></td>
 </tr>
 <tr class="row-odd"><td><p>max_depth</p></td>
-<td><p>[1, 100]</p></td>
+<td><p><span class="math notranslate nohighlight">\([1, 100]\)</span></p></td>
 <td><p>Integer</p></td>
 </tr>
 <tr class="row-even"><td><p>criterion</p></td>
@@ -494,22 +759,25 @@ This method evaluates the problem’s objective function based on the provided c
 <td><p>Categorical</p></td>
 </tr>
 <tr class="row-odd"><td><p>min_samples_leaf</p></td>
-<td><p>[1, 20]</p></td>
+<td><p><span class="math notranslate nohighlight">\([1, 20]\)</span></p></td>
 <td><p>Integer</p></td>
 </tr>
 <tr class="row-even"><td><p>min_weight_fraction_leaf</p></td>
-<td><p>[0.0, 0.5]</p></td>
+<td><p><span class="math notranslate nohighlight">\([0.0, 0.5]\)</span></p></td>
 <td><p>Continuous</p></td>
 </tr>
 <tr class="row-odd"><td><p>min_impurity_decrease</p></td>
-<td><p>[0.0, 1.0]</p></td>
+<td><p><span class="math notranslate nohighlight">\([0.0, 1.0]\)</span></p></td>
 <td><p>Continuous</p></td>
 </tr>
 </tbody>
 </table>
-<p>Hyperparameters for XGBoost</p>
+</div>
+</section>
+<section id="hyperparameters-for-xgboost">
+<h3>Hyperparameters for XGBoost<a class="headerlink" href="#hyperparameters-for-xgboost" title="Link to this heading">#</a></h3>
 <p>XGBoost is an efficient and scalable implementation of gradient boosting, designed for speed and performance. It is widely used in machine learning competitions and industry for classification and regression tasks. The hyperparameters include learning rates, tree depths, and regularization parameters, which control the complexity of the model and its ability to generalize.</p>
-<table class="docutils align-default">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p><strong>Hyperparameter</strong></p></th>
 <th class="head"><p><strong>Range</strong></p></th>
@@ -518,50 +786,53 @@ This method evaluates the problem’s objective function based on the provided c
 </thead>
 <tbody>
 <tr class="row-even"><td><p>eta</p></td>
-<td><p>[-10.0, 0.0]</p></td>
+<td><p><span class="math notranslate nohighlight">\([-10.0, 0.0]\)</span></p></td>
 <td><p>Continuous</p></td>
 </tr>
 <tr class="row-odd"><td><p>max_depth</p></td>
-<td><p>[1, 15]</p></td>
+<td><p><span class="math notranslate nohighlight">\([1, 15]\)</span></p></td>
 <td><p>Integer</p></td>
 </tr>
 <tr class="row-even"><td><p>min_child_weight</p></td>
-<td><p>[0.0, 7.0]</p></td>
+<td><p><span class="math notranslate nohighlight">\([0.0, 7.0]\)</span></p></td>
 <td><p>Continuous</p></td>
 </tr>
 <tr class="row-odd"><td><p>colsample_bytree</p></td>
-<td><p>[0.01, 1.0]</p></td>
+<td><p><span class="math notranslate nohighlight">\([0.01, 1.0]\)</span></p></td>
 <td><p>Continuous</p></td>
 </tr>
 <tr class="row-even"><td><p>colsample_bylevel</p></td>
-<td><p>[0.01, 1.0]</p></td>
+<td><p><span class="math notranslate nohighlight">\([0.01, 1.0]\)</span></p></td>
 <td><p>Continuous</p></td>
 </tr>
 <tr class="row-odd"><td><p>reg_lambda</p></td>
-<td><p>[-10.0, 10.0]</p></td>
+<td><p><span class="math notranslate nohighlight">\([-10.0, 10.0]\)</span></p></td>
 <td><p>Continuous</p></td>
 </tr>
 <tr class="row-even"><td><p>reg_alpha</p></td>
-<td><p>[-10.0, 10.0]</p></td>
+<td><p><span class="math notranslate nohighlight">\([-10.0, 10.0]\)</span></p></td>
 <td><p>Continuous</p></td>
 </tr>
 <tr class="row-odd"><td><p>subsample_per_it</p></td>
-<td><p>[0.1, 1.0]</p></td>
+<td><p><span class="math notranslate nohighlight">\([0.1, 1.0]\)</span></p></td>
 <td><p>Continuous</p></td>
 </tr>
 <tr class="row-even"><td><p>n_estimators</p></td>
-<td><p>[1, 50]</p></td>
+<td><p><span class="math notranslate nohighlight">\([1, 50]\)</span></p></td>
 <td><p>Integer</p></td>
 </tr>
 <tr class="row-odd"><td><p>gamma</p></td>
-<td><p>[0.0, 1.0]</p></td>
+<td><p><span class="math notranslate nohighlight">\([0.0, 1.0]\)</span></p></td>
 <td><p>Continuous</p></td>
 </tr>
 </tbody>
 </table>
-<p>Hyperparameters for GLMNet</p>
+</div>
+</section>
+<section id="hyperparameters-for-glmnet">
+<h3>Hyperparameters for GLMNet<a class="headerlink" href="#hyperparameters-for-glmnet" title="Link to this heading">#</a></h3>
 <p>GLMNet is a regularized regression model that supports both LASSO and ridge regression. It is particularly useful for high-dimensional datasets where regularization is necessary to prevent overfitting. The hyperparameters control the strength of the regularization and the balance between L1 and L2 penalties.</p>
-<table class="docutils align-default">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p><strong>Hyperparameter</strong></p></th>
 <th class="head"><p><strong>Range</strong></p></th>
@@ -570,22 +841,25 @@ This method evaluates the problem’s objective function based on the provided c
 </thead>
 <tbody>
 <tr class="row-even"><td><p>lambda</p></td>
-<td><p>[0, 10^5]</p></td>
+<td><p><span class="math notranslate nohighlight">\([0, 10^5]\)</span></p></td>
 <td><p>Log-integer</p></td>
 </tr>
 <tr class="row-odd"><td><p>alpha</p></td>
-<td><p>[0, 1]</p></td>
+<td><p><span class="math notranslate nohighlight">\([0, 1]\)</span></p></td>
 <td><p>Continuous</p></td>
 </tr>
 <tr class="row-even"><td><p>nlambda</p></td>
-<td><p>[1, 100]</p></td>
+<td><p><span class="math notranslate nohighlight">\([1, 100]\)</span></p></td>
 <td><p>Integer</p></td>
 </tr>
 </tbody>
 </table>
-<p>Hyperparameters for AlexNet</p>
+</div>
+</section>
+<section id="hyperparameters-for-alexnet">
+<h3>Hyperparameters for AlexNet<a class="headerlink" href="#hyperparameters-for-alexnet" title="Link to this heading">#</a></h3>
 <p>AlexNet is a convolutional neural network (CNN) architecture that revolutionized the field of computer vision by achieving significant improvements on the ImageNet dataset. The hyperparameters include learning rate, dropout rate, weight decay, and the choice of activation function, all of which are crucial for training deep neural networks.</p>
-<table class="docutils align-default">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p><strong>Hyperparameter</strong></p></th>
 <th class="head"><p><strong>Range</strong></p></th>
@@ -594,15 +868,15 @@ This method evaluates the problem’s objective function based on the provided c
 </thead>
 <tbody>
 <tr class="row-even"><td><p>learning_rate</p></td>
-<td><p>[10^-5, 10^-1]</p></td>
+<td><p><span class="math notranslate nohighlight">\([10^{-5}, 10^{-1}]\)</span></p></td>
 <td><p>Continuous</p></td>
 </tr>
 <tr class="row-odd"><td><p>dropout_rate</p></td>
-<td><p>[0.0, 0.5]</p></td>
+<td><p><span class="math notranslate nohighlight">\([0.0, 0.5]\)</span></p></td>
 <td><p>Continuous</p></td>
 </tr>
 <tr class="row-even"><td><p>weight_decay</p></td>
-<td><p>[10^-5, 10^-2]</p></td>
+<td><p><span class="math notranslate nohighlight">\([10^{-5}, 10^{-2}]\)</span></p></td>
 <td><p>Continuous</p></td>
 </tr>
 <tr class="row-odd"><td><p>activation_function</p></td>
@@ -611,9 +885,12 @@ This method evaluates the problem’s objective function based on the provided c
 </tr>
 </tbody>
 </table>
-<p>Hyperparameters for 2-Layer Bayesian Neural Network (BNN)</p>
+</div>
+</section>
+<section id="hyperparameters-for-2-layer-bayesian-neural-network-bnn">
+<h3>Hyperparameters for 2-Layer Bayesian Neural Network (BNN)<a class="headerlink" href="#hyperparameters-for-2-layer-bayesian-neural-network-bnn" title="Link to this heading">#</a></h3>
 <p>Bayesian Neural Networks (BNNs) provide a probabilistic interpretation of deep learning models by introducing uncertainty in the weights. This allows BNNs to express model uncertainty, which is crucial for tasks where uncertainty quantification is important. The hyperparameters include layer sizes, step length, burn-in period, and momentum decay.</p>
-<table class="docutils align-default">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p><strong>Hyperparameter</strong></p></th>
 <th class="head"><p><strong>Range</strong></p></th>
@@ -622,30 +899,33 @@ This method evaluates the problem’s objective function based on the provided c
 </thead>
 <tbody>
 <tr class="row-even"><td><p>layer 1</p></td>
-<td><p>[2^4, 2^9]</p></td>
+<td><p><span class="math notranslate nohighlight">\([2^4, 2^9]\)</span></p></td>
 <td><p>Log-integer</p></td>
 </tr>
 <tr class="row-odd"><td><p>layer 2</p></td>
-<td><p>[2^4, 2^9]</p></td>
+<td><p><span class="math notranslate nohighlight">\([2^4, 2^9]\)</span></p></td>
 <td><p>Log-integer</p></td>
 </tr>
 <tr class="row-even"><td><p>step_length</p></td>
-<td><p>[10^-6, 10^-1]</p></td>
+<td><p><span class="math notranslate nohighlight">\([10^{-6}, 10^{-1}]\)</span></p></td>
 <td><p>Log-continuous</p></td>
 </tr>
 <tr class="row-odd"><td><p>burn_in</p></td>
-<td><p>[0, 8]</p></td>
+<td><p><span class="math notranslate nohighlight">\([0, 8]\)</span></p></td>
 <td><p>Integer</p></td>
 </tr>
 <tr class="row-even"><td><p>momentum_decay</p></td>
-<td><p>[0, 1]</p></td>
+<td><p><span class="math notranslate nohighlight">\([0, 1]\)</span></p></td>
 <td><p>Log-continuous</p></td>
 </tr>
 </tbody>
 </table>
-<p>Hyperparameters for CNNs</p>
+</div>
+</section>
+<section id="hyperparameters-for-cnns">
+<h3>Hyperparameters for CNNs<a class="headerlink" href="#hyperparameters-for-cnns" title="Link to this heading">#</a></h3>
 <p>Convolutional Neural Networks (CNNs) are the backbone of most modern computer vision systems. They are designed to automatically and adaptively learn spatial hierarchies of features through backpropagation. The hyperparameters include learning rate, momentum, regularization parameter, dropout rate, and activation function.</p>
-<table class="docutils align-default">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p><strong>Hyperparameter</strong></p></th>
 <th class="head"><p><strong>Range</strong></p></th>
@@ -654,30 +934,34 @@ This method evaluates the problem’s objective function based on the provided c
 </thead>
 <tbody>
 <tr class="row-even"><td><p>learning_rate</p></td>
-<td><p>[10^-6, 10^-1]</p></td>
+<td><p><span class="math notranslate nohighlight">\([10^{-6}, 10^{-1}]\)</span></p></td>
 <td><p>Continuous</p></td>
 </tr>
 <tr class="row-odd"><td><p>momentum</p></td>
-<td><p>[0.0, 0.9]</p></td>
+<td><p><span class="math notranslate nohighlight">\([0.0, 0.9]\)</span></p></td>
 <td><p>Continuous</p></td>
 </tr>
 <tr class="row-even"><td><p>regularization_parameter</p></td>
-<td><p>[10^-6, 10^-2]</p></td>
+<td><p><span class="math notranslate nohighlight">\([10^{-6}, 10^{-2}]\)</span></p></td>
 <td><p>Continuous</p></td>
 </tr>
 <tr class="row-odd"><td><p>dropout_rate</p></td>
-<td><p>[0, 0.5]</p></td>
+<td><p><span class="math notranslate nohighlight">\([0, 0.5]\)</span></p></td>
 <td><p>Continuous</p></td>
 </tr>
 <tr class="row-even"><td><p>activation_function</p></td>
-<td><p>{ReLU, Leaky ReLU, Tanh, Sigmoid}</p></td>
+<td><p>{ReLU, Leaky ReLU, Tanh,
+Sigmoid}</p></td>
 <td><p>Categorical</p></td>
 </tr>
 </tbody>
 </table>
-<p>Hyperparameters for ResNet18</p>
+</div>
+</section>
+<section id="hyperparameters-for-resnet18">
+<h3>Hyperparameters for ResNet18<a class="headerlink" href="#hyperparameters-for-resnet18" title="Link to this heading">#</a></h3>
 <p>ResNet18 is a residual network architecture that introduced the concept of residual connections, allowing for the training of very deep networks by mitigating the vanishing gradient problem. The hyperparameters include learning rate, momentum, dropout rate, and weight decay.</p>
-<table class="docutils align-default">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p><strong>Hyperparameter</strong></p></th>
 <th class="head"><p><strong>Range</strong></p></th>
@@ -686,26 +970,29 @@ This method evaluates the problem’s objective function based on the provided c
 </thead>
 <tbody>
 <tr class="row-even"><td><p>learning_rate</p></td>
-<td><p>[2^3, 2^8]</p></td>
-<td><p>Integer</p></td>
+<td><p><span class="math notranslate nohighlight">\([10^{-5}, 10^{-1}]\)</span></p></td>
+<td><p>Continuous</p></td>
 </tr>
 <tr class="row-odd"><td><p>momentum</p></td>
-<td><p>[0, 1]</p></td>
+<td><p><span class="math notranslate nohighlight">\([0, 1]\)</span></p></td>
 <td><p>Continuous</p></td>
 </tr>
 <tr class="row-even"><td><p>dropout_rate</p></td>
-<td><p>[0, 0.5]</p></td>
+<td><p><span class="math notranslate nohighlight">\([0, 0.5]\)</span></p></td>
 <td><p>Continuous</p></td>
 </tr>
 <tr class="row-odd"><td><p>weight_decay</p></td>
-<td><p>[10^-5, 10^-1]</p></td>
+<td><p><span class="math notranslate nohighlight">\([10^{-5}, 10^{-2}]\)</span></p></td>
 <td><p>Continuous</p></td>
 </tr>
 </tbody>
 </table>
-<p>Hyperparameters for DenseNet</p>
+</div>
+</section>
+<section id="hyperparameters-for-densenet">
+<h3>Hyperparameters for DenseNet<a class="headerlink" href="#hyperparameters-for-densenet" title="Link to this heading">#</a></h3>
 <p>DenseNet is a densely connected convolutional network that connects each layer to every other layer in a feed-forward fashion. This architecture improves the flow of information and gradients throughout the network, making it easier to train. The hyperparameters include learning rate, momentum, dropout rate, and weight decay.</p>
-<table class="docutils align-default">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p><strong>Hyperparameter</strong></p></th>
 <th class="head"><p><strong>Range</strong></p></th>
@@ -714,26 +1001,29 @@ This method evaluates the problem’s objective function based on the provided c
 </thead>
 <tbody>
 <tr class="row-even"><td><p>learning_rate</p></td>
-<td><p>[2^3, 2^8]</p></td>
+<td><p><span class="math notranslate nohighlight">\([2^3, 2^8]\)</span></p></td>
 <td><p>Integer</p></td>
 </tr>
 <tr class="row-odd"><td><p>momentum</p></td>
-<td><p>[0, 1]</p></td>
+<td><p><span class="math notranslate nohighlight">\([0, 1]\)</span></p></td>
 <td><p>Continuous</p></td>
 </tr>
 <tr class="row-even"><td><p>dropout_rate</p></td>
-<td><p>[0, 0.5]</p></td>
+<td><p><span class="math notranslate nohighlight">\([0, 0.5]\)</span></p></td>
 <td><p>Continuous</p></td>
 </tr>
 <tr class="row-odd"><td><p>weight_decay</p></td>
-<td><p>[10^-5, 10^-1]</p></td>
+<td><p><span class="math notranslate nohighlight">\([10^{-5}, 10^{-1}]\)</span></p></td>
 <td><p>Continuous</p></td>
 </tr>
 </tbody>
 </table>
-<p>Machine Learning Tasks</p>
-<p>This section lists the various datasets used for machine learning tasks, including classification and regression problems. These datasets are widely recognized in the machine learning community and are used for benchmarking algorithms.</p>
-<table class="docutils align-default">
+</div>
+</section>
+<section id="machine-learning-tasks">
+<h3>Machine Learning Tasks<a class="headerlink" href="#machine-learning-tasks" title="Link to this heading">#</a></h3>
+<p>This section lists the various sources of machine learning tasks used for hyperparameter optimization, including classification and regression problems. These datasets are widely recognized in the machine learning community and are used for benchmarking algorithms.</p>
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p><strong>Source</strong></p></th>
 <th class="head"><p><strong>Type</strong></p></th>
@@ -742,38 +1032,40 @@ This method evaluates the problem’s objective function based on the provided c
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>[OpenML-CC18](<a class="reference external" href="https://www.openml.org/s/99">https://www.openml.org/s/99</a>)</p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.openml.org/s/99">OpenML-CC18</a></p></td>
 <td><p>Classification</p></td>
 <td><p>78</p></td>
 <td><p>1-78</p></td>
 </tr>
-<tr class="row-odd"><td><p>[UC Irvine Repository](<a class="reference external" href="https://archive.ics.uci.edu/">https://archive.ics.uci.edu/</a>)</p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://archive.ics.uci.edu/">UC Irvine Repository</a></p></td>
 <td><p>Classification/Regression</p></td>
 <td><p>10</p></td>
 <td><p>79-88</p></td>
 </tr>
-<tr class="row-even"><td><p>[NAS-Bench-360](<a class="reference external" href="https://archive.ics.uci.edu/">https://archive.ics.uci.edu/</a>)</p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://archive.ics.uci.edu/">NAS-Bench-360</a></p></td>
 <td><p>Classification/Regression</p></td>
 <td><p>5</p></td>
 <td><p>89-93</p></td>
 </tr>
-<tr class="row-odd"><td><p>[NATS-Bench](<a class="reference external" href="https://github.com/D-X-Y/NATS-Bench">https://github.com/D-X-Y/NATS-Bench</a>)</p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/D-X-Y/NATS-Bench">NATS-Bench</a></p></td>
 <td><p>Classification</p></td>
 <td><p>3</p></td>
 <td><p>94-96</p></td>
 </tr>
-<tr class="row-even"><td><p>[SVHN](<a class="reference external" href="https://github.com/D-X-Y/NATS-Bench">https://github.com/D-X-Y/NATS-Bench</a>)</p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/D-X-Y/NATS-Bench">SVHN</a></p></td>
 <td><p>Classification</p></td>
 <td><p>1</p></td>
 <td><p>97</p></td>
 </tr>
 </tbody>
 </table>
+</div>
+</section>
 </section>
 <section id="configurable-software-optimization-problem">
-<span id="cso-problems"></span><h2>Configurable Software Optimization Problem<a class="headerlink" href="#configurable-software-optimization-problem" title="Link to this heading"></a></h2>
+<span id="cso-problems"></span><h2>Configurable Software Optimization Problem<a class="headerlink" href="#configurable-software-optimization-problem" title="Link to this heading">#</a></h2>
 <p>This section provides a summary of the configurable software optimization (CSO) tasks, which involve optimizing various software systems. The tasks are characterized by the number of variables, objectives, and workloads, along with the sources of these workloads.</p>
-<table class="docutils align-default">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p><strong>Software Name</strong></p></th>
 <th class="head"><p><strong>Variables</strong></p></th>
@@ -787,33 +1079,34 @@ This method evaluates the problem’s objective function based on the provided c
 <td><p>93</p></td>
 <td><p>8</p></td>
 <td><p>50</p></td>
-<td><p>[PolyBench](<a class="reference external" href="https://web.cs.ucla.edu/~pouchet/software/polybench/">https://web.cs.ucla.edu/~pouchet/software/polybench/</a>), [mibench](<a class="reference external" href="https://github.com/embecosm/mibench?tab=readme-ov-file">https://github.com/embecosm/mibench?tab=readme-ov-file</a>)</p></td>
+<td><p><a class="reference external" href="https://web.cs.ucla.edu/~pouchet/software/polybench/">PolyBench</a>, <a class="reference external" href="https://github.com/embecosm/mibench?tab=readme-ov-file">mibench</a></p></td>
 </tr>
 <tr class="row-odd"><td><p>GCC</p></td>
 <td><p>105</p></td>
 <td><p>8</p></td>
 <td><p>50</p></td>
-<td><p>[PolyBench](<a class="reference external" href="https://web.cs.ucla.edu/~pouchet/software/polybench/">https://web.cs.ucla.edu/~pouchet/software/polybench/</a>), [mibench](<a class="reference external" href="https://github.com/embecosm/mibench?tab=readme-ov-file">https://github.com/embecosm/mibench?tab=readme-ov-file</a>)</p></td>
+<td><p><a class="reference external" href="https://web.cs.ucla.edu/~pouchet/software/polybench/">PolyBench</a>, <a class="reference external" href="https://github.com/embecosm/mibench?tab=readme-ov-file">mibench</a></p></td>
 </tr>
 <tr class="row-even"><td><p>Mysql</p></td>
 <td><p>28</p></td>
 <td><p>14</p></td>
 <td><p>18</p></td>
-<td><p>[benchbase](<a class="reference external" href="https://github.com/cmu-db/benchbase.git">https://github.com/cmu-db/benchbase.git</a>), [sysbench](<a class="reference external" href="https://github.com/akopytov/sysbench">https://github.com/akopytov/sysbench</a>)</p></td>
+<td><p><a class="reference external" href="https://github.com/cmu-db/benchbase.git">benchbase</a>, <a class="reference external" href="https://github.com/akopytov/sysbench">sysbench</a></p></td>
 </tr>
 <tr class="row-odd"><td><p>Hadoop</p></td>
 <td><p>206</p></td>
 <td><p>1</p></td>
 <td><p>29</p></td>
-<td><p>[HiBench](<a class="reference external" href="https://github.com/Intel-bigdata/HiBench">https://github.com/Intel-bigdata/HiBench</a>)</p></td>
+<td><p><a class="reference external" href="https://github.com/Intel-bigdata/HiBench">HiBench</a></p></td>
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 <section id="rna-inverse-design-problem">
-<span id="rna-problems"></span><h2>RNA Inverse Design Problem<a class="headerlink" href="#rna-inverse-design-problem" title="Link to this heading"></a></h2>
+<span id="rna-problems"></span><h2>RNA Inverse Design Problem<a class="headerlink" href="#rna-inverse-design-problem" title="Link to this heading">#</a></h2>
 <p>RNA inverse design involves designing RNA sequences that fold into specific secondary structures. This task is crucial for understanding and manipulating RNA function in various biological processes. The datasets listed here are commonly used benchmarks for RNA design algorithms.</p>
-<table class="docutils align-default">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p><strong>Source</strong></p></th>
 <th class="head"><p><strong>Min-Max Length (nt)</strong></p></th>
@@ -821,33 +1114,34 @@ This method evaluates the problem’s objective function based on the provided c
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>[Eterna100](<a class="reference external" href="https://github.com/eternagame/eterna100-benchmarking">https://github.com/eternagame/eterna100-benchmarking</a>)</p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/eternagame/eterna100-benchmarking">Eterna100</a></p></td>
 <td><p>11-399</p></td>
 <td><p>100</p></td>
 </tr>
-<tr class="row-odd"><td><p>[Rfam-learn test](<a class="reference external" href="https://rfam.org/">https://rfam.org/</a>)</p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://rfam.org/">Rfam-learn test</a></p></td>
 <td><p>50-446</p></td>
 <td><p>100</p></td>
 </tr>
-<tr class="row-even"><td><p>[RNA-Strand](<a class="reference external" href="http://www.rnasoft.ca/strand/">http://www.rnasoft.ca/strand/</a>)</p></td>
+<tr class="row-even"><td><p><a class="reference external" href="http://www.rnasoft.ca/strand/">RNA-Strand</a></p></td>
 <td><p>4-4381</p></td>
 <td><p>50</p></td>
 </tr>
-<tr class="row-odd"><td><p>[RNAStralign](<a class="reference external" href="https://github.com/D-X-Y/NATS-Bench">https://github.com/D-X-Y/NATS-Bench</a>)</p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/D-X-Y/NATS-Bench">RNAStralign</a></p></td>
 <td><p>30-1851</p></td>
 <td><p>37149</p></td>
 </tr>
-<tr class="row-even"><td><p>[ArchiveII](<a class="reference external" href="https://github.com/D-X-Y/NATS-Bench">https://github.com/D-X-Y/NATS-Bench</a>)</p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/D-X-Y/NATS-Bench">ArchiveII</a></p></td>
 <td><p>28-2968</p></td>
 <td><p>2975</p></td>
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 <section id="protein-inverse-folding-problem">
-<span id="pif-problems"></span><h2>Protein Inverse Folding Problem<a class="headerlink" href="#protein-inverse-folding-problem" title="Link to this heading"></a></h2>
+<span id="pif-problems"></span><h2>Protein Inverse Folding Problem<a class="headerlink" href="#protein-inverse-folding-problem" title="Link to this heading">#</a></h2>
 <p>Protein Inverse Folding involves creating new amino acids sequence folding into desiered backbone structure. These problems are essential for applications in drug design, biotechnology, and synthetic biology. The datasets listed here are widely used in protein inverse folding research.</p>
-<table class="docutils align-default">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p><strong>Source</strong></p></th>
 <th class="head"><p><strong>Type</strong></p></th>
@@ -855,56 +1149,145 @@ This method evaluates the problem’s objective function based on the provided c
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>[Absolute](<a class="reference external" href="https://github.com/csi-greifflab/Absolut">https://github.com/csi-greifflab/Absolut</a>)</p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/csi-greifflab/Absolut">Absolute</a></p></td>
 <td><p>Antibody design</p></td>
 <td><p>159</p></td>
 </tr>
-<tr class="row-odd"><td><p>[CATH](<a class="reference external" href="https://www.cathdb.info/">https://www.cathdb.info/</a>)</p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.cathdb.info/">CATH</a></p></td>
 <td><p>Single-chain protein design</p></td>
 <td><p>19752</p></td>
 </tr>
-<tr class="row-even"><td><p>[Protein Data Bank](<a class="reference external" href="https://www.rcsb.org/">https://www.rcsb.org/</a>)</p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.rcsb.org/">Protein Data Bank</a></p></td>
 <td><p>Multi-chain protein design</p></td>
 <td><p>26361</p></td>
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 <section id="parallelization">
-<span id="id1"></span><h2>Parallelization<a class="headerlink" href="#parallelization" title="Link to this heading"></a></h2>
+<span id="id3"></span><h2>Parallelization<a class="headerlink" href="#parallelization" title="Link to this heading">#</a></h2>
 <p>To-do</p>
 </section>
 </section>
 
 
-           </div>
-          </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="algorithms.html" class="btn btn-neutral float-left" title="Algorithmic objects" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="results.html" class="btn btn-neutral float-right" title="Results Analysis" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
+                </article>
+              
 
-  <hr/>
-
-  <div role="contentinfo">
-    <p>&#169; Copyright 2024, Peili Mao.</p>
-  </div>
-
-  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    provided by <a href="https://readthedocs.org">Read the Docs</a>.
-   
-
-</footer>
-        </div>
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="algorithms.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Algorithmic objects</p>
       </div>
-    </section>
-  </div>
-  <script>
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script> 
+    </a>
+    <a class="right-next"
+       href="results.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Results Analysis</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
-</body>
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#registering-a-new-benchmark-problem">Registering a New Benchmark Problem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#synthetic-problem">Synthetic Problem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hyperparameter-optimization-problem">Hyperparameter Optimization Problem</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hyperparameters-for-support-vector-machine-svm">Hyperparameters for Support Vector Machine (SVM)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hyperparameters-for-adaboost">Hyperparameters for AdaBoost</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hyperparameters-for-random-forest">Hyperparameters for Random Forest</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hyperparameters-for-xgboost">Hyperparameters for XGBoost</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hyperparameters-for-glmnet">Hyperparameters for GLMNet</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hyperparameters-for-alexnet">Hyperparameters for AlexNet</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hyperparameters-for-2-layer-bayesian-neural-network-bnn">Hyperparameters for 2-Layer Bayesian Neural Network (BNN)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hyperparameters-for-cnns">Hyperparameters for CNNs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hyperparameters-for-resnet18">Hyperparameters for ResNet18</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hyperparameters-for-densenet">Hyperparameters for DenseNet</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#machine-learning-tasks">Machine Learning Tasks</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configurable-software-optimization-problem">Configurable Software Optimization Problem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rna-inverse-design-problem">RNA Inverse Design Problem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#protein-inverse-folding-problem">Protein Inverse Folding Problem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parallelization">Parallelization</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Peili Mao
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, Peili Mao.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
 </html>

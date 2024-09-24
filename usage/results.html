@@ -1,120 +1,363 @@
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" data-content_root="../">
-<head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Results Analysis &mdash; TransOpt 0.1.0 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Results Analysis &#8212; TransOPT: Transfer Optimization System for Bayesian Optimization Using Transfer Learning 0.1.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=c0cc07d6" />
   
-        <script src="../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=01f34227"></script>
-        <script src="../_static/doctools.js?v=9a2dae69"></script>
-        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script src="../_static/js/theme.js"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../_static/documentation_options.js?v=a1637f0b"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'usage/results';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="visualization" href="visualization.html" />
-    <link rel="prev" title="Benchmark Problems" href="problems.html" /> 
-</head>
+    <link rel="next" title="Data Management" href="data_manage.html" />
+    <link rel="prev" title="Benchmark Problems" href="problems.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-<body class="wy-body-for-nav"> 
-  <div class="wy-grid-for-nav">
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
-          
-          
-          <a href="../index.html" class="icon icon-home">
-            TransOpt
-          </a>
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
 </div>
-        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
-<ul class="current">
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/transopt_logo.jpg" class="logo__image only-light" alt="TransOPT: Transfer Optimization System for Bayesian Optimization Using Transfer Learning 0.1.0 documentation - Home"/>
+    <script>document.write(`<img src="../_static/transopt_logo.jpg" class="logo__image only-dark" alt="TransOPT: Transfer Optimization System for Bayesian Optimization Using Transfer Learning 0.1.0 documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quick Start</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../features.html">Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="algorithms.html">Algorithmic objects</a></li>
 <li class="toctree-l1"><a class="reference internal" href="problems.html">Benchmark Problems</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Results Analysis</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#register-a-new-results-analysis-method">Register a New Results Analysis Method</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#customization-analysis-pipline">Customization Analysis Pipline</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#list-of-performance-evaluation-metrics">List of Performance Evaluation Metrics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#statistical-measures">Statistical Measures</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#wilcoxon-signed-rank-test">Wilcoxon Signed-Rank Test</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#scott-knott-test">Scott-Knott Test</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#a12-effect-size">A12 Effect Size</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#critical-difference-cd">Critical Difference (CD)</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="visualization.html">visualization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cli.html">Using TransOpt via Command Line</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Results Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_manage.html">Data Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="visualization.html">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">Command Line</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../development/architecture.html">Architecture Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../development/api_reference.html">API Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a></li>
 </ul>
 
-        </div>
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
       </div>
-    </nav>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">TransOpt</a>
-      </nav>
+<div class="sbt-scroll-pixel-helper"></div>
 
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="Page navigation">
-  <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Results Analysis</li>
-      <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/usage/results.rst.txt" rel="nofollow"> View page source</a>
-      </li>
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/usage/results.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
   </ul>
-  <hr/>
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-             
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Results Analysis</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#register-a-new-results-analysis-method">Register a New Results Analysis Method</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#customization-analysis-pipline">Customization Analysis Pipline</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#list-of-performance-evaluation-metrics">List of Performance Evaluation Metrics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistical-measures">Statistical Measures</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wilcoxon-signed-rank-test">Wilcoxon Signed-Rank Test</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scott-knott-test">Scott-Knott Test</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a12-effect-size">A12 Effect Size</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#critical-difference-cd">Critical Difference (CD)</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
   <section id="results-analysis">
-<h1>Results Analysis<a class="headerlink" href="#results-analysis" title="Link to this heading"></a></h1>
+<h1>Results Analysis<a class="headerlink" href="#results-analysis" title="Link to this heading">#</a></h1>
 <div class="info admonition">
 <p class="admonition-title">Overview</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#registering-new-analysis"><span class="std std-ref">Register a New Results Analysis Method</span></a>: How to add a new results analysis method to <a class="reference internal" href="../index.html#home"><span class="std std-ref">TransOpt</span></a>.</p></li>
+<li><p><a class="reference internal" href="#registering-new-analysis"><span class="std std-ref">Register a New Results Analysis Method</span></a>: How to add a new results analysis method to <a class="reference internal" href="../index.html#home"><span class="std std-ref">TransOPT</span></a>.</p></li>
 <li><p><a class="reference internal" href="#customization"><span class="std std-ref">Customization Analysis Pipline</span></a>: How to customize your own results analysis pipline or add your own analysis method into the pipline.</p></li>
-<li><p><a class="reference internal" href="#performance-evaluation-metrics"><span class="std std-ref">Performance Evaluation Metrics</span></a>: The list of the performance evaluation metrics available in <a class="reference internal" href="../index.html#home"><span class="std std-ref">TransOpt</span></a></p></li>
-<li><p><a class="reference internal" href="#statistical-measures"><span class="std std-ref">Statistical Measures</span></a>: The list of the statistical measures supportede in <a class="reference internal" href="../index.html#home"><span class="std std-ref">TransOpt</span></a></p></li>
+<li><p><a class="reference internal" href="#performance-evaluation-metrics"><span class="std std-ref">Performance Evaluation Metrics</span></a>: The list of the performance evaluation metrics available in <a class="reference internal" href="../index.html#home"><span class="std std-ref">TransOPT</span></a></p></li>
+<li><p><a class="reference internal" href="#statistical-measures"><span class="std std-ref">Statistical Measures</span></a>: The list of the statistical measures supportede in <a class="reference internal" href="../index.html#home"><span class="std std-ref">TransOPT</span></a></p></li>
 </ul>
 </div>
 <section id="register-a-new-results-analysis-method">
-<span id="registering-new-analysis"></span><h2>Register a New Results Analysis Method<a class="headerlink" href="#register-a-new-results-analysis-method" title="Link to this heading"></a></h2>
+<span id="registering-new-analysis"></span><h2>Register a New Results Analysis Method<a class="headerlink" href="#register-a-new-results-analysis-method" title="Link to this heading">#</a></h2>
 </section>
 <section id="customization-analysis-pipline">
-<span id="customization"></span><h2>Customization Analysis Pipline<a class="headerlink" href="#customization-analysis-pipline" title="Link to this heading"></a></h2>
+<span id="customization"></span><h2>Customization Analysis Pipline<a class="headerlink" href="#customization-analysis-pipline" title="Link to this heading">#</a></h2>
 </section>
 <section id="list-of-performance-evaluation-metrics">
-<span id="performance-evaluation-metrics"></span><h2>List of Performance Evaluation Metrics<a class="headerlink" href="#list-of-performance-evaluation-metrics" title="Link to this heading"></a></h2>
+<span id="performance-evaluation-metrics"></span><h2>List of Performance Evaluation Metrics<a class="headerlink" href="#list-of-performance-evaluation-metrics" title="Link to this heading">#</a></h2>
 <p>For each type of task instance, the framework offers performance evaluation metrics to assess the quality of the solutions generated by the algorithms. The metrics are categorized based on the type of task and are designed to evaluate various aspects of the solutions. The tables below summarize the performance metrics available for different tasks.</p>
-<table class="docutils align-default">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p><strong>Task</strong></p></th>
 <th class="head"><p><strong>Metric</strong></p></th>
@@ -273,13 +516,14 @@ operations.</p></td>
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 <section id="statistical-measures">
-<span id="id1"></span><h2>Statistical Measures<a class="headerlink" href="#statistical-measures" title="Link to this heading"></a></h2>
+<span id="id1"></span><h2>Statistical Measures<a class="headerlink" href="#statistical-measures" title="Link to this heading">#</a></h2>
 <p>This section provides detailed explanations of the statistical methods used for analyzing the performance of different algorithms. Each method is accompanied by the relevant formulas and calculation procedures.</p>
 </section>
 <section id="wilcoxon-signed-rank-test">
-<h2>Wilcoxon Signed-Rank Test<a class="headerlink" href="#wilcoxon-signed-rank-test" title="Link to this heading"></a></h2>
+<h2>Wilcoxon Signed-Rank Test<a class="headerlink" href="#wilcoxon-signed-rank-test" title="Link to this heading">#</a></h2>
 <p>The <strong>Wilcoxon signed-rank test</strong> is a non-parametric statistical test used to compare two paired samples. Unlike the paired t-test, the Wilcoxon signed-rank test does not assume that the differences between pairs are normally distributed. It is particularly useful when dealing with small sample sizes or non-normally distributed data.</p>
 <p>Given two related samples <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span>, the steps to perform the Wilcoxon signed-rank test are:</p>
 <ol class="arabic">
@@ -294,7 +538,7 @@ operations.</p></td>
 </ol>
 </section>
 <section id="scott-knott-test">
-<h2>Scott-Knott Test<a class="headerlink" href="#scott-knott-test" title="Link to this heading"></a></h2>
+<h2>Scott-Knott Test<a class="headerlink" href="#scott-knott-test" title="Link to this heading">#</a></h2>
 <p>The <strong>Scott-Knott test</strong> is a statistical method used to rank the performance of different techniques across multiple runs on each benchmark instance. It is particularly effective in scenarios where multiple comparisons are being made, and it controls the family-wise error rate.</p>
 <p>The procedure involves:</p>
 <ol class="arabic simple">
@@ -306,7 +550,7 @@ operations.</p></td>
 <p>The Scott-Knott test is particularly useful for determining the relative performance of multiple techniques, providing a clear ranking based on statistically significant differences.</p>
 </section>
 <section id="a12-effect-size">
-<h2>A12 Effect Size<a class="headerlink" href="#a12-effect-size" title="Link to this heading"></a></h2>
+<h2>A12 Effect Size<a class="headerlink" href="#a12-effect-size" title="Link to this heading">#</a></h2>
 <p>The <strong>A12 effect size</strong> is a non-parametric measure used to evaluate the probability that one algorithm outperforms another. It is particularly useful in understanding whether observed differences are practically significant, beyond just being statistically significant.</p>
 <p>The A12 statistic is calculated as follows:</p>
 <ol class="arabic">
@@ -318,7 +562,7 @@ operations.</p></td>
 </ol>
 </section>
 <section id="critical-difference-cd">
-<h2>Critical Difference (CD)<a class="headerlink" href="#critical-difference-cd" title="Link to this heading"></a></h2>
+<h2>Critical Difference (CD)<a class="headerlink" href="#critical-difference-cd" title="Link to this heading">#</a></h2>
 <p>The <strong>Critical Difference (CD)</strong> is a statistical measure used to assess whether performance differences between algorithms are derived from randomness. It is typically used in conjunction with methods like the Friedman test or Nemenyi post-hoc test to evaluate multiple algorithms across multiple datasets.</p>
 <p>The steps involved in calculating the Critical Difference are:</p>
 <ol class="arabic">
@@ -339,34 +583,110 @@ operations.</p></td>
 </section>
 
 
-           </div>
-          </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="problems.html" class="btn btn-neutral float-left" title="Benchmark Problems" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="visualization.html" class="btn btn-neutral float-right" title="visualization" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
+                </article>
+              
 
-  <hr/>
-
-  <div role="contentinfo">
-    <p>&#169; Copyright 2024, Peili Mao.</p>
-  </div>
-
-  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    provided by <a href="https://readthedocs.org">Read the Docs</a>.
-   
-
-</footer>
-        </div>
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="problems.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Benchmark Problems</p>
       </div>
-    </section>
-  </div>
-  <script>
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script> 
+    </a>
+    <a class="right-next"
+       href="data_manage.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Data Management</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
-</body>
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#register-a-new-results-analysis-method">Register a New Results Analysis Method</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#customization-analysis-pipline">Customization Analysis Pipline</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#list-of-performance-evaluation-metrics">List of Performance Evaluation Metrics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistical-measures">Statistical Measures</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wilcoxon-signed-rank-test">Wilcoxon Signed-Rank Test</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scott-knott-test">Scott-Knott Test</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a12-effect-size">A12 Effect Size</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#critical-difference-cd">Critical Difference (CD)</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Peili Mao
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, Peili Mao.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
 </html>
