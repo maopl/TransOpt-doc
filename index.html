@@ -30,6 +30,7 @@
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/custom.css?v=c0cc07d6" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -42,7 +43,13 @@
     <script src="_static/documentation_options.js?v=a1637f0b"></script>
     <script src="_static/doctools.js?v=9a2dae69"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'index';</script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -659,7 +666,14 @@ document.write(`
 <li class="toctree-l2"><a class="reference internal" href="usage/results.html#critical-difference-cd">Critical Difference (CD)</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="usage/data_manage.html">Data Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage/data_manage.html">Data Management</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="usage/data_manage.html#data-storage-and-management">Data Storage and Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage/data_manage.html#similarity-search-and-data-reuse">Similarity Search and Data Reuse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage/data_manage.html#flexible-data-querying">Flexible Data Querying</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage/data_manage.html#integration-with-optimization-tasks">Integration with Optimization Tasks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage/data_manage.html#design-considerations">Design Considerations</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="usage/visualization.html">Visualization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usage/cli.html">Command Line</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="usage/cli.html#running-the-command-line-interface">Running the Command-Line Interface</a></li>

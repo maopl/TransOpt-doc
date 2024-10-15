@@ -30,6 +30,7 @@
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=c0cc07d6" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -42,7 +43,13 @@
     <script src="../_static/documentation_options.js?v=a1637f0b"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'usage/cli';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -317,7 +324,12 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-the-command-line-interface">Running the Command-Line Interface</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-the-command-line-interface">Running the Command-Line Interface</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#i-command-line-arguments">I. Command-Line Arguments</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ii-example-usage">II. Example Usage</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#iii-additional-notes">III. Additional Notes</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -339,7 +351,8 @@ document.write(`
 </pre></div>
 </div>
 <p>Where <cite>[OPTIONS]</cite> are the command-line arguments you can specify to customize the behavior of TransOPT.</p>
-<p>### Command-Line Arguments</p>
+<section id="i-command-line-arguments">
+<h3>I. Command-Line Arguments<a class="headerlink" href="#i-command-line-arguments" title="Link to this heading">#</a></h3>
 <p>Here is a list of the main command-line arguments supported by the script:</p>
 <p><strong>Task Configuration</strong></p>
 <ul class="simple">
@@ -383,7 +396,9 @@ document.write(`
 <ul class="simple">
 <li><p><strong>`-s, –seeds`</strong>: Random seed for reproducibility (default: <cite>0</cite>).</p></li>
 </ul>
-<p>### Example Usage</p>
+</section>
+<section id="ii-example-usage">
+<h3>II. Example Usage<a class="headerlink" href="#ii-example-usage" title="Link to this heading">#</a></h3>
 <p>Below are some example commands demonstrating how to use the CLI to run different tasks with varying configurations.</p>
 <p><strong>Example 1: Running a basic task with default parameters</strong></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>transopt/agent/run_cli.py<span class="w"> </span>-n<span class="w"> </span>MyTask<span class="w"> </span>-v<span class="w"> </span><span class="m">3</span><span class="w"> </span>-o<span class="w"> </span><span class="m">1</span><span class="w"> </span>-b<span class="w"> </span><span class="m">200</span>
@@ -397,12 +412,15 @@ document.write(`
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>transopt/agent/run_cli.py<span class="w"> </span>-n<span class="w"> </span>MyTask<span class="w"> </span>-sr<span class="w"> </span><span class="s2">&quot;Prune&quot;</span><span class="w">  </span>-sp<span class="w"> </span><span class="s2">&quot;lhs&quot;</span><span class="w"> </span>-spi<span class="w"> </span><span class="m">30</span><span class="w"> </span>-b<span class="w"> </span><span class="m">300</span>
 </pre></div>
 </div>
-<p>### Additional Notes</p>
+</section>
+<section id="iii-additional-notes">
+<h3>III. Additional Notes<a class="headerlink" href="#iii-additional-notes" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>The <strong>random seed</strong> is particularly important for ensuring that the results are reproducible. Make sure to specify the <cite>–seeds</cite> option if you want to run experiments that can be exactly replicated.</p></li>
 <li><p>TransOPT’s CLI is highly flexible, allowing you to tailor the optimization process to your specific needs by adjusting the parameters and options provided.</p></li>
 </ul>
 <p>By following the instructions above, you can effectively use the TransOPT CLI to run and manage your optimization tasks.</p>
+</section>
 </section>
 </section>
 
@@ -451,7 +469,12 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-the-command-line-interface">Running the Command-Line Interface</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-the-command-line-interface">Running the Command-Line Interface</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#i-command-line-arguments">I. Command-Line Arguments</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ii-example-usage">II. Example Usage</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#iii-additional-notes">III. Additional Notes</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

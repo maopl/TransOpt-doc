@@ -30,6 +30,7 @@
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=c0cc07d6" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -42,7 +43,13 @@
     <script src="../_static/documentation_options.js?v=a1637f0b"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'usage/problems';</script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -318,7 +325,12 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#registering-a-new-benchmark-problem">Registering a New Benchmark Problem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#registering-a-new-benchmark-problem">Registering a New Benchmark Problem</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#i-import-the-problem-registry">I. Import the Problem Registry</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ii-define-a-new-problem-class">II. Define a New Problem Class</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#iii-implement-required-methods">III. Implement Required Methods</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#synthetic-problem">Synthetic Problem</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hyperparameter-optimization-problem">Hyperparameter Optimization Problem</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hyperparameters-for-support-vector-machine-svm">Hyperparameters for Support Vector Machine (SVM)</a></li>
@@ -367,12 +379,15 @@ document.write(`
 <section id="registering-a-new-benchmark-problem">
 <span id="registering-new-problem"></span><h2>Registering a New Benchmark Problem<a class="headerlink" href="#registering-a-new-benchmark-problem" title="Link to this heading">#</a></h2>
 <p>To register a new benchmark problem in the TransOPT framework, follow the steps below.</p>
-<p>### 1. Import the Problem Registry</p>
+<section id="i-import-the-problem-registry">
+<h3>I. Import the Problem Registry<a class="headerlink" href="#i-import-the-problem-registry" title="Link to this heading">#</a></h3>
 <p>First, you need to import the <cite>problem_registry</cite> from the <cite>transopt.agent.registry</cite> module:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">transopt.agent.registry</span> <span class="kn">import</span> <span class="n">problem_registry</span>
 </pre></div>
 </div>
-<p>### 2. Define a New Problem Class</p>
+</section>
+<section id="ii-define-a-new-problem-class">
+<h3>II. Define a New Problem Class<a class="headerlink" href="#ii-define-a-new-problem-class" title="Link to this heading">#</a></h3>
 <p>Next, define a new problem class. This class should be decorated with the <cite>&#64;problem_registry.register(“ProblemName”)</cite> decorator, where <cite>“ProblemName”</cite> is the unique identifier for the problem. The new problem class must inherit from one of the following base classes:</p>
 <ul class="simple">
 <li><p><cite>NonTabularProblem</cite></p></li>
@@ -384,7 +399,9 @@ document.write(`
     <span class="k">pass</span>  <span class="c1"># Further implementation required</span>
 </pre></div>
 </div>
-<p>### 3. Implement Required Methods</p>
+</section>
+<section id="iii-implement-required-methods">
+<h3>III. Implement Required Methods<a class="headerlink" href="#iii-implement-required-methods" title="Link to this heading">#</a></h3>
 <p>After defining the class, you need to implement the following three abstract methods:</p>
 <ol class="arabic">
 <li><p><strong>get_configuration_space</strong>:
@@ -436,6 +453,7 @@ This method evaluates the problem’s objective function based on the provided c
 </pre></div>
 </div>
 <p>By following these steps, you can successfully register a new benchmark problem in the TransOPT framework.</p>
+</section>
 </section>
 <section id="synthetic-problem">
 <span id="synthetic-problems"></span><h2>Synthetic Problem<a class="headerlink" href="#synthetic-problem" title="Link to this heading">#</a></h2>
@@ -1216,7 +1234,12 @@ Sigmoid}</p></td>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#registering-a-new-benchmark-problem">Registering a New Benchmark Problem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#registering-a-new-benchmark-problem">Registering a New Benchmark Problem</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#i-import-the-problem-registry">I. Import the Problem Registry</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ii-define-a-new-problem-class">II. Define a New Problem Class</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#iii-implement-required-methods">III. Implement Required Methods</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#synthetic-problem">Synthetic Problem</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hyperparameter-optimization-problem">Hyperparameter Optimization Problem</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hyperparameters-for-support-vector-machine-svm">Hyperparameters for Support Vector Machine (SVM)</a></li>

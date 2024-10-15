@@ -30,6 +30,7 @@
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=c0cc07d6" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -42,7 +43,13 @@
     <script src="../_static/documentation_options.js?v=a1637f0b"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'usage/algorithms';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -318,7 +325,13 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#registering-a-new-algorithm-in-transopt">Registering a New Algorithm in TransOPT</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#supported-algorithms">Supported Algorithms</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#supported-algorithms">Supported Algorithms</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#search-space-transform">Search space transform</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#initialization-design">Initialization Design</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#surrogate-model">Surrogate Model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#acquisition-function">Acquisition Function</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#list-of-algorithmic-objects">List of Algorithmic Objects</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
 </ul>
@@ -406,19 +419,24 @@ document.write(`
 </section>
 <section id="supported-algorithms">
 <span id="alg"></span><h2>Supported Algorithms<a class="headerlink" href="#supported-algorithms" title="Link to this heading">#</a></h2>
-<p>## Search space transform</p>
+<section id="search-space-transform">
+<h3>Search space transform<a class="headerlink" href="#search-space-transform" title="Link to this heading">#</a></h3>
 <p><strong>Hyperparameter Search Space Pruning – A New Component for Sequential Model-Based Hyperparameter Optimization</strong><span id="id1">[<a class="reference internal" href="#id167" title="Martin Wistuba, Nicolas Schilling, and Lars Schmidt-Thieme. Hyperparameter search space pruning - a new component for sequential model-based hyperparameter optimization. In ECML/PKDD'15: Proc of the 2015 Advances in Machine Learning and Knowledge Discovery in Databases, volume 9285, 104–119. 2015.">12</a>]</span></p>
 <p>This method prunes ineffective regions of the hyperparameter search space by using past evaluations to guide the optimization. It identifies areas with low potential by analyzing the performance of sampled configurations and employing a surrogate model to predict future outcomes. Regions that consistently show poor performance or low expected improvement are marked as low potential. The method then updates the search process to focus on more promising regions, thereby improving optimization efficiency and reducing unnecessary evaluations.</p>
 <p><strong>Learning search spaces for Bayesian optimization- Another view of hyperparameter transfer learning</strong><span id="id2">[<a class="reference internal" href="#id168" title="Valerio Perrone and Huibin Shen. Learning search spaces for Bayesian optimization: another view of hyperparameter transfer learning. In NIPS'19: Proc of the 2019 Advances in Neural Information Processing Systems, 12751–12761. 2019.">8</a>]</span></p>
 <p>The method replaces predefined search space with data-driven geometrical representations (e.g., ellipsoids and boxes) by analyzing historical data to identify high-performing regions and fitting these regions with geometrical shapes. This transformation narrows the search to promising areas, improving efficiency as the search space dimension increases.</p>
-<p>## Initialization Design</p>
+</section>
+<section id="initialization-design">
+<h3>Initialization Design<a class="headerlink" href="#initialization-design" title="Link to this heading">#</a></h3>
 <p><strong>FEW-SHOT BAYESIAN OPTIMIZATION WITH DEEP KERNEL SURROGATES</strong><span id="id3">[<a class="reference internal" href="#id70" title="Martin Wistuba and Josif Grabocka. Few-shot bayesian optimization with deep kernel surrogates. In ICLR'21: Proc. of the 9th International Conference on Learning Representations. OpenReview.net, 2021.">11</a>]</span></p>
 <p>This method leverages historical task data and an evolutionary algorithm to provide a warm-start initialization. By selecting hyperparameter settings that minimize a loss function across multiple tasks, the method accelerates optimization with fewer evaluations.</p>
 <p><strong>Initializing Bayesian Hyperparameter Optimization via Meta-Learning</strong><span id="id4">[<a class="reference internal" href="#id66" title="Matthias Feurer, Jost Tobias Springenberg, and Frank Hutter. Initializing bayesian hyperparameter optimization via meta-learning. In AAAI'15: Proc. of the 2015 AAAI Conference on Artificial Intelligence, 1128–1135. AAAI Press, 2015.">3</a>]</span></p>
 <p>This method introduces a meta-learning-based initialization for BO, improving the starting point by leveraging hyperparameter configurations that worked well on similar datasets. These similar datasets are identified through meta-features. The method calculates the distance between datasets using these meta-features, selecting the most similar ones to initialize the optimization process efficiently.</p>
 <p><strong>Learning Hyperparameter Optimization Initializations</strong><span id="id5">[<a class="reference internal" href="#id67" title="Martin Wistuba, Nicolas Schilling, and Lars Schmidt-Thieme. Learning hyperparameter optimization initializations. In DSAA'15: Proc. of the 2015 IEEE International Conference on Data Science and Advanced Analytics, 1–10. IEEE, 2015.">13</a>]</span></p>
 <p>This method proposes to use a meta-loss function that is minimized through gradient-based optimization. By optimizing for a meta-loss derived from the response functions of past datasets, it generates entirely new configurations, whereas prior methods limited themselves to reusing configurations in similar datasets.</p>
-<p>## Surrogate Model</p>
+</section>
+<section id="surrogate-model">
+<h3>Surrogate Model<a class="headerlink" href="#surrogate-model" title="Link to this heading">#</a></h3>
 <p><strong>Pre-trained Gaussian processes for Bayesian optimization</strong><span id="id6">[<a class="reference internal" href="#id98" title="Zi Wang, George E Dahl, Kevin Swersky, Chansoo Lee, Zelda Mariet, Zachary Nado, Justin Gilmer, Jasper Snoek, and Zoubin Ghahramani. Pre-trained Gaussian processes for Bayesian optimization. arXiv preprint arXiv:2109.08215, 2021.">10</a>]</span></p>
 <p>In this method, the surrogate model is built on a pre-trained GP with data from related tasks. This approach uses a KL divergence-based loss function to pre-train the GP, ensuring it captures similarities between the target function and past data. The pre-trained GP serves as the prior for BO, allowing the model to make better predictions with fewer observations by leveraging the pre-trained knowledge.</p>
 <p><strong>FEW-SHOT BAYESIAN OPTIMIZATION WITH DEEP KERNEL SURROGATES</strong></p>
@@ -437,7 +455,9 @@ document.write(`
 <p>In this method, the surrogate model employs a deep neural network designed to handle multi-fidelity optimization tasks. The DNN surrogate models each fidelity with a neural network, and higher fidelities are conditioned on the outputs from lower fidelities. By stacking neural networks for each fidelity level, the model captures nonlinear relationships between different fidelities. This structure allows the surrogate to propagate information across fidelities, improving the accuracy of function estimation at higher fidelities while reducing computational costs.</p>
 <p><strong>BOHB: robust and efficient hyperparameter optimization at scale</strong><span id="id13">[<a class="reference internal" href="#id77" title="Stefan Falkner, Aaron Klein, and Frank Hutter. BOHB: robust and efficient hyperparameter optimization at scale. In ICML'18: Proceedings of the 35th International Conference on Machine Learning, volume 80 of Proceedings of Machine Learning Research, 1436–1445. PMLR, 2018.">1</a>]</span></p>
 <p>In this method, the surrogate model uses a Tree-structured Parzen Estimator (TPE) to model the hyperparameter space. TPE builds separate probability models for good and bad configurations using kernel density estimation. The TPE model guides the search by maximizing the ratio between these models, effectively focusing on promising regions of the search space.</p>
-<p>## Acquisition Function</p>
+</section>
+<section id="acquisition-function">
+<h3>Acquisition Function<a class="headerlink" href="#acquisition-function" title="Link to this heading">#</a></h3>
 <p><strong>Scalable Meta-Learning for Bayesian Optimization using Ranking-Weighted Gaussian Process Ensembles</strong></p>
 <p>In RGPE, the acquisition function follows standard BO methods but integrates the ranking-weighted ensemble model. The ensemble combines predictions from multiple GPs, each weighted based on its ranking performance in relation to the current task. The acquisition function then uses this weighted ensemble to balance exploration and exploitation, ensuring that the most relevant past models are given greater influence when selecting the next point to evaluate</p>
 <p><strong>Scalable Gaussian process-based transfer surrogates for hyperparameter optimization</strong></p>
@@ -450,6 +470,7 @@ document.write(`
 <p>It selects new configurations by maximizing the expected improvement, using kernel density estimates of good and bad configurations. BOHB combines this with a multi-fidelity approach, which allows the acquisition function to operate across different budget levels, efficiently balancing exploration and exploitation while scaling to large optimization tasks</p>
 <p><strong>Reinforced Few-Shot Acquisition Function Learning for Bayesian Optimization</strong><span id="id14">[<a class="reference internal" href="#id69" title="Bing-Jing Hsieh, Ping-Chun Hsieh, and Xi Liu. Reinforced few-shot acquisition function learning for Bayesian optimization. In NeurIPS'21: Proc. of the 34th Annual Conference on Neural Information Processing Systems, 7718–7731. 2021.">5</a>]</span></p>
 <p>In this method, the acquisition function is modeled with a deep Q-network (DQN), learning to balance exploration and exploitation as a reinforcement learning task. The DQN predicts sampling utility based on the posterior mean and variance, refined by a Bayesian variant that incorporates uncertainty to avoid overfitting.</p>
+</section>
 </section>
 <section id="list-of-algorithmic-objects">
 <span id="alg-obj"></span><h2>List of Algorithmic Objects<a class="headerlink" href="#list-of-algorithmic-objects" title="Link to this heading">#</a></h2>
@@ -658,7 +679,13 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#registering-a-new-algorithm-in-transopt">Registering a New Algorithm in TransOPT</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#supported-algorithms">Supported Algorithms</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#supported-algorithms">Supported Algorithms</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#search-space-transform">Search space transform</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#initialization-design">Initialization Design</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#surrogate-model">Surrogate Model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#acquisition-function">Acquisition Function</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#list-of-algorithmic-objects">List of Algorithmic Objects</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
 </ul>

@@ -30,6 +30,7 @@
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/custom.css?v=c0cc07d6" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -42,7 +43,13 @@
     <script src="_static/documentation_options.js?v=a1637f0b"></script>
     <script src="_static/doctools.js?v=9a2dae69"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'quickstart';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -334,13 +341,13 @@ document.write(`
 <h1>Quick Start<a class="headerlink" href="#quick-start" title="Link to this heading">#</a></h1>
 <p>TransOPT is a sophisticated system designed to facilitate transfer optimization services and experiments. It is composed of two parts: the agent and the web user interface. The agent is responsible for running the optimization algorithms and the web user interface is responsible for displaying the results and managing the experiments.</p>
 <p>Start the backend agent:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python transopt/agent/app.py
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python<span class="w"> </span>transopt/agent/app.py
 </pre></div>
 </div>
 <section id="web-user-interface-mode">
 <h2>Web User Interface Mode<a class="headerlink" href="#web-user-interface-mode" title="Link to this heading">#</a></h2>
 <p>When TransOPT has been started successfully, go to the directory of webui and start the webui on your local machine. Enable the user interface mode with the following command:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd webui &amp;&amp; npm start
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">cd</span><span class="w"> </span>webui<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>npm<span class="w"> </span>start
 </pre></div>
 </div>
 </section>
@@ -348,7 +355,7 @@ document.write(`
 <h2>Command Line Mode<a class="headerlink" href="#command-line-mode" title="Link to this heading">#</a></h2>
 <p>In addition to the web UI mode, TransOPT also offers a Command Line (CMD) mode for users who may not have access to a display screen, such as when working on a remote server.</p>
 <p>To run TransOPT in CMD mode, use the following command:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python transopt/agent/run_cli.py -n MyTask -v 3 -o 2 -m RF -acf UCB -b 300
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python<span class="w"> </span>transopt/agent/run_cli.py<span class="w"> </span>-n<span class="w"> </span>MyTask<span class="w"> </span>-v<span class="w"> </span><span class="m">3</span><span class="w"> </span>-o<span class="w"> </span><span class="m">2</span><span class="w"> </span>-m<span class="w"> </span>RF<span class="w"> </span>-acf<span class="w"> </span>UCB<span class="w"> </span>-b<span class="w"> </span><span class="m">300</span>
 </pre></div>
 </div>
 <p>This command sets up a task named <cite>MyTask</cite> with 3 variables and 2 objectives, using a Random Forest model (<cite>RF</cite>) and the Upper Confidence Bound (<cite>UCB</cite>) acquisition function, with a budget of 300 function evaluations.</p>
