@@ -13,6 +13,16 @@ TransOPT is an open-source software platform designed to facilitate the design, 
 .. raw:: html
    :file: home/guide.html
 
+
+Video Demonstration
+********************************************************************************
+Watch the following video for a quick overview of TransOPT's capabilities:
+
+.. raw:: html
+
+   <iframe width="560" height="315" src="https://www.youtube.com/embed/8I25_6fArxY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+
 Features
 ********************************************************************************
 TransOPT offers diverse features covering various aspects of transfer optimization.
