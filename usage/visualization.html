@@ -301,7 +301,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -317,6 +319,28 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-filtering-and-statistical-visualization">Data Filtering and Statistical Visualization</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualization-of-filtered-data">Visualization of Filtered Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#trajectory-plot">Trajectory Plot</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#box-plot">Box Plot</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis-of-individual-datasets">Analysis of Individual Datasets</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-selection">1. Dataset Selection</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">2. Trajectory Plot</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-importance">3. Variable Importance</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dimensionality-reduction-plot">4. Dimensionality Reduction Plot</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -328,6 +352,123 @@ document.write(`
                   
   <section id="visualization">
 <h1>Visualization<a class="headerlink" href="#visualization" title="Link to this heading">#</a></h1>
+<p>This section demonstrates various visualization techniques used in TransOPT.</p>
+<section id="data-filtering-and-statistical-visualization">
+<h2>Data Filtering and Statistical Visualization<a class="headerlink" href="#data-filtering-and-statistical-visualization" title="Link to this heading">#</a></h2>
+<p>This section demonstrates how to filter data into multiple groups based on different conditions, perform statistical analysis on these groups, and visualize the results using box plots and trajectory plots.</p>
+<figure class="align-center" id="id2">
+<a class="reference internal image-reference" href="../_images/filter.jpeg"><img alt="Data Filtering Process" src="../_images/filter.jpeg" style="width: 100%;" /></a>
+<figcaption>
+<p><span class="caption-text">Figure 1: Four groups with different surrogate model.</span><a class="headerlink" href="#id2" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The above figure illustrates the process of filtering data into multiple groups based on different conditions. This visual representation helps to understand how the data is segmented and analyzed in our visualization approach.</p>
+<p>Key steps in the data filtering process:</p>
+<ol class="arabic simple">
+<li><p>Click + to add a new filter group.</p></li>
+<li><p>Define filter conditions for each group.</p></li>
+<li><p>Apply filters and generate visualizations (e.g., box plots, trajectory plots) for each group</p></li>
+</ol>
+<section id="visualization-of-filtered-data">
+<h3>Visualization of Filtered Data<a class="headerlink" href="#visualization-of-filtered-data" title="Link to this heading">#</a></h3>
+<p>After filtering the data into groups, TransOPT provides two main types of visualizations to compare and analyze the results: trajectory plots and box plots.</p>
+<section id="trajectory-plot">
+<h4>Trajectory Plot<a class="headerlink" href="#trajectory-plot" title="Link to this heading">#</a></h4>
+<p>The trajectory plot shows the performance of different groups over time or iterations.</p>
+<figure class="align-center" id="id3">
+<a class="reference internal image-reference" href="../_images/traj_compare.jpg"><img alt="Trajectory Plot of Different Groups" src="../_images/traj_compare.jpg" style="width: 50%;" /></a>
+<figcaption>
+<p><span class="caption-text">Figure 2: Trajectory plot comparing performance of different surrogate model groups over iterations.</span><a class="headerlink" href="#id3" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>This plot allows you to:</p>
+<ul class="simple">
+<li><p>Compare the convergence rates of different groups</p></li>
+<li><p>Identify which group performs better at different stages of the optimization process</p></li>
+<li><p>Observe any significant differences in performance trends among the groups</p></li>
+</ul>
+</section>
+<section id="box-plot">
+<h4>Box Plot<a class="headerlink" href="#box-plot" title="Link to this heading">#</a></h4>
+<p>The box plot provides a statistical summary of the performance distribution for each group.</p>
+<figure class="align-center" id="id4">
+<a class="reference internal image-reference" href="../_images/box_compare.jpg"><img alt="Box Plot of Different Groups" src="../_images/box_compare.jpg" style="width: 50%;" /></a>
+<figcaption>
+<p><span class="caption-text">Figure 3: Box plot showing performance distribution of different surrogate model groups.</span><a class="headerlink" href="#id4" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Key insights from the box plot:</p>
+<ul class="simple">
+<li><p>Median performance of each group</p></li>
+<li><p>Spread of performance within each group</p></li>
+<li><p>Presence of any outliers</p></li>
+<li><p>Easy comparison of performance distributions across groups</p></li>
+</ul>
+</section>
+</section>
+<section id="analysis-of-individual-datasets">
+<h3>Analysis of Individual Datasets<a class="headerlink" href="#analysis-of-individual-datasets" title="Link to this heading">#</a></h3>
+<p>TransOPT also provides tools for in-depth analysis of individual datasets. This section outlines the process and visualizations available for single dataset analysis.</p>
+<section id="dataset-selection">
+<h4>1. Dataset Selection<a class="headerlink" href="#dataset-selection" title="Link to this heading">#</a></h4>
+<p>The first step is to select a specific dataset for analysis. Once selected, TransOPT generates a summary of the dataset’s key information.</p>
+<figure class="align-center" id="id5">
+<a class="reference internal image-reference" href="../_images/choose.jpg"><img alt="Dataset Information Summary" src="../_images/choose.jpg" style="width: 100%;" /></a>
+<figcaption>
+<p><span class="caption-text">Figure 4: Summary of selected dataset information, including algorithm modules used and optimization problem details.</span><a class="headerlink" href="#id5" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="id1">
+<h4>2. Trajectory Plot<a class="headerlink" href="#id1" title="Link to this heading">#</a></h4>
+<p>The trajectory plot for the selected dataset shows the optimization performance over time or iterations.</p>
+<figure class="align-center" id="id6">
+<a class="reference internal image-reference" href="../_images/traj_solo.jpg"><img alt="Trajectory Plot of Single Dataset" src="../_images/traj_solo.jpg" style="width: 50%;" /></a>
+<figcaption>
+<p><span class="caption-text">Figure 5: Trajectory plot showing the optimization performance for the selected dataset.</span><a class="headerlink" href="#id6" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>This visualization allows users to:</p>
+<ul class="simple">
+<li><p>Observe the convergence behavior of the optimization process</p></li>
+<li><p>Identify any plateaus or sudden improvements in performance</p></li>
+<li><p>Assess the overall efficiency of the optimization algorithm for this specific dataset</p></li>
+</ul>
+</section>
+<section id="variable-importance">
+<h4>3. Variable Importance<a class="headerlink" href="#variable-importance" title="Link to this heading">#</a></h4>
+<p>The variable importance plot highlights which features or parameters had the most significant impact on the optimization outcome.</p>
+<figure class="align-center" id="id7">
+<a class="reference internal image-reference" href="../_images/importance.jpg"><img alt="Variable Importance Plot" src="../_images/importance.jpg" style="width: 50%;" /></a>
+<figcaption>
+<p><span class="caption-text">Figure 6: Variable importance plot showing the relative impact of different features or parameters.</span><a class="headerlink" href="#id7" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>This visualization helps users:</p>
+<ul class="simple">
+<li><p>Identify the most influential variables in the optimization process</p></li>
+<li><p>Understand which parameters might require more careful tuning</p></li>
+<li><p>Gain insights into the underlying structure of the optimization problem</p></li>
+</ul>
+</section>
+<section id="dimensionality-reduction-plot">
+<h4>4. Dimensionality Reduction Plot<a class="headerlink" href="#dimensionality-reduction-plot" title="Link to this heading">#</a></h4>
+<p>The dimensionality reduction plot provides a 2D representation of the high-dimensional sampling data, typically using techniques like PCA or t-SNE.</p>
+<figure class="align-center" id="id8">
+<a class="reference internal image-reference" href="../_images/footprint.jpg"><img alt="Dimensionality Reduction Plot" src="../_images/footprint.jpg" style="width: 50%;" /></a>
+<figcaption>
+<p><span class="caption-text">Figure 7: 2D plot of the sampled data after dimensionality reduction.</span><a class="headerlink" href="#id8" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>This visualization allows users to:</p>
+<ul class="simple">
+<li><p>Observe clusters or patterns in the sampling data</p></li>
+<li><p>Identify regions of the search space that were more heavily explored</p></li>
+<li><p>Gain intuition about the structure of the optimization landscape</p></li>
+</ul>
+</section>
+</section>
+</section>
 </section>
 
 
@@ -365,6 +506,35 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-filtering-and-statistical-visualization">Data Filtering and Statistical Visualization</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualization-of-filtered-data">Visualization of Filtered Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#trajectory-plot">Trajectory Plot</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#box-plot">Box Plot</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis-of-individual-datasets">Analysis of Individual Datasets</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-selection">1. Dataset Selection</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">2. Trajectory Plot</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-importance">3. Variable Importance</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dimensionality-reduction-plot">4. Dimensionality Reduction Plot</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
