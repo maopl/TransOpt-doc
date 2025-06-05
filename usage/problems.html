@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Benchmark Problems &#8212; TransOPT: Transfer Optimization System for Bayesian Optimization Using Transfer Learning 0.1.0 documentation</title>
+    <title>Benchmark Problems &#8212; PrismBO: A Data-Centric Benchmarking Platform for Composable Transfer Learning in Bayesian Optimization in Dynamic Environments 0.1.0 documentation</title>
   
   
   
@@ -28,10 +28,10 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
-    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=37d07140" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=8c43ede3" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -41,7 +41,7 @@
     <script src="../_static/jquery.js?v=5d32c60e"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
     <script src="../_static/documentation_options.js?v=a1637f0b"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
@@ -147,8 +147,8 @@
       
     
     
-    <img src="../_static/transopt_logo.jpg" class="logo__image only-light" alt="TransOPT: Transfer Optimization System for Bayesian Optimization Using Transfer Learning 0.1.0 documentation - Home"/>
-    <script>document.write(`<img src="../_static/transopt_logo.jpg" class="logo__image only-dark" alt="TransOPT: Transfer Optimization System for Bayesian Optimization Using Transfer Learning 0.1.0 documentation - Home"/>`);</script>
+    <img src="../_static/PrismBO.png" class="logo__image only-light" alt="PrismBO: A Data-Centric Benchmarking Platform for Composable Transfer Learning in Bayesian Optimization in Dynamic Environments 0.1.0 documentation - Home"/>
+    <script>document.write(`<img src="../_static/PrismBO.png" class="logo__image only-dark" alt="PrismBO: A Data-Centric Benchmarking Platform for Composable Transfer Learning in Bayesian Optimization in Dynamic Environments 0.1.0 documentation - Home"/>`);</script>
   
   
 </a></div>
@@ -367,22 +367,22 @@ document.write(`
 <div class="info admonition">
 <p class="admonition-title">Overview</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#registering-new-problem"><span class="std std-ref">Register</span></a>: How to register a new optimization problem to <a class="reference internal" href="../index.html#home"><span class="std std-ref">TransOPT</span></a></p></li>
-<li><p><a class="reference internal" href="#synthetic-problems"><span class="std std-ref">Synthetic Problem</span></a>: The list of the synthetic problems available in <a class="reference internal" href="../index.html#home"><span class="std std-ref">TransOPT</span></a></p></li>
-<li><p><a class="reference internal" href="#hpo-problems"><span class="std std-ref">Hyperparameter Optimization Problem</span></a>: The list of the HPO problems available in <a class="reference internal" href="../index.html#home"><span class="std std-ref">TransOPT</span></a></p></li>
-<li><p><a class="reference internal" href="#cso-problems"><span class="std std-ref">Configurable Software Optimization Problem</span></a>: The list of the configurable software optimization problems available in <a class="reference internal" href="../index.html#home"><span class="std std-ref">TransOPT</span></a></p></li>
-<li><p><a class="reference internal" href="#rna-problems"><span class="std std-ref">RNA Inverse Design Problem</span></a>: The list of the RNA Inverse design problems available in <a class="reference internal" href="../index.html#home"><span class="std std-ref">TransOPT</span></a></p></li>
-<li><p><a class="reference internal" href="#pif-problems"><span class="std std-ref">Protein Inverse Folding Problem</span></a>: The list of the protein inverse folding problems available in <a class="reference internal" href="../index.html#home"><span class="std std-ref">TransOPT</span></a></p></li>
+<li><p><a class="reference internal" href="#registering-new-problem"><span class="std std-ref">Register</span></a>: How to register a new optimization problem to <a class="reference internal" href="../index.html#home"><span class="std std-ref">PrismBO</span></a></p></li>
+<li><p><a class="reference internal" href="#synthetic-problems"><span class="std std-ref">Synthetic Problem</span></a>: The list of the synthetic problems available in <a class="reference internal" href="../index.html#home"><span class="std std-ref">PrismBO</span></a></p></li>
+<li><p><a class="reference internal" href="#hpo-problems"><span class="std std-ref">Hyperparameter Optimization Problem</span></a>: The list of the HPO problems available in <a class="reference internal" href="../index.html#home"><span class="std std-ref">PrismBO</span></a></p></li>
+<li><p><a class="reference internal" href="#cso-problems"><span class="std std-ref">Configurable Software Optimization Problem</span></a>: The list of the configurable software optimization problems available in <a class="reference internal" href="../index.html#home"><span class="std std-ref">PrismBO</span></a></p></li>
+<li><p><a class="reference internal" href="#rna-problems"><span class="std std-ref">RNA Inverse Design Problem</span></a>: The list of the RNA Inverse design problems available in <a class="reference internal" href="../index.html#home"><span class="std std-ref">PrismBO</span></a></p></li>
+<li><p><a class="reference internal" href="#pif-problems"><span class="std std-ref">Protein Inverse Folding Problem</span></a>: The list of the protein inverse folding problems available in <a class="reference internal" href="../index.html#home"><span class="std std-ref">PrismBO</span></a></p></li>
 <li><p><a class="reference internal" href="#parallelization"><span class="std std-ref">Parallelization</span></a>: How to parallelize function evaluations</p></li>
 </ul>
 </div>
 <section id="registering-a-new-benchmark-problem">
 <span id="registering-new-problem"></span><h2>Registering a New Benchmark Problem<a class="headerlink" href="#registering-a-new-benchmark-problem" title="Link to this heading">#</a></h2>
-<p>To register a new benchmark problem in the TransOPT framework, follow the steps below.</p>
+<p>To register a new benchmark problem in the PrismBO framework, follow the steps below.</p>
 <section id="i-import-the-problem-registry">
 <h3>I. Import the Problem Registry<a class="headerlink" href="#i-import-the-problem-registry" title="Link to this heading">#</a></h3>
-<p>First, you need to import the <cite>problem_registry</cite> from the <cite>transopt.agent.registry</cite> module:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">transopt.agent.registry</span> <span class="kn">import</span> <span class="n">problem_registry</span>
+<p>First, you need to import the <cite>problem_registry</cite> from the <cite>prismbo.agent.registry</cite> module:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">prismbo.agent.registry</span><span class="w"> </span><span class="kn">import</span> <span class="n">problem_registry</span>
 </pre></div>
 </div>
 </section>
@@ -395,7 +395,7 @@ document.write(`
 </ul>
 <p>For example, to create a new problem named “new_problem”, you would define the class as follows:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@problem_registry</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="s2">&quot;new_problem&quot;</span><span class="p">)</span>
-<span class="k">class</span> <span class="nc">new_problem</span><span class="p">(</span><span class="n">NonTabularProblem</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">new_problem</span><span class="p">(</span><span class="n">NonTabularProblem</span><span class="p">):</span>
     <span class="k">pass</span>  <span class="c1"># Further implementation required</span>
 </pre></div>
 </div>
@@ -406,7 +406,7 @@ document.write(`
 <ol class="arabic">
 <li><p><strong>get_configuration_space</strong>:
 This method is responsible for defining the configuration space of the new problem.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_configuration_space</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_configuration_space</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
     <span class="c1"># Define and return the configuration space</span>
     <span class="k">pass</span>
 </pre></div>
@@ -414,7 +414,7 @@ This method is responsible for defining the configuration space of the new probl
 </li>
 <li><p><strong>get_fidelity_space</strong>:
 This method should define the fidelity space for the problem, if applicable.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_fidelity_space</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_fidelity_space</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
     <span class="c1"># Define and return the fidelity space</span>
     <span class="k">pass</span>
 </pre></div>
@@ -422,7 +422,7 @@ This method should define the fidelity space for the problem, if applicable.</p>
 </li>
 <li><p><strong>objective_function</strong>:
 This method evaluates the problem’s objective function based on the provided configuration and other parameters.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">objective_function</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">configuration</span><span class="p">,</span> <span class="n">fidelity</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">objective_function</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">configuration</span><span class="p">,</span> <span class="n">fidelity</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
     <span class="c1"># Evaluate the configuration and return the results as a dictionary</span>
     <span class="k">pass</span>
 </pre></div>
@@ -431,19 +431,19 @@ This method evaluates the problem’s objective function based on the provided c
 </ol>
 <p>Here’s an example outline of the <cite>sphere</cite> class:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@problem_registry</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="s2">&quot;sphere&quot;</span><span class="p">)</span>
-<span class="k">class</span> <span class="nc">sphere</span><span class="p">(</span><span class="n">NonTabularProblem</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">sphere</span><span class="p">(</span><span class="n">NonTabularProblem</span><span class="p">):</span>
 
-  <span class="k">def</span> <span class="nf">get_configuration_space</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+  <span class="k">def</span><span class="w"> </span><span class="nf">get_configuration_space</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="c1"># Define the configuration space here</span>
      <span class="n">variables</span> <span class="o">=</span>  <span class="p">[</span><span class="n">Continuous</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;x</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="mf">5.12</span><span class="p">,</span> <span class="mf">5.12</span><span class="p">))</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">input_dim</span><span class="p">)]</span>
      <span class="n">ss</span> <span class="o">=</span> <span class="n">SearchSpace</span><span class="p">(</span><span class="n">variables</span><span class="p">)</span>
      <span class="k">return</span> <span class="n">ss</span>
 
-  <span class="k">def</span> <span class="nf">get_fidelity_space</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">FidelitySpace</span><span class="p">:</span>
+  <span class="k">def</span><span class="w"> </span><span class="nf">get_fidelity_space</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">FidelitySpace</span><span class="p">:</span>
      <span class="n">fs</span> <span class="o">=</span> <span class="n">FidelitySpace</span><span class="p">([])</span>
      <span class="k">return</span> <span class="n">fs</span>
 
-  <span class="k">def</span> <span class="nf">objective_function</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">configuration</span><span class="p">,</span> <span class="n">fidelity</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
+  <span class="k">def</span><span class="w"> </span><span class="nf">objective_function</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">configuration</span><span class="p">,</span> <span class="n">fidelity</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
      <span class="c1"># Implement the evaluation logic and return the results as a dictionary</span>
      <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">configuration</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">configuration</span><span class="o">.</span><span class="n">keys</span><span class="p">())]])</span>
      <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">X</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -452,7 +452,7 @@ This method evaluates the problem’s objective function based on the provided c
      <span class="k">return</span> <span class="n">results</span>
 </pre></div>
 </div>
-<p>By following these steps, you can successfully register a new benchmark problem in the TransOPT framework.</p>
+<p>By following these steps, you can successfully register a new benchmark problem in the PrismBO framework.</p>
 </section>
 </section>
 <section id="synthetic-problem">

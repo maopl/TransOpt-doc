@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Quick Start &#8212; TransOPT: Transfer Optimization System for Bayesian Optimization Using Transfer Learning 0.1.0 documentation</title>
+    <title>Quick Start &#8212; PrismBO: A Data-Centric Benchmarking Platform for Composable Transfer Learning in Bayesian Optimization in Dynamic Environments 0.1.0 documentation</title>
   
   
   
@@ -28,10 +28,10 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
-    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=37d07140" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=8c43ede3" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -41,7 +41,7 @@
     <script src="_static/jquery.js?v=5d32c60e"></script>
     <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
     <script src="_static/documentation_options.js?v=a1637f0b"></script>
-    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
@@ -146,8 +146,8 @@
       
     
     
-    <img src="_static/transopt_logo.jpg" class="logo__image only-light" alt="TransOPT: Transfer Optimization System for Bayesian Optimization Using Transfer Learning 0.1.0 documentation - Home"/>
-    <script>document.write(`<img src="_static/transopt_logo.jpg" class="logo__image only-dark" alt="TransOPT: Transfer Optimization System for Bayesian Optimization Using Transfer Learning 0.1.0 documentation - Home"/>`);</script>
+    <img src="_static/PrismBO.png" class="logo__image only-light" alt="PrismBO: A Data-Centric Benchmarking Platform for Composable Transfer Learning in Bayesian Optimization in Dynamic Environments 0.1.0 documentation - Home"/>
+    <script>document.write(`<img src="_static/PrismBO.png" class="logo__image only-dark" alt="PrismBO: A Data-Centric Benchmarking Platform for Composable Transfer Learning in Bayesian Optimization in Dynamic Environments 0.1.0 documentation - Home"/>`);</script>
   
   
 </a></div>
@@ -339,23 +339,23 @@ document.write(`
                   
   <section id="quick-start">
 <h1>Quick Start<a class="headerlink" href="#quick-start" title="Link to this heading">#</a></h1>
-<p>TransOPT is a sophisticated system designed to facilitate transfer optimization services and experiments. It is composed of two parts: the agent and the web user interface. The agent is responsible for running the optimization algorithms and the web user interface is responsible for displaying the results and managing the experiments.</p>
+<p>PrismBO is a sophisticated system designed to facilitate transfer optimization services and experiments. It is composed of two parts: the agent and the web user interface. The agent is responsible for running the optimization algorithms and the web user interface is responsible for displaying the results and managing the experiments.</p>
 <p>Start the backend agent:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python<span class="w"> </span>transopt/agent/app.py
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python<span class="w"> </span>prismbo/agent/app.py
 </pre></div>
 </div>
 <section id="web-user-interface-mode">
 <h2>Web User Interface Mode<a class="headerlink" href="#web-user-interface-mode" title="Link to this heading">#</a></h2>
-<p>When TransOPT has been started successfully, go to the directory of webui and start the webui on your local machine. Enable the user interface mode with the following command:</p>
+<p>When PrismBO has been started successfully, go to the directory of webui and start the webui on your local machine. Enable the user interface mode with the following command:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">cd</span><span class="w"> </span>webui<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>npm<span class="w"> </span>start
 </pre></div>
 </div>
 </section>
 <section id="command-line-mode">
 <h2>Command Line Mode<a class="headerlink" href="#command-line-mode" title="Link to this heading">#</a></h2>
-<p>In addition to the web UI mode, TransOPT also offers a Command Line (CMD) mode for users who may not have access to a display screen, such as when working on a remote server.</p>
-<p>To run TransOPT in CMD mode, use the following command:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python<span class="w"> </span>transopt/agent/run_cli.py<span class="w"> </span>-n<span class="w"> </span>MyTask<span class="w"> </span>-v<span class="w"> </span><span class="m">3</span><span class="w"> </span>-o<span class="w"> </span><span class="m">2</span><span class="w"> </span>-m<span class="w"> </span>RF<span class="w"> </span>-acf<span class="w"> </span>UCB<span class="w"> </span>-b<span class="w"> </span><span class="m">300</span>
+<p>In addition to the web UI mode, PrismBO also offers a Command Line (CMD) mode for users who may not have access to a display screen, such as when working on a remote server.</p>
+<p>To run PrismBO in CMD mode, use the following command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python<span class="w"> </span>prismbo/agent/run_cli.py<span class="w"> </span>-n<span class="w"> </span>MyTask<span class="w"> </span>-v<span class="w"> </span><span class="m">3</span><span class="w"> </span>-o<span class="w"> </span><span class="m">2</span><span class="w"> </span>-m<span class="w"> </span>RF<span class="w"> </span>-acf<span class="w"> </span>UCB<span class="w"> </span>-b<span class="w"> </span><span class="m">300</span>
 </pre></div>
 </div>
 <p>This command sets up a task named <cite>MyTask</cite> with 3 variables and 2 objectives, using a Random Forest model (<cite>RF</cite>) and the Upper Confidence Bound (<cite>UCB</cite>) acquisition function, with a budget of 300 function evaluations.</p>

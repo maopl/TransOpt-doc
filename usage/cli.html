@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Command Line &#8212; TransOPT: Transfer Optimization System for Bayesian Optimization Using Transfer Learning 0.1.0 documentation</title>
+    <title>Command Line &#8212; PrismBO: A Data-Centric Benchmarking Platform for Composable Transfer Learning in Bayesian Optimization in Dynamic Environments 0.1.0 documentation</title>
   
   
   
@@ -28,10 +28,10 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
-    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=37d07140" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=8c43ede3" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -41,7 +41,7 @@
     <script src="../_static/jquery.js?v=5d32c60e"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
     <script src="../_static/documentation_options.js?v=a1637f0b"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
@@ -146,8 +146,8 @@
       
     
     
-    <img src="../_static/transopt_logo.jpg" class="logo__image only-light" alt="TransOPT: Transfer Optimization System for Bayesian Optimization Using Transfer Learning 0.1.0 documentation - Home"/>
-    <script>document.write(`<img src="../_static/transopt_logo.jpg" class="logo__image only-dark" alt="TransOPT: Transfer Optimization System for Bayesian Optimization Using Transfer Learning 0.1.0 documentation - Home"/>`);</script>
+    <img src="../_static/PrismBO.png" class="logo__image only-light" alt="PrismBO: A Data-Centric Benchmarking Platform for Composable Transfer Learning in Bayesian Optimization in Dynamic Environments 0.1.0 documentation - Home"/>
+    <script>document.write(`<img src="../_static/PrismBO.png" class="logo__image only-dark" alt="PrismBO: A Data-Centric Benchmarking Platform for Composable Transfer Learning in Bayesian Optimization in Dynamic Environments 0.1.0 documentation - Home"/>`);</script>
   
   
 </a></div>
@@ -343,14 +343,14 @@ document.write(`
                   
   <section id="command-line">
 <span id="command-line-usage"></span><h1>Command Line<a class="headerlink" href="#command-line" title="Link to this heading">#</a></h1>
-<p>TransOPT provides a command-line interface (CLI) that allows users to define and run optimization tasks directly from the terminal. This is facilitated by the <cite>run_cli.py</cite> script, which supports a wide range of customizable parameters.</p>
+<p>PrismBO provides a command-line interface (CLI) that allows users to define and run optimization tasks directly from the terminal. This is facilitated by the <cite>run_cli.py</cite> script, which supports a wide range of customizable parameters.</p>
 <section id="running-the-command-line-interface">
 <h2>Running the Command-Line Interface<a class="headerlink" href="#running-the-command-line-interface" title="Link to this heading">#</a></h2>
 <p>To run the <cite>run_cli.py</cite> script, navigate to the directory containing the script and use the following command:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>transopt/agent/run_cli.py<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>PrismBO/agent/run_cli.py<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span>
 </pre></div>
 </div>
-<p>Where <cite>[OPTIONS]</cite> are the command-line arguments you can specify to customize the behavior of TransOPT.</p>
+<p>Where <cite>[OPTIONS]</cite> are the command-line arguments you can specify to customize the behavior of PrismBO.</p>
 <section id="i-command-line-arguments">
 <h3>I. Command-Line Arguments<a class="headerlink" href="#i-command-line-arguments" title="Link to this heading">#</a></h3>
 <p>Here is a list of the main command-line arguments supported by the script:</p>
@@ -401,15 +401,15 @@ document.write(`
 <h3>II. Example Usage<a class="headerlink" href="#ii-example-usage" title="Link to this heading">#</a></h3>
 <p>Below are some example commands demonstrating how to use the CLI to run different tasks with varying configurations.</p>
 <p><strong>Example 1: Running a basic task with default parameters</strong></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>transopt/agent/run_cli.py<span class="w"> </span>-n<span class="w"> </span>MyTask<span class="w"> </span>-v<span class="w"> </span><span class="m">3</span><span class="w"> </span>-o<span class="w"> </span><span class="m">1</span><span class="w"> </span>-b<span class="w"> </span><span class="m">200</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>prismbo/agent/run_cli.py<span class="w"> </span>-n<span class="w"> </span>MyTask<span class="w"> </span>-v<span class="w"> </span><span class="m">3</span><span class="w"> </span>-o<span class="w"> </span><span class="m">1</span><span class="w"> </span>-b<span class="w"> </span><span class="m">200</span>
 </pre></div>
 </div>
 <p><strong>Example 2: Running a task with a specific model and acquisition function</strong></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>transopt/agent/run_cli.py<span class="w"> </span>-n<span class="w"> </span>MyTask<span class="w"> </span>-v<span class="w"> </span><span class="m">3</span><span class="w"> </span>-o<span class="w"> </span><span class="m">2</span><span class="w"> </span>-m<span class="w"> </span>RF<span class="w"> </span>-acf<span class="w"> </span>UCB<span class="w"> </span>-b<span class="w"> </span><span class="m">300</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>prismbo/agent/run_cli.py<span class="w"> </span>-n<span class="w"> </span>MyTask<span class="w"> </span>-v<span class="w"> </span><span class="m">3</span><span class="w"> </span>-o<span class="w"> </span><span class="m">2</span><span class="w"> </span>-m<span class="w"> </span>RF<span class="w"> </span>-acf<span class="w"> </span>UCB<span class="w"> </span>-b<span class="w"> </span><span class="m">300</span>
 </pre></div>
 </div>
 <p><strong>Example 3: Using custom parameters for the space refiner and sampler</strong></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>transopt/agent/run_cli.py<span class="w"> </span>-n<span class="w"> </span>MyTask<span class="w"> </span>-sr<span class="w"> </span><span class="s2">&quot;Prune&quot;</span><span class="w">  </span>-sp<span class="w"> </span><span class="s2">&quot;lhs&quot;</span><span class="w"> </span>-spi<span class="w"> </span><span class="m">30</span><span class="w"> </span>-b<span class="w"> </span><span class="m">300</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>prismbo/agent/run_cli.py<span class="w"> </span>-n<span class="w"> </span>MyTask<span class="w"> </span>-sr<span class="w"> </span><span class="s2">&quot;Prune&quot;</span><span class="w">  </span>-sp<span class="w"> </span><span class="s2">&quot;lhs&quot;</span><span class="w"> </span>-spi<span class="w"> </span><span class="m">30</span><span class="w"> </span>-b<span class="w"> </span><span class="m">300</span>
 </pre></div>
 </div>
 </section>
@@ -417,9 +417,9 @@ document.write(`
 <h3>III. Additional Notes<a class="headerlink" href="#iii-additional-notes" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>The <strong>random seed</strong> is particularly important for ensuring that the results are reproducible. Make sure to specify the <cite>–seeds</cite> option if you want to run experiments that can be exactly replicated.</p></li>
-<li><p>TransOPT’s CLI is highly flexible, allowing you to tailor the optimization process to your specific needs by adjusting the parameters and options provided.</p></li>
+<li><p>PrismBO’s CLI is highly flexible, allowing you to tailor the optimization process to your specific needs by adjusting the parameters and options provided.</p></li>
 </ul>
-<p>By following the instructions above, you can effectively use the TransOPT CLI to run and manage your optimization tasks.</p>
+<p>By following the instructions above, you can effectively use the PrismBO CLI to run and manage your optimization tasks.</p>
 </section>
 </section>
 </section>

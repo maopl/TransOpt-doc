@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Architecture Overview &#8212; TransOPT: Transfer Optimization System for Bayesian Optimization Using Transfer Learning 0.1.0 documentation</title>
+    <title>Architecture Overview &#8212; PrismBO: A Data-Centric Benchmarking Platform for Composable Transfer Learning in Bayesian Optimization in Dynamic Environments 0.1.0 documentation</title>
   
   
   
@@ -28,10 +28,10 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
-    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=37d07140" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=8c43ede3" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -41,7 +41,7 @@
     <script src="../_static/jquery.js?v=5d32c60e"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
     <script src="../_static/documentation_options.js?v=a1637f0b"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
@@ -146,8 +146,8 @@
       
     
     
-    <img src="../_static/transopt_logo.jpg" class="logo__image only-light" alt="TransOPT: Transfer Optimization System for Bayesian Optimization Using Transfer Learning 0.1.0 documentation - Home"/>
-    <script>document.write(`<img src="../_static/transopt_logo.jpg" class="logo__image only-dark" alt="TransOPT: Transfer Optimization System for Bayesian Optimization Using Transfer Learning 0.1.0 documentation - Home"/>`);</script>
+    <img src="../_static/PrismBO.png" class="logo__image only-light" alt="PrismBO: A Data-Centric Benchmarking Platform for Composable Transfer Learning in Bayesian Optimization in Dynamic Environments 0.1.0 documentation - Home"/>
+    <script>document.write(`<img src="../_static/PrismBO.png" class="logo__image only-dark" alt="PrismBO: A Data-Centric Benchmarking Platform for Composable Transfer Learning in Bayesian Optimization in Dynamic Environments 0.1.0 documentation - Home"/>`);</script>
   
   
 </a></div>
@@ -342,34 +342,39 @@ document.write(`
                   
   <section id="architecture-overview">
 <h1>Architecture Overview<a class="headerlink" href="#architecture-overview" title="Link to this heading">#</a></h1>
-<p>This section provides an overview of the architecture of the TransOPT software, illustrating the key components and workflows involved in its operation.</p>
+<p>This section provides an overview of the architecture of the PrismBO software, illustrating the key components and workflows involved in its operation.</p>
 <section id="system-architecture">
 <h2>System Architecture<a class="headerlink" href="#system-architecture" title="Link to this heading">#</a></h2>
-<p>The following diagram provides a high-level view of the entire system architecture of TransOPT, showing the interaction between various components.</p>
-<a class="reference internal image-reference" href="images/system_architecture.pdf"><img alt="System Architecture Diagram" class="align-center" src="images/system_architecture.pdf" style="width: 600px;" /></a>
+<p>The following diagram provides a high-level view of the entire system architecture of PrismBO, showing the interaction between various components.</p>
+<a class="reference internal image-reference" href="images/system_architecture.pdf"><img alt="System Architecture Diagram" class="align-center" src="images/system_architecture.pdf" style="width: 600px;" />
+</a>
 </section>
 <section id="workflow">
 <h2>Workflow<a class="headerlink" href="#workflow" title="Link to this heading">#</a></h2>
-<p>The workflow for using TransOPT is illustrated below. This diagram shows the typical steps a user would follow when working with TransOPT, from defining the problem to obtaining the optimization results.</p>
-<a class="reference internal image-reference" href="images/workflow.pdf"><img alt="TransOPT Workflow" class="align-center" src="images/workflow.pdf" style="width: 600px;" /></a>
+<p>The workflow for using PrismBO is illustrated below. This diagram shows the typical steps a user would follow when working with PrismBO, from defining the problem to obtaining the optimization results.</p>
+<a class="reference internal image-reference" href="images/workflow.pdf"><img alt="PrismBO Workflow" class="align-center" src="images/workflow.pdf" style="width: 600px;" />
+</a>
 </section>
 <section id="optimizer-architecture">
 <h2>Optimizer Architecture<a class="headerlink" href="#optimizer-architecture" title="Link to this heading">#</a></h2>
-<p>TransOPT includes different optimization algorithms. The following diagram highlights the difference between the standard Bayesian Optimization (BO) and Transfer Learning for Bayesian Optimization (TLBO).</p>
+<p>PrismBO includes different optimization algorithms. The following diagram highlights the difference between the standard Bayesian Optimization (BO) and Transfer Learning for Bayesian Optimization (TLBO).</p>
 <p>### BO vs. Transfer BO</p>
-<a class="reference internal image-reference" href="images/bo_vs_tlbo.pdf"><img alt="BO vs. Transfer BO" class="align-center" src="images/bo_vs_tlbo.pdf" style="width: 600px;" /></a>
+<a class="reference internal image-reference" href="images/bo_vs_tlbo.pdf"><img alt="BO vs. Transfer BO" class="align-center" src="images/bo_vs_tlbo.pdf" style="width: 600px;" />
+</a>
 <p>### Optimizer Workflow</p>
-<p>The diagram below illustrates the workflow of the optimizer component within TransOPT, showing how it integrates with other system components.</p>
-<a class="reference internal image-reference" href="images/optimizer.pdf"><img alt="Optimizer Workflow" class="align-center" src="images/optimizer.pdf" style="width: 600px;" /></a>
+<p>The diagram below illustrates the workflow of the optimizer component within PrismBO, showing how it integrates with other system components.</p>
+<a class="reference internal image-reference" href="images/optimizer.pdf"><img alt="Optimizer Workflow" class="align-center" src="images/optimizer.pdf" style="width: 600px;" />
+</a>
 </section>
 <section id="data-management">
 <h2>Data Management<a class="headerlink" href="#data-management" title="Link to this heading">#</a></h2>
-<p>Data management is a critical component of TransOPT, handling the storage, retrieval, and processing of data required for optimization tasks. The following diagram provides an overview of how data is managed within the system.</p>
-<a class="reference internal image-reference" href="images/data_management.pdf"><img alt="Data Management Overview" class="align-center" src="images/data_management.pdf" style="width: 600px;" /></a>
+<p>Data management is a critical component of PrismBO, handling the storage, retrieval, and processing of data required for optimization tasks. The following diagram provides an overview of how data is managed within the system.</p>
+<a class="reference internal image-reference" href="images/data_management.pdf"><img alt="Data Management Overview" class="align-center" src="images/data_management.pdf" style="width: 600px;" />
+</a>
 </section>
 <section id="conclusion">
 <h2>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading">#</a></h2>
-<p>The architecture of TransOPT is designed to be modular and flexible, allowing for easy integration of new algorithms and data management strategies. This overview provides a snapshot of the system’s key components and their interactions, setting the stage for more detailed exploration in subsequent sections.</p>
+<p>The architecture of PrismBO is designed to be modular and flexible, allowing for easy integration of new algorithms and data management strategies. This overview provides a snapshot of the system’s key components and their interactions, setting the stage for more detailed exploration in subsequent sections.</p>
 </section>
 </section>
 

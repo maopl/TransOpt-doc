@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Algorithmic objects &#8212; TransOPT: Transfer Optimization System for Bayesian Optimization Using Transfer Learning 0.1.0 documentation</title>
+    <title>Algorithmic objects &#8212; PrismBO: A Data-Centric Benchmarking Platform for Composable Transfer Learning in Bayesian Optimization in Dynamic Environments 0.1.0 documentation</title>
   
   
   
@@ -28,10 +28,10 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
-    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=37d07140" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=8c43ede3" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -41,7 +41,7 @@
     <script src="../_static/jquery.js?v=5d32c60e"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
     <script src="../_static/documentation_options.js?v=a1637f0b"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
@@ -146,8 +146,8 @@
       
     
     
-    <img src="../_static/transopt_logo.jpg" class="logo__image only-light" alt="TransOPT: Transfer Optimization System for Bayesian Optimization Using Transfer Learning 0.1.0 documentation - Home"/>
-    <script>document.write(`<img src="../_static/transopt_logo.jpg" class="logo__image only-dark" alt="TransOPT: Transfer Optimization System for Bayesian Optimization Using Transfer Learning 0.1.0 documentation - Home"/>`);</script>
+    <img src="../_static/PrismBO.png" class="logo__image only-light" alt="PrismBO: A Data-Centric Benchmarking Platform for Composable Transfer Learning in Bayesian Optimization in Dynamic Environments 0.1.0 documentation - Home"/>
+    <script>document.write(`<img src="../_static/PrismBO.png" class="logo__image only-dark" alt="PrismBO: A Data-Centric Benchmarking Platform for Composable Transfer Learning in Bayesian Optimization in Dynamic Environments 0.1.0 documentation - Home"/>`);</script>
   
   
 </a></div>
@@ -324,7 +324,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#registering-a-new-algorithm-in-transopt">Registering a New Algorithm in TransOPT</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#registering-a-new-algorithm-in-prismbo">Registering a New Algorithm in PrismBO</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#supported-algorithms">Supported Algorithms</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#search-space-transform">Search space transform</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#initialization-design">Initialization Design</a></li>
@@ -350,32 +350,32 @@ document.write(`
 <div class="info admonition">
 <p class="admonition-title">Overview</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#register-new-algorithm"><span class="std std-ref">Register</span></a>: How to register a new algorithmic Object to <a class="reference internal" href="../index.html#home"><span class="std std-ref">TransOPT</span></a></p></li>
-<li><p><a class="reference internal" href="#alg"><span class="std std-ref">Supported Algorithms</span></a>: The list of the synthetic problems available in <a class="reference internal" href="../index.html#home"><span class="std std-ref">TransOPT</span></a></p></li>
-<li><p><a class="reference internal" href="#alg-obj"><span class="std std-ref">Algorithmic Objects</span></a>: The list of the protein inverse folding problems available in <a class="reference internal" href="../index.html#home"><span class="std std-ref">TransOPT</span></a></p></li>
+<li><p><a class="reference internal" href="#register-new-algorithm"><span class="std std-ref">Register</span></a>: How to register a new algorithmic Object to <a class="reference internal" href="../index.html#home"><span class="std std-ref">PrismBO</span></a></p></li>
+<li><p><a class="reference internal" href="#alg"><span class="std std-ref">Supported Algorithms</span></a>: The list of the synthetic problems available in <a class="reference internal" href="../index.html#home"><span class="std std-ref">PrismBO</span></a></p></li>
+<li><p><a class="reference internal" href="#alg-obj"><span class="std std-ref">Algorithmic Objects</span></a>: The list of the protein inverse folding problems available in <a class="reference internal" href="../index.html#home"><span class="std std-ref">PrismBO</span></a></p></li>
 </ul>
 </div>
-<section id="registering-a-new-algorithm-in-transopt">
-<span id="register-new-algorithm"></span><h2>Registering a New Algorithm in TransOPT<a class="headerlink" href="#registering-a-new-algorithm-in-transopt" title="Link to this heading">#</a></h2>
-<p>To register a new algorithm object in TransOPT, follow the steps outlined below:</p>
+<section id="registering-a-new-algorithm-in-prismbo">
+<span id="register-new-algorithm"></span><h2>Registering a New Algorithm in PrismBO<a class="headerlink" href="#registering-a-new-algorithm-in-prismbo" title="Link to this heading">#</a></h2>
+<p>To register a new algorithm object in PrismBO, follow the steps outlined below:</p>
 <ol class="arabic">
 <li><p><strong>Import the Model Registry</strong></p>
-<p>First, you need to import the <cite>model_registry</cite> from the <cite>transopt.agent.registry</cite> module:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">transopt.agent.registry</span> <span class="kn">import</span> <span class="n">model_registry</span>
+<p>First, you need to import the <cite>model_registry</cite> from the <cite>prismbo.agent.registry</cite> module:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">prismbo.agent.registry</span><span class="w"> </span><span class="kn">import</span> <span class="n">model_registry</span>
 </pre></div>
 </div>
 </li>
 <li><p><strong>Define the Algorithm Object Name</strong></p>
 <p>Next, use the registry to define the name of your algorithm object. For example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@model_registry</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="s2">&quot;MHGP&quot;</span><span class="p">)</span>
-<span class="k">class</span> <span class="nc">MHGP</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">MHGP</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
     <span class="k">pass</span>
 </pre></div>
 </div>
 <p>In this example, the algorithm object is named “MHGP”.</p>
 </li>
 <li><p><strong>Choose the Appropriate Base Class</strong></p>
-<p>Depending on the type of algorithm object you are creating, you must inherit from a specific base class. TransOPT provides several algorithm modules, each corresponding to a different base class:</p>
+<p>Depending on the type of algorithm object you are creating, you must inherit from a specific base class. PrismBO provides several algorithm modules, each corresponding to a different base class:</p>
 <ul class="simple">
 <li><p><strong>Surrogate Model</strong>: Inherit from the <cite>Model</cite> class.</p></li>
 <li><p><strong>Initialization Design</strong>: Inherit from the <cite>Sampler</cite> class.</p></li>
@@ -387,7 +387,7 @@ document.write(`
 </li>
 <li><p><strong>Implement the Required Abstract Methods</strong></p>
 <p>Once the class is defined, you need to implement several abstract methods that are required by the <cite>Model</cite> base class. These methods include:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">meta_fit</span><span class="p">(</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">meta_fit</span><span class="p">(</span>
     <span class="bp">self</span><span class="p">,</span>
     <span class="n">source_X</span> <span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span>
     <span class="n">source_Y</span> <span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span>
@@ -395,7 +395,7 @@ document.write(`
 <span class="p">):</span>
     <span class="k">pass</span>
 
-<span class="k">def</span> <span class="nf">fit</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">fit</span><span class="p">(</span>
     <span class="bp">self</span><span class="p">,</span>
     <span class="n">X</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
     <span class="n">Y</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
@@ -403,7 +403,7 @@ document.write(`
 <span class="p">):</span>
     <span class="k">pass</span>
 
-<span class="k">def</span> <span class="nf">predict</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">predict</span><span class="p">(</span>
     <span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">return_full</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">with_noise</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
     <span class="k">pass</span>
@@ -415,7 +415,7 @@ document.write(`
 </ul>
 </li>
 </ol>
-<p>By following these steps, you can successfully register a new algorithm object in TransOPT and implement the necessary functionality to integrate it into the framework.</p>
+<p>By following these steps, you can successfully register a new algorithm object in PrismBO and implement the necessary functionality to integrate it into the framework.</p>
 </section>
 <section id="supported-algorithms">
 <span id="alg"></span><h2>Supported Algorithms<a class="headerlink" href="#supported-algorithms" title="Link to this heading">#</a></h2>
@@ -586,7 +586,7 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#registering-a-new-algorithm-in-transopt">Registering a New Algorithm in TransOPT</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#registering-a-new-algorithm-in-prismbo">Registering a New Algorithm in PrismBO</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#supported-algorithms">Supported Algorithms</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#search-space-transform">Search space transform</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#initialization-design">Initialization Design</a></li>
