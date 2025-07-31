@@ -1,7 +1,7 @@
 .. _model:
 
 Transfer Learning for Surrogate Model
-=====================================
+====================================
 
 .. toctree::
    :maxdepth: 1
@@ -9,6 +9,7 @@ Transfer Learning for Surrogate Model
 
    mtgp
    mhgp
+   deekkernel
    deepkernel
    hypergp
    rgpe
